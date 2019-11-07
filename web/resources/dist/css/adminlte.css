@@ -22644,7 +22644,8 @@ html.maximized-card {
 .login-card-body,
 .register-card-body {
   background: #ffffff;
-  border-top: 0;
+  
+  border-radius: 10px,10px,10px,10px;
   color: #666;
   padding: 20px;
 }
