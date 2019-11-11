@@ -52,7 +52,7 @@
       <a href="index_student.html" class="brand-link">
         <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
           style="opacity: .8">
-        <span class="brand-text font-weight-light">选课管理系统</span>
+        <span class="brand-text font-weight-light">学生端</span>
       </a>
 
       <!-- Sidebar -->
@@ -129,7 +129,7 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
-      <section class="content-header">
+      <!-- <section class="content-header">
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
@@ -143,8 +143,8 @@
               </ol>
             </div>
           </div>
-        </div><!-- /.container-fluid -->
-      </section>
+        </div>
+      </section> -->
 
       <!-- Main content -->
       <section class="content">
@@ -486,7 +486,7 @@
     });
 
     $("input[data-bootstrap-switch]").each(function(){
-      $(this).bootstrapSwitch('state', $(this).prop('checked'));
+      $(this).bootstrapSwitch('state', $(this).prop('unchecked'));
     });
   </script>
 </body>

@@ -12,18 +12,21 @@
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- DataTables -->
-  <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
   <!-- Select2 -->
   <link rel="stylesheet" href="../../plugins/select2/css/select2.min.css">
   <link rel="stylesheet" href="../../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+   <!-- DataTables -->
+   <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 
-<body class="hold-transition sidebar-mini" style="margin: 0%;">
+<body class="hold-transition sidebar-mini">
+  <!-- Site wrapper -->
   <div class="wrapper">
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -33,7 +36,7 @@
           <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="index_student.html" class="nav-link">Home</a>
+          <a href="index_teacher.html" class="nav-link">Home</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
           <a href="#" class="nav-link">Contact</a>
@@ -46,10 +49,10 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
-      <a href="index_student.html" class="brand-link">
+      <a href="index_teacher.html" class="brand-link">
         <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
           style="opacity: .8">
-        <span class="brand-text font-weight-light">学生端</span>
+        <span class="brand-text font-weight-light">教师端</span>
       </a>
 
       <!-- Sidebar -->
@@ -70,7 +73,7 @@
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <li class="nav-item">
-              <a href="student_info.html" class="nav-link">
+              <a href="teacher_info.html" class="nav-link">
                 <i class="nav-icon fas fa-address-card"></i>
                 <p>个人信息</p>
               </a>
@@ -93,15 +96,15 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="#" class="nav-link active">
+                  <a href="course_info.html" class="nav-link">
                     <i class="far ion-information-circled nav-icon"></i>
                     <p>课程信息</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="course_select.html" class="nav-link">
+                  <a href="course_publish.html" class="nav-link active">
                     <i class="fas fa-clipboard-list nav-icon"></i>
-                    <p>选课管理</p>
+                    <p>排课管理</p>
                   </a>
                 </li>
               </ul>
@@ -110,14 +113,13 @@
 
         </nav>
         <!-- /.sidebar-menu -->
-
         <!-- sidebar log out panel -->
-        <div class="nav-item  nav-compact flex-column" role="menu" data-accordion="false" >
+        <div class="nav-item  nav-compact flex-column" role="menu" data-accordion="false">
           <a href="../login.html" class="nav-link">
-            <i class="fas nav-icon fa-sign-out-alt fa-2x" 
+            <i class="fas nav-icon fa-sign-out-alt fa-2x"
               style="color: rgb(172, 35, 35); position:absolute; bottom:2vmin;left:2vmin;"></i>
             <div style="text-indent:3vmin;font-size: 4vmin; 
-              position:absolute;bottom:1%;left:15%;"><b>注销</b></div>
+          position:absolute;bottom:1%;left:15%;"><b>注销</b></div>
           </a>
         </div>
       </div>
@@ -131,13 +133,13 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>课程信息</h1>
+              <h1>选课管理</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="index_student.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="index_teacher.html">Home</a></li>
                 <li class="breadcrumb-item active">课程管理</li>
-                <li class="breadcrumb-item active">课程信息</li>
+                <li class="breadcrumb-item active">选课管理</li>
               </ol>
             </div>
           </div>
@@ -147,19 +149,19 @@
       <!-- Main content -->
       <section class="content">
 
-        <div class="card card-secondary">
+        <div class="card card-outline card-secondary">
           <div class="card-header">
             <div class="card-tools float-left">
               <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
                   class="fas fa-minus"></i></button>
               <button type="button" class="btn btn-tool" data-card-widget="remove"><i
                   class="fas fa-remove"></i></button>
-              
+
             </div>
             <button type="button" class="btn btn-primary btn-sm float-right">
-                <i class="ion-search"></i>
-                查找
-              </button>
+              <i class="ion-search"></i>
+              查找
+            </button>
           </div>
 
           <div class="card-body">
@@ -368,11 +370,9 @@
             </div>
           </div>
         </div>
+        <!-- Default box -->
 
-
-        <!-- /.row -->
-
-        <div class="card card-secondary">
+        <div class="card card-outline card-secondary">
           <div class="card-header">
             <h3 class="card-title">列表</h3>
           </div>
@@ -393,7 +393,8 @@
                   <th>校区</th>
                   <th>教学楼</th>
                   <th>教室</th>
-                  <th>课容量</th>
+                  <th>课余量</th>
+                  <th>添加课程</th>
                 </tr>
               </thead>
               <tbody>
@@ -411,6 +412,9 @@
                   <td>一教A座</td>
                   <td>A513</td>
                   <td>65</td>
+                  <td>
+                      <input type="checkbox" name="my-checkbox" checked data-bootstrap-switch>
+                  </td>
                 </tr>
               </tbody>
               <tfoot>
@@ -428,6 +432,7 @@
                   <th>教学楼</th>
                   <th>教室</th>
                   <th>课容量</th>
+                  <th>添加课程</th>
                 </tr>
               </tfoot>
             </table>
@@ -435,6 +440,7 @@
           <!-- /.card-body -->
         </div>
         <!-- /.card -->
+
       </section>
       <!-- /.content -->
     </div>
@@ -452,18 +458,22 @@
   <script src="../../plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
   <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Select2 -->
+  <script src="../../plugins/select2/js/select2.full.min.js"></script>
   <!-- DataTables -->
   <script src="../../plugins/datatables/jquery.dataTables.js"></script>
   <script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
-  <!-- Select2 -->
-  <script src="../../plugins/select2/js/select2.full.min.js"></script>
+  <!-- Bootstrap Switch -->
+<script src="../../plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+  <!-- InputMask
+  <script src="../../plugins/moment/moment.min.js"></script>
+  <script src="../../plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script> -->
   <!-- AdminLTE App -->
   <script src="../../dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="../../dist/js/demo.js"></script>
-  <!-- page script -->
   <script>
-    $(function () {
+     $(function () {
       $("#example1").DataTable();
       $('#example2').DataTable({
         "paging": true,
@@ -474,73 +484,10 @@
         "autoWidth": false,
       });
     });
-    $(function () {
-      //Initialize Select2 Elements
-      $('.select2bs4').select2({
-        theme: 'bootstrap4'
-      })
 
-      //Initialize Select2 Elements
-      $('.select2').select2()
-
-      //Datemask dd/mm/yyyy
-      $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
-      //Datemask2 mm/dd/yyyy
-      $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
-      //Money Euro
-      $('[data-mask]').inputmask()
-
-      //Date range picker
-      $('#reservation').daterangepicker()
-      //Date range picker with time picker
-      $('#reservationtime').daterangepicker({
-        timePicker: true,
-        timePickerIncrement: 30,
-        locale: {
-          format: 'MM/DD/YYYY hh:mm A'
-        }
-      })
-      //Date range as a button
-      $('#daterange-btn').daterangepicker(
-        {
-          ranges: {
-            'Today': [moment(), moment()],
-            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-            'This Month': [moment().startOf('month'), moment().endOf('month')],
-            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-          },
-          startDate: moment().subtract(29, 'days'),
-          endDate: moment()
-        },
-        function (start, end) {
-          $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
-        }
-      )
-
-      //Timepicker
-      $('#timepicker').datetimepicker({
-        format: 'LT'
-      })
-
-      //Bootstrap Duallistbox
-      $('.duallistbox').bootstrapDualListbox()
-
-      //Colorpicker
-      $('.my-colorpicker1').colorpicker()
-      //color picker with addon
-      $('.my-colorpicker2').colorpicker()
-
-      $('.my-colorpicker2').on('colorpickerChange', function (event) {
-        $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
-      });
-
-      $("input[data-bootstrap-switch]").each(function () {
-        $(this).bootstrapSwitch('state', $(this).prop('checked'));
-      });
-
-    })
+    $("input[data-bootstrap-switch]").each(function(){
+      $(this).bootstrapSwitch('state', $(this).prop('unchecked'));
+    });
   </script>
 </body>
 
