@@ -57,7 +57,7 @@
             <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-            <a href="#" class="d-block">Alexander Pierce</a>
+            <a href="#" id="username" class="d-block">Alexander Pierce</a>
           </div>
         </div>
 
@@ -87,7 +87,7 @@
                   课程管理
                 </p>
               </a>
-              
+
             </li>
           </ul>
 
@@ -141,22 +141,22 @@
                       alt="User profile picture">
                   </div>
 
-                  <h3 class="profile-username text-center">Alexander Pierce</h3>
+                  <h3 id="name" class="profile-username text-center">Alexander Pierce</h3>
 
-                  <p class="text-muted text-center">2017525358865
-                    <ion-icon name="female" size="large"></ion-icon>
-                    <i id="gender" class="icon ion-male" style="color: blue;"></i>
+                  <p id="id" class="text-muted text-center">2017525358865
+                    <i id="gender_male" class="icon ion-male ion-male" style="color: blue;"></i>
+                    <i id="gender_female" class="icon ion-female" style="color:pink"></i>
                   </p>
 
                   <ul class="list-group list-group-unbordered mb-3">
                     <li class="list-group-item">
-                      <b>学校</b> <a class="float-right">四川大学</a>
+                      <b>学校</b> <a id="university" class="float-right">四川大学</a>
                     </li>
                     <li class="list-group-item">
-                      <b>学院</b> <a class="float-right">计算机学院</a>
+                      <b>学院</b> <a id="college" class="float-right">计算机学院</a>
                     </li>
                     <li class="list-group-item">
-                      <b>所在系所</b> <a class="float-right">计算机科学系</a>
+                      <b>所在系所</b> <a id="department" class="float-right">计算机科学系</a>
                     </li>
                   </ul>
                 </div>
@@ -173,7 +173,7 @@
                 <div class="card-body">
                   <strong><i class="fas fa-book mr-1"></i> 职称</strong>
 
-                  <p class="text-muted">
+                  <p id="title" class="text-muted">
                     教授/博士生导师
                   </p>
 
@@ -181,13 +181,13 @@
 
                   <strong><i class="fas fa-map-marker-alt mr-1"></i> 办公地址</strong>
 
-                  <p class="text-muted"> 四川大学望江基础教学楼B319</p>
+                  <p id="office" class="text-muted"> 四川大学望江基础教学楼B319</p>
 
                   <hr>
 
                   <strong><i class="fas fa-pencil-alt mr-1"></i> 研究方向</strong>
 
-                  <p class="text-muted">
+                  <p id="interest" class="text-muted">
                     机器学习、数据挖掘、神经计算及其应用
                   </p>
 
@@ -195,7 +195,7 @@
 
                   <strong><i class="far fa-file-alt mr-1"></i> 职务</strong>
 
-                  <p class="text-muted">副院长</p>
+                  <p id="position" class="text-muted">副院长</p>
                 </div>
                 <!-- /.card-body -->
               </div>
@@ -215,7 +215,7 @@
                       <div class="row">
                         <div class="col-md-7">
                           <strong><i class="fas fa-book mr-1"></i> 个人主页</strong>
-                          <p class="text-muted">
+                          <p id="personal_web" class="text-muted">
                             http://cs.scu.edu.cn/~duanle
                           </p>
                         </div>
@@ -223,18 +223,18 @@
                       <div class="row">
                         <div class="col-md-7">
                           <strong><i class="fas fa-phone-alt mr-1"></i> 电话</strong>
-                          <p class="text-muted">85466105</p>
+                          <p id="tel" class="text-muted">85466105</p>
                         </div>
                         <div class="col-md-auto">
                           <strong><i class="fas fa-envelope mr-1"></i> 邮箱</strong>
-                          <p class="text-muted">eiduan@scu.edu.cn</p>
+                          <p id="email" class="text-muted">eiduan@scu.edu.cn</p>
                         </div>
                       </div>
                       <div class="row">
                         <div class="col-md-auto">
                           <strong><i class="fas fa-spa mr-1"></i> 个人简介</strong>
 
-                          <p class="text-muted">　2008年12月获四川大学计算机应用技术专业博士学位。毕业后留校任教。2007年9月至2008年9月于美国Wright
+                          <p id="intro" class="text-muted">　2008年12月获四川大学计算机应用技术专业博士学位。毕业后留校任教。2007年9月至2008年9月于美国Wright
                             State大学做联合培养博士研究生。2012年10月至2013年10月于加拿大Simon Fraser大学做访问学者。
                             　　研究领域为数据挖掘与知识工程，具体研究方向包括分类预测、时间序列、对比挖掘、进化计算、医学信息分析、基因芯片数据处理、知识管理、大数据处理等。作为负责人主持了国家自然科学基金、教育部博士点基金、中国博士后科学基金、软件工程国家重点实验室开放基金、卫生公益性行业科研项目子课题等多项科研项目。目前已在国际国内学术期刊和国际会议上发表论文70余篇，其中SCI/EI收录逾30篇；获软件著作权2项，申请国家专利1项。
                             　　担任中国计算机学会青年计算机科技论坛（CCF YOCSEF）成都分论坛副主席、学术秘书，CCF四川大学学生分会指导委员会委员，ACM Chengdu
@@ -245,14 +245,14 @@
                       </div>
                       <div class="row">
                         <div class="col-md-auto">
-                            <strong><i class="fas fa-award mr-1"></i> 项目成果及所获荣誉</strong>
-                            <p class="text-muted">
-                                2012年教育部自然科学奖一等奖
-                                2011年四川省科技进步一等奖
-                                2009年教育部新世纪优秀人才
-                                2007年获得四川省科技理论成果二等奖；
-                                2007年中国计算机学会（CCF）优秀博士论文奖；
-                            </p>
+                          <strong><i class="fas fa-award mr-1"></i> 项目成果及所获荣誉</strong>
+                          <p id="honor" class="text-muted">
+                            2012年教育部自然科学奖一等奖
+                            2011年四川省科技进步一等奖
+                            2009年教育部新世纪优秀人才
+                            2007年获得四川省科技理论成果二等奖；
+                            2007年中国计算机学会（CCF）优秀博士论文奖；
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -264,7 +264,7 @@
                           <span class="input-group-text"><i class="fab fa-internet-explorer"></i></span>
                         </div>
                         <input type="text" class="form-control" placeholder="Personal Homepage">
-                      </div> 
+                      </div>
                       <div class="input-group mb-3">
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="fas fa-envelope"></i></span>
@@ -325,6 +325,8 @@
   <script src="../../dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="../../dist/js/demo.js"></script>
+  <!-- coder custom render -->
+  <script src="../../render/teacher_info.js"></script>
 </body>
 
 </html>

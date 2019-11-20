@@ -60,7 +60,7 @@
             <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-            <a href="#" class="d-block">Alexander Pierce</a>
+            <a href="#" class="d-block username">Alexander Pierce</a>
           </div>
         </div>
 
@@ -112,9 +112,9 @@
         <!-- /.sidebar-menu -->
 
         <!-- sidebar log out panel -->
-        <div class="nav-item  nav-compact flex-column" role="menu" data-accordion="false" >
+        <div class="nav-item  nav-compact flex-column" role="menu" data-accordion="false">
           <a href="../login.html" class="nav-link">
-            <i class="fas nav-icon fa-sign-out-alt fa-2x" 
+            <i class="fas nav-icon fa-sign-out-alt fa-2x"
               style="color: rgb(172, 35, 35); position:absolute; bottom:2vmin;left:2vmin;"></i>
             <div style="text-indent:3vmin;font-size: 4vmin; 
               position:absolute;bottom:1%;left:15%;"><b>注销</b></div>
@@ -154,12 +154,12 @@
                   class="fas fa-minus"></i></button>
               <button type="button" class="btn btn-tool" data-card-widget="remove"><i
                   class="fas fa-remove"></i></button>
-              
+
             </div>
-            <button type="button" class="btn btn-primary btn-sm float-right">
-                <i class="ion-search"></i>
-                查找
-              </button>
+            <button id="search" type="button" class="btn btn-primary btn-sm float-right">
+              <i class="ion-search"></i>
+              查找
+            </button>
           </div>
 
           <div class="card-body">
@@ -167,8 +167,8 @@
               <div class="col-md-3">
                 <div class="form-group">
                   <label class="col-form-label col-form-label-sm">开课院系</label>
-                  <select class="form-control custom-select-sm" style="width: 100%;">
-                    <option selected="select">全部</option>
+                  <select id="college" class="form-control custom-select-sm" style="width: 100%;">
+                    <option value="" selected="select">全部</option>
 
                     <option value="101">艺术学院</option>
 
@@ -284,11 +284,11 @@
               <div class="col-md-3">
                 <div class="form-group">
                   <label class="col-form-label col-form-label-sm">校区</label>
-                  <select class="form-control custom-select-sm" style="width: 100%;">
-                    <option selected="selected">全部</option>
-                    <option>江安</option>
-                    <option>华西</option>
-                    <option>望江</option>
+                  <select id="campus" class="form-control custom-select-sm" style="width: 100%;">
+                    <option value="" selected="selected">全部</option>
+                    <option value="江安">江安</option>
+                    <option value="华西">华西</option>
+                    <option value="望江">望江</option>
                   </select>
                 </div>
 
@@ -297,7 +297,7 @@
               <div class="col-md-3">
                 <div class="form-group">
                   <label class="col-form-label col-form-label-sm">上课节次</label>
-                  <select class="form-control custom-select-sm" style="width: 100%;">
+                  <select id="section" class="form-control custom-select-sm" style="width: 100%;">
                     <option value="">全部</option>
 
                     <option value="1">1</option>
@@ -320,7 +320,7 @@
               <div class="col-md-3">
                 <div class="form-group">
                   <label class="col-form-label col-form-label-sm">课程号</label>
-                  <input type="text" name="course_id" class="form-control form-control-sm" />
+                  <input id="course_id" type="text" name="course_id" class="form-control form-control-sm" />
                 </div>
 
               </div>
@@ -330,17 +330,17 @@
               <div class="col-md-3">
                 <div class="form-group">
                   <label class="col-form-label col-form-label-sm">课程属性</label>
-                  <select class="form-control custom-select-sm" style="width: 100%;">
-                    <option selected="select">全部</option>
-                    <option>必修</option>
-                    <option>选修</option>
+                  <select id="attribute" class="form-control custom-select-sm" style="width: 100%;">
+                    <option value="" selected="select">全部</option>
+                    <option value="compulsory">必修</option>
+                    <option value="optional">选修</option>
                   </select>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-group">
                   <label class="col-form-label col-form-label-sm">上课星期</label>
-                  <select class="form-control custom-select-sm" style="width: 100%;">
+                  <select id="weekday" class="form-control custom-select-sm" style="width: 100%;">
                     <option value="">全部</option>
 
                     <option value="1">星期一</option>
@@ -356,13 +356,13 @@
               <div class="col-md-3">
                 <div class="form-group">
                   <label class="col-form-label col-form-label-sm">教师名</label>
-                  <input type="text" name="teacher_name" class="form-control form-control-sm" />
+                  <input id="teacher_name" type="text" name="teacher_name" class="form-control form-control-sm" />
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-group">
                   <label class="col-form-label col-form-label-sm">课程名</label>
-                  <input type="text" name="course_name" class="form-control form-control-sm" />
+                  <input id="course_name" type="text" name="course_name" class="form-control form-control-sm" />
                 </div>
               </div>
             </div>
@@ -378,25 +378,26 @@
           </div>
           <!-- /.card-header -->
           <div class="card-body">
-            <table id="example2" class="table table-bordered table-hover">
+            <table id="example2" class="table table-bordered table-responsive table-hover">
               <thead>
                 <tr>
-                  <th>课程名</th>
-                  <th>课程号</th>
-                  <th>课序号</th>
-                  <th>学分</th>
-                  <th>课程属性</th>
-                  <th>教师</th>
-                  <th>周次</th>
-                  <th>星期</th>
-                  <th>节次</th>
-                  <th>校区</th>
-                  <th>教学楼</th>
-                  <th>教室</th>
-                  <th>课容量</th>
+                  <th class="text-sm">课程名</th>
+                  <th class="text-sm">课程号</th>
+                  <th class="text-sm">课序号</th>
+                  <th class="text-sm">学分</th>
+                  <th class="text-sm">课程属性</th>
+                  <th class="text-sm">教师</th>
+                  <th class="text-sm">周次</th>
+                  <th class="text-sm">星期</th>
+                  <th class="text-sm">节次</th>
+                  <th class="text-sm">校区</th>
+                  <th class="text-sm">教学楼</th>
+                  <th class="text-sm">教室</th>
+                  <th class="text-sm">课余量</th>
+
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="example2_body">
                 <tr>
                   <td>计算机系统结构</td>
                   <td>60530412</td>
@@ -413,23 +414,7 @@
                   <td>65</td>
                 </tr>
               </tbody>
-              <tfoot>
-                <tr>
-                  <th>课程名</th>
-                  <th>课程号</th>
-                  <th>课序号</th>
-                  <th>学分</th>
-                  <th>课程属性</th>
-                  <th>教师</th>
-                  <th>周次</th>
-                  <th>星期</th>
-                  <th>节次</th>
-                  <th>校区</th>
-                  <th>教学楼</th>
-                  <th>教室</th>
-                  <th>课容量</th>
-                </tr>
-              </tfoot>
+
             </table>
           </div>
           <!-- /.card-body -->
@@ -541,6 +526,82 @@
       });
 
     })
+  </script>
+  <!-- coder custom render -->
+  <script>
+    $(function () {
+      var user = JSON.parse(sessionStorage.getItem("user"));
+      $(".username").text(user.name);
+
+      $("#search").click(search());
+    })
+
+    function search() {
+      var course_id = $("#course_id").val();
+      var course_name = $("#course_name").val();
+      var teacher_name = $("#teacher_name").val();
+      var college = $("#college").val();
+      var campus = $("#campus").val();
+      var section = $("#secont").val();
+      var attribute = $("#attribute").val();
+      var weekday = $("weekday").val();
+
+      $.post("url",
+        {
+          course_id: course_id,
+          course_name: course_name,
+          teacher_name: teacher_name,
+          college: college,
+          campus: campus,
+          section: section,
+          attribute: attribute,
+          weekday: weekday,
+
+          type: JSON
+        },
+        function (data) {
+          // data -> server returned json 
+          // [
+          //     {
+          //         "course_id":"",
+          //         "course_seq":"",
+          //         "course_name":"",
+          //         "teacher_name":"",
+          //         "credit":"",
+          //         "attribute":"",
+          //         "duration":"",
+          //         "weekday":"",
+          //         "section":"",
+          //         "campus":"",
+          //         "building":"",
+          //         "classroom":"",
+          //         "capacity":"",
+          //     },//one class record
+          //     {
+          //         ...
+          //     }
+          // ]
+          var str = "";
+          for (i in data) {
+            str += "<tr>" +
+              "<td>" + data[i].course_name + "</td>" +
+              "<td>" + data[i].course_id + "</td>" +
+              "<td>" + data[i].course_seq + "</td>" +
+              "<td>" + data[i].credit + "</td>" +
+              "<td>" + data[i].attribute + "</td>" +
+              "<td>" + data[i].teacher_name + "</td>" +
+              "<td>" + data[i].duration + "</td>" +
+              "<td>" + data[i].weekday + "</td>" +
+              "<td>" + data[i].section + "</td>" +
+              "<td>" + data[i].campus + "</td>" +
+              "<td>" + data[i].building + "</td>" +
+              "<td>" + data[i].classroom + "</td>" +
+              "<td>" + data[i].capacity + "</td>" +
+              "</tr>"
+          };
+          $("#example2_body").append(str);
+        })
+    }
   </script>
 </body>
 

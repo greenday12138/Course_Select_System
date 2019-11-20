@@ -57,7 +57,7 @@
             <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-            <a href="#" class="d-block">Alexander Pierce</a>
+            <a id="username" class="d-block">Alexander Pierce</a>
           </div>
         </div>
 
@@ -155,22 +155,22 @@
                       alt="User profile picture">
                   </div>
 
-                  <h3 class="profile-username text-center">Alexander Pierce</h3>
+                  <h3 id="name" class="profile-username text-center username">Alexander Pierce</h3>
 
-                  <p class="text-muted text-center">2017525358865
-                    <ion-icon name="female" size="large"></ion-icon>
-                    <i id="gender" class="icon ion-male" style="color: blue;"></i>
+                  <p id="id" class="text-muted text-center">2017525358865
+                    <i id="gender_male" class="icon ion-male ion-male" style="color: blue;"></i>
+                    <i id="gender_female" class="icon ion-female" style="color:pink"></i>
                   </p>
 
                   <ul class="list-group list-group-unbordered mb-3">
                     <li class="list-group-item">
-                      <b>学校</b> <a class="float-right">四川大学</a>
+                      <b>学校</b> <a id="university" class="float-right">四川大学</a>
                     </li>
                     <li class="list-group-item">
-                      <b>学院</b> <a class="float-right">计算机学院</a>
+                      <b>学院</b> <a id="college" class="float-right">计算机学院</a>
                     </li>
                     <li class="list-group-item">
-                      <b>专业</b> <a class="float-right">计算机科学与技术</a>
+                      <b>专业</b> <a id="major" class="float-right">计算机科学与技术</a>
                     </li>
                   </ul>
                 </div>
@@ -194,23 +194,23 @@
                       <div class="row">
                         <div class="col-md-7">
                           <strong><i class="fas fa-book mr-1"></i> 高中毕业学校</strong>
-                          <div class="text-muted">
+                          <div id="graduate_school" class="text-muted">
                             四川大学附属中学
                           </div>
                         </div>
                         <div class="col-md-auto">
                           <strong><i class="fas fa-map-marker-alt mr-1"></i> 籍贯</strong>
-                          <p class="text-muted">成都, 四川</p>
+                          <p id="birthplace" class="text-muted">成都, 四川</p>
                         </div>
                       </div>
                       <div class="row">
                         <div class="col-md-7">
                           <strong><i class="fas fa-phone-alt mr-1"></i> 电话</strong>
-                          <p class="text-muted">10086</p>
+                          <p id="tel" class="text-muted">10086</p>
                         </div>
                         <div class="col-md-auto">
                           <strong><i class="fas fa-envelope mr-1"></i> 邮箱</strong>
-                          <p class="text-muted">2017525358865@stu.scu.edu.cn</p>
+                          <p id="email" class="text-muted">2017525358865@stu.scu.edu.cn</p>
                         </div>
                       </div>
                       <div class="row">
@@ -241,7 +241,7 @@
                         </div>
                         <input type="tel" class="form-control" placeholder="Telphone" />
                       </div>
-                      <div class="input-group mb-5"> 
+                      <div class="input-group mb-5">
                         <div class="custom-file mb-1">
                           <input type="file" class="custom-file-input" id="customFile">
                           <label class="custom-file-label" for="customFile">点击上传头像</label>
@@ -249,7 +249,7 @@
                       </div>
                       <div class="input-group mb-5">
                         <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" class="btn btn-danger float-right">提交</button>
+                          <button id="submit" type="submit" class="btn btn-danger float-right">提交</button>
                         </div>
                       </div>
 
@@ -289,6 +289,63 @@
   <script src="../../dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="../../dist/js/demo.js"></script>
+  <!-- coder custom render -->
+  <script>
+    $(function () {
+      var user = JSON.parse(sessionStorage.getItem("user"));
+      $("#username").text(user.name);
+      $("#name").text(user.name);
+      $("#id").text(user.id);
+
+      $.post("url", user, page_render(data));
+
+      $("#submit").click(function () {
+
+      })
+    })
+
+    function page_render(data) {
+      //data format
+      // {
+      //     gender:
+      //     univerrsity:
+      //     college:
+      //     major:
+      //     graduate_school:
+      //     birthplace:
+      //     tel:
+      //     email:
+      //     hobby: [
+      //     ***,
+      //     ****,
+      //     ]
+      // }
+      if (data.gender == "male") {
+        $("#gender_male").show();
+        $("#gender_female").hide();
+      }
+      else {
+        $("#gender_female").show();
+        $("#gender_male").hide();
+      }
+      $("#university").text(data.university);
+      $("#college").text(data.college);
+      $("#major").text(data.major);
+      $("#graduate_school").text(data.graduate_school);
+      $("#birthplace").text(data.birthplace);
+      $("#tel").text(data.tel);
+      $("#email").text(data.email);
+      var str = "";
+      for (i in data.hobby) {
+        str += data.hobby[i];
+      }
+      $("#hobby").text(str);
+    }
+
+// 未实现：
+//     文件上传功能 个人信息修改 提交修改信息
+
+  </script>
 </body>
 
 </html>
