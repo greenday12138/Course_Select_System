@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/SelectCource-master.iml" filepath="$PROJECT_DIR$/.idea/SelectCource-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dbLab.iml" filepath="$PROJECT_DIR$/dbLab.iml" />
     </modules>
   </component>
 </project>
