@@ -155,7 +155,7 @@
                         <span class="info-box-number text-center text-muted mb-0">
                           <ul class="list-inline">
                             <li class="list-inline-item"></li><br>
-                            <li class="list-inline-item">1-17</li><br>
+                            <li id="week_range" class="list-inline-item">1-17</li><br>
                             <li class="list-inline-item"></li><br>
                           </ul>
                         </span>
@@ -169,8 +169,8 @@
                         <span class="info-box-number text-center text-muted mb-0">
                           <ul class="list-inline">
                             <li class="list-inline-item"></li><br>
-                            <li class="list-inline-item">605236984</li><br>
-                            <li class="list-inline-item">01</li><br>
+                            <li id="course_id" class="list-inline-item">605236984</li><br>
+                            <li id="course_seq" class="list-inline-item">01</li><br>
                           </ul>
                         </span>
                       </div>
@@ -182,9 +182,9 @@
                         <span class="info-box-text text-center text-muted">上课时间及地点</span>
                         <span class="info-box-number text-center text-muted mb-0">
                           <ul class="list-inline">
-                            <li class="list-inline-item">周一 5-7节 江安一教A501</li><br>
-                            <li class="list-inline-item">周三 3-4节 江安一教B203</li><br>
-                            <li class="list-inline-item">周五 1-2节 江安综合楼C座608</li>
+                            <li id="pos_1" class="list-inline-item">周一 5-7节 江安一教A501</li><br>
+                            <li id="pos_2" class="list-inline-item">周三 3-4节 江安一教B203</li><br>
+                            <li id="pos_3" class="list-inline-item">周五 1-2节 江安综合楼C座608</li>
                           </ul>
                         </span>
                       </div>
@@ -193,7 +193,7 @@
                 </div>
                 <div class="row">
                   <div class="col-12">
-                    <div class="card card-cyan">
+                    <div class="card card-cyan ">
                       <div class="card-header">
                         <h3 class="card-title">学生名单</h3>
 
@@ -220,7 +220,7 @@
                                 </t>
                             </tr>
                           </thead>
-                          <dbody>
+                          <tbody id="student_list">
                             <tr>
                               <td>2017171752256</td>
                               <td>张三</td>
@@ -231,7 +231,18 @@
                               <td>李四</td>
                               <td>化学学院</td>
                             </tr>
-                          </dbody>
+                            <tr>
+                              <td>2017589541235</td>
+                              <td>李四</td>
+                              <td>化学学院</td>
+                            </tr>
+                            <tr>
+                              <td>2017589541235</td>
+                              <td>李四</td>
+                              <td>化学学院</td>
+                            </tr>
+
+                          </tbody>
                         </table>
                       </div>
                       <!-- /.card-body -->
@@ -240,21 +251,22 @@
                 </div>
               </div>
               <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
-                <h3 class="text-primary"><i class="fas fa-paint-brush"></i>计算机系统结构</h3>
-                <p class="text-muted">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu
+                <h3 id="course_name" class="text-primary"><i class="fas fa-paint-brush"></i>计算机系统结构</h3>
+                <p id="course_descrip" class="text-muted">Raw denim you probably haven't heard of them jean shorts
+                  Austin. Nesciunt tofu
                   stumptown aliqua butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terr.
                 </p>
                 <br>
                 <div class="text-muted">
-                  <p class="text-sm">开设学院
-                    <b class="d-block">计算机学院</b>
-                  </p>
+                  <!-- <p class="text-sm">开设学院
+                    <b id="course_college" class="d-block">计算机学院</b>
+                  </p> -->
                   <p class="text-sm">任课教师
-                    <b class="d-block">张大川</b>
+                    <b id="course_teacher" class="d-block">张大川</b>
                   </p>
                 </div>
 
-                <h5 class="mt-5 text-muted">课程档案</h5>
+                <h5 class="mt-5 text-muted">课程文件</h5>
                 <ul class="list-unstyled">
                   <li>
                     <a href="" class="btn-link text-secondary"><i class="far fa-fw fa-file-word"></i>
@@ -329,21 +341,81 @@
   <script>
     $(function () {
       // var json = {
-      //   name: "hhh",
-      //   id: "2017"
+      //   "name": "hhh",
+      //   "id": "2017"
       // };
       // sessionStorage.setItem("user", JSON.stringify(json));
       var user = JSON.parse(sessionStorage.getItem("user"));
       $("#username").text(user.name);
 
-      //server ought to return detail json data
-      {
-        
+      //load course info from local storage
+      var index = JSON.parse(sessionStorage.getItem("course"));
+      var course = JSON.parse(localStorage.getItem("" + index.id + index.seq));
+      $("#course_name").text(course.name);
+      $("#course_descrip").text(course.description);
+      $("#course_teacher").text(user.name);
+      // $("#course_college").text() no course college info
+      $("#week_range").text(course.week_start + "-" + course.week_end);
+      $("#course_id").text(course.id);
+      $("#course_seq").text(course.seq);
+      //indent setting
+      switch (course.session.length) {
+        case 1:
+          $("#pos_1").text();
+          var temp = course.session[0];
+          $("#pos_2").text(txt(temp));
+          $("#pos_3").text();
+          break;
+        case 2:
+          $("#pos_1").text();
+          var temp = course.session[0];
+          $("#pos_2").text(txt(temp));
+          temp = course.session[1];
+          $("#pos_3").text(txt(temp));
+          break;
+        case 3:
+          var temp = course.session[0];
+          $("#pos_1").text(txt(temp));
+          temp = course.session[1];
+          $("#pos_2").text(txt(temp));
+          temp = course.session[2];
+          $("#pos_3").text(txt(temp));
+          break;
+        default:
+          $("#pos_1").text("ERROR");
       }
-      $.get("url",function(data){
 
-      })
+      //request student list from server
+      $.post("url", sessionStorage.getItem("course"),
+        function (data) {
+          /*
+          data format:
+          [
+            {
+              "id":,
+              "name":,
+              "college":
+            },
+            {
+              ...
+            }
+          ]
+          */
+          for (var i in data) {
+            $("#student_list").append(
+              "<tr>" +
+              "<td>" + data[i].id + "</td>" +
+              "<td>" + data[i].name + "</td>" +
+              "<td>" + data[i].college + "</td>" +
+              "</tr>"
+            )
+          }
+        })
+
     })
+    function txt(temp) {
+      return temp.date + temp.session_start + "-" + temp.session_end + " " + temp.pos;
+    }
   </script>
 </body>
 

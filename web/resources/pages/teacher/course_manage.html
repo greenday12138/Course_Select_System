@@ -173,7 +173,7 @@
                   </th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="course_list">
                 <tr>
                   <td>
                     <b>
@@ -193,12 +193,12 @@
                     3
                   </td>
                   <td class="project-actions text-right">
-                    <a class="btn btn-primary btn-sm" href="course_detail.html">
+                    <a class="btn btn-primary btn-sm" href="course_detail.html" detail>
                       <i class="fas fa-folder">
                       </i>
                       详细
                     </a>
-                    <a class="btn btn-info btn-sm" href="course_edit.html">
+                    <a class="btn btn-info btn-sm" href="course_edit.html" edit>
                       <i class="fas fa-pencil-alt">
                       </i>
                       编辑
@@ -229,12 +229,12 @@
                     1
                   </td>
                   <td class="project-actions text-right">
-                    <a class="btn btn-primary btn-sm" href="course_detail.html">
+                    <a class="btn btn-primary btn-sm" href="course_detail.html" detail>
                       <i class="fas fa-folder">
                       </i>
                       详细
                     </a>
-                    <a class="btn btn-info btn-sm" href="course_edit.html">
+                    <a class="btn btn-info btn-sm" href="course_edit.html" edit>
                       <i class="fas fa-pencil-alt">
                       </i>
                       编辑
@@ -304,29 +304,136 @@
   </script>
   <!-- coder custom render -->
   <script>
+    /*
+    attention: sessionStorage is uesd for cross page info coherence,
+    localStorage is a local buffer for minimizing server interaction
+    */
     $(function () {
-      // var json={
-      //   name:"hhh",
-      //   id:"2017"
+      // var json = {
+      //  "name": "hhh",
+      //   "id": "2017"
       // };
-      // sessionStorage.setItem("user",JSON.stringify(json));
+      // sessionStorage.setItem("user", JSON.stringify(json));
       var user = JSON.parse(sessionStorage.getItem("user"));
       $("#username").text(user.name);
+
+      //server return teacher course list
+      /*
+       returned json format:
+       [
+          {
+            "id":
+            "seq":
+            "name":
+            "attribute":,
+            "description":,
+            "credit":
+            "refer":,
+            "week_start": ,
+            "week_end":,
+            "session": [
+              {
+                "date":,
+                "session_start":,
+                "session_end":,
+                "pos":
+              },
+              {
+                ...
+              }
+            ]
+          },
+          {
+            ...
+          }
+       ]
+      
+      */
+      $.get("url",
+        {
+          "id": user.id
+        }, function (data) {
+          for (var i in data) {
+            var info = {
+              "id": data[i].id,
+              "seq": data[i].seq,
+              "name": data[i].name,
+              "attribute": data[i].attribute,
+              "description":data[i].description,
+              "credit": data[i].credit,
+              "refer": data[i].refer,
+              "week_start": data[i].week_start,
+              "week_end":data[i].week_end,
+              "session":data[i].session
+            }
+
+            var row = "";
+            var temp = "";
+            if (data[i].attribute == 0) {
+              //optional
+              temp += "<td class='project-state'>" +
+                "<span class='badge badge-info'>选修</span>" +
+                "</td>"
+            }
+            else {
+              //obigatory
+              temp += "<td class='project-state'>" +
+                "<span class='badge badge-success'>必修</span>" +
+                "</td>"
+            }
+            row += "<tr>" +
+              "<td>" + "<b>" + data[i].name + "</b>" + "</td>" +
+              "<td>" + data[i].id + "</td>" +
+              "<td>" + data[i].seq + "</td>" +
+              temp +
+              "<td>" + data[i].credit + "</td>" +
+              "</tr>"
+            $("#course_list").append(row);
+            localStorage.setItem("" + data[i].id + data[i].seq, JSON.stringify(data[i]));
+          }
+        })
+
+      //detail button
+      $("a[detail]").each(function () {
+        $(this).click(function () {
+          var course_id = $(this).parent().siblings().eq(1).text();
+          var course_seq = $(this).parent().siblings().eq(2).text();
+          var courseJSON = {
+            "id": course_id,
+            "seq": course_seq
+          };
+          sessionStorage.setItem("course", JSON.stringify(courseJSON));
+        })
+      })
+
+      //edit button
+      $("a[edit]").each(function () {
+        $(this).click(function () {
+          var course_id = $(this).parent().siblings().eq(1).text();
+          var course_seq = $(this).parent().siblings().eq(2).text();
+          var courseJSON = {
+            "id": course_id,
+            "seq": course_seq
+          };
+          sessionStorage.setItem("course", JSON.stringify(courseJSON));
+        })
+      })
 
       //delete button
       $("button[delete]").each(function () {
         $(this).click(function () {
-          var course_id=$(this).parent().siblings().eq(1).text();
-          var course_seq=$(this).parent().siblings().eq(2).text();
+          var course_id = $(this).parent().siblings().eq(1).text();
+          var course_seq = $(this).parent().siblings().eq(2).text();
           //server delete item
           $.post("url",
-          {
-            course_id:course_id,
-            course_seq:course_seq
-          },
-          function(){
-            $(this).parent().parent().remove();
-          })
+            {
+              "course_id": course_id,
+              "course_seq": course_seq
+            },
+            function () {
+              localStorage.removeItem("" + course_id + course_seq);
+              $(this).parent().parent().remove();
+            })
         })
       })
     })

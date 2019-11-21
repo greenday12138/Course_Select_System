@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Ion Slider -->
+  <link rel="stylesheet" href="../../plugins/ion-rangeslider/css/ion.rangeSlider.min.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
@@ -191,7 +193,7 @@
                 </div>
                 <div class="form-group">
                   <label for="weekds">学期上课周数</label>
-                  <input type="number" id="weeks" class="form-control">
+                  <input id="week_range" type="text" class="" name="week_range" value="">
                 </div>
               </div>
               <!-- /.card-body -->
@@ -321,6 +323,23 @@
   <script src="../../dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="../../dist/js/demo.js"></script>
+  <!-- Ion Slider -->
+  <script src="../../plugins/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
+  <!-- plug-in script -->
+  <script>
+    /* ION SLIDER */
+    $('#week_range').ionRangeSlider({
+      min: 1,
+      max: 20,
+      from: 1,
+      to: 18,
+      type: 'int',
+      step: 1,
+      prefix: 'week',
+      prettify: false,
+      hasGrid: true
+    })
+  </script>
   <!-- coder custom render -->
   <script>
     $(function () {
@@ -332,39 +351,42 @@
       var user = JSON.parse(sessionStorage.getItem("user"));
       $("#username").text(user.name);
 
-      //server should return course initial data
-      $.get("url", function (data) {
-        $("#name").val(data.name);
-        $("#description").val(data.description);
-        $("#attribute").val(data.description);
-        $("#refer_book").val(data.refer);
-        $("#duration").val(data.duration);
-        $("#days").val(data.days);
-        $("#weeks").val(data.weeks);
-      })
+      //load data form local storage
+      //get current course index
+      var index = sessionStorage.getItem("course");
+
+      //begin load
+      var course = JSON.parse(localStorage.getItem("" + index.id + index.seq));
+      $("#name").val(course.name);
+      $("#description").val(course.description);
+      $("#attribute").val(course.description);
+      $("#refer_book").val(course.refer);
+      $("#duration").val(course.duration);
+      $("#days").val(course.days);
+      $("#week_range").val(course.week_start+";"+course.week_end);
+
 
       //change submit action
       $("#submit").click(function () {
-        var name = $("#name").val();
-        var description = $("#description").val();
-        var attribute = $("#attribute").val();
-        var refer = $("#refer_book").val();
-        var duration = $("#duration").val();
-        var weeks = $("#weeks").val();
-        var days = $("#days").val();
+        var courseJSON = JSON.parse(sessionStorage.getItem("course"));
+        courseJSON.name = $("#name").val();
+        courseJSON.description = $("#description").val();
+        courseJSON.attribute = $("#attribute").val();
+        courseJSON.refer = $("#refer_book").val();
+        courseJSON.duration = $("#duration").val();
+        var week_range=$("#week_range").val().split(';');
+        var week_start = week_range[0];
+        var week_end=week_range[1];
+        courseJSON.days = $("#days").val();
 
-        $.post("url",
-          {
-            name: name,
-            attribute: attribute,
-            description: description,
-            refer: refer,
-            duration: duration,
-            weeks: weeks,
-            days: days
-          },
+        sessionStorage.removeItem("course");
+
+        $.post("url", JSON.stringify(courseJSON),
           function () {
             //success action use bootstrap modal extension
+            //refresh local storage
+            localStorage.removeItem("" + courseJSON.id + courseJSON.seq);
+            localStorage.setItem("" + courseJSON.id + courseJSON.seq, JSON.stringify(courseJSON));
           })
       })
     })
