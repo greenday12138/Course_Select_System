@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>选课管理系统</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="../../plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="../../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+
+<body class="hold-transition sidebar-mini">
+  <!-- Site wrapper -->
+  <div class="wrapper">
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="index_teacher.html" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="#" class="nav-link">Contact</a>
+        </li>
+      </ul>
+
+    </nav>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+      <!-- Brand Logo -->
+      <a href="index_teacher.html" class="brand-link">
+        <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+          style="opacity: .8">
+        <span class="brand-text font-weight-light">教师端</span>
+      </a>
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <!-- Sidebar user (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div class="image">
+            <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          </div>
+          <div class="info">
+            <a href="#" id="username" class="d-block">Alexander Pierce</a>
+          </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+            <li class="nav-item">
+              <a href="teacher_info.html" class="nav-link">
+                <i class="nav-icon fas fa-address-card"></i>
+                <p>个人信息</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="course_timetable.html" class="nav-link">
+                <i class="nav-icon far fa-calendar-alt"></i>
+                <p>
+                  学期课表
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="course_manage.html" class="nav-link active">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  课程管理
+
+                </p>
+              </a>
+
+            </li>
+          </ul>
+
+        </nav>
+        <!-- /.sidebar-menu -->
+        <!-- sidebar log out panel -->
+        <div class="nav-item  nav-compact flex-column" role="menu" data-accordion="false">
+          <a href="../login.html" class="nav-link">
+            <i class="fas nav-icon fa-sign-out-alt fa-2x"
+              style="color: rgb(172, 35, 35); position:absolute; bottom:2vmin;left:2vmin;"></i>
+            <div style="text-indent:3vmin;font-size: 4vmin; 
+          position:absolute;bottom:1%;left:15%;"><b>注销</b></div>
+          </a>
+        </div>
+      </div>
+      <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <!-- <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1>选课管理</h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="index_teacher.html">Home</a></li>
+                <li class="breadcrumb-item active">课程管理</li>
+                <li class="breadcrumb-item active">选课管理</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section> -->
+
+      <!-- Main content -->
+      <section class="content">
+
+        <!-- Default box -->
+        <div class="card card-secondary">
+          <div class="card-header">
+            <h3 class="card-title">课程列表</h3>
+
+            <div class="float-right">
+              <a class="btn btn-success btn-sm" href="course_add.html">
+                <i class="fas fa-plus"></i>
+                添加
+              </a>
+            </div>
+          </div>
+
+          <div class="card-body p-0">
+            <table class="table table-striped projects">
+              <thead>
+                <tr>
+                  <th style="width: 25%">
+                    课程名
+                  </th>
+                  <th style="width: 10%">
+                    课程号
+                  </th>
+                  <th style="width: 8%;">
+                    课序号
+                  </th>
+                  <th style="width: 8%">
+                    课程属性
+                  </th>
+                  <th style="width: 5%">
+                    学分
+                  </th>
+                  <th style="width: 20%;" class="text-center">
+                    操作
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <b>
+                      新时代中国特色社会主义书籍研读
+                    </b>
+                  </td>
+                  <td>
+                    6053041254
+                  </td>
+                  <td>
+                    03
+                  </td>
+                  <td class="project-state">
+                    <span class="badge badge-success">必修</span>
+                  </td>
+                  <td>
+                    3
+                  </td>
+                  <td class="project-actions text-right">
+                    <a class="btn btn-primary btn-sm" href="course_detail.html">
+                      <i class="fas fa-folder">
+                      </i>
+                      详细
+                    </a>
+                    <a class="btn btn-info btn-sm" href="course_edit.html">
+                      <i class="fas fa-pencil-alt">
+                      </i>
+                      编辑
+                    </a>
+                    <button class="btn btn-danger btn-sm " delete>
+                      <i class="fas fa-trash">
+                      </i>
+                      删除
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>
+                      大数据时代下的创新创业实践
+                    </b>
+                  </td>
+                  <td>
+                    6053041254
+                  </td>
+                  <td>
+                    02
+                  </td>
+                  <td class="project-state">
+                    <span class="badge badge-info">选修</span>
+                  </td>
+                  <td>
+                    1
+                  </td>
+                  <td class="project-actions text-right">
+                    <a class="btn btn-primary btn-sm" href="course_detail.html">
+                      <i class="fas fa-folder">
+                      </i>
+                      详细
+                    </a>
+                    <a class="btn btn-info btn-sm" href="course_edit.html">
+                      <i class="fas fa-pencil-alt">
+                      </i>
+                      编辑
+                    </a>
+                    <button class="btn btn-danger btn-sm" delete>
+                      <i class="fas fa-trash">
+                      </i>
+                      删除
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+  </div>
+  <!-- ./wrapper -->
+
+  <!-- jQuery -->
+  <script src="../../plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Select2 -->
+  <script src="../../plugins/select2/js/select2.full.min.js"></script>
+  <!-- DataTables -->
+  <script src="../../plugins/datatables/jquery.dataTables.js"></script>
+  <script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+  <!-- Bootstrap Switch -->
+  <script src="../../plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+  <!-- InputMask
+  <script src="../../plugins/moment/moment.min.js"></script>
+  <script src="../../plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script> -->
+  <!-- AdminLTE App -->
+  <script src="../../dist/js/adminlte.min.js"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="../../dist/js/demo.js"></script>
+  <!-- page module script -->
+  <script>
+    $(function () {
+      $("#example1").DataTable();
+      $('#example2').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+      });
+    });
+
+    $("input[data-bootstrap-switch]").each(function () {
+      $(this).bootstrapSwitch('state', $(this).prop('unchecked'));
+    });
+  </script>
+  <!-- coder custom render -->
+  <script>
+    $(function () {
+      // var json={
+      //   name:"hhh",
+      //   id:"2017"
+      // };
+      // sessionStorage.setItem("user",JSON.stringify(json));
+      var user = JSON.parse(sessionStorage.getItem("user"));
+      $("#username").text(user.name);
+
+      //delete button
+      $("button[delete]").each(function () {
+        $(this).click(function () {
+          var course_id=$(this).parent().siblings().eq(1).text();
+          var course_seq=$(this).parent().siblings().eq(2).text();
+          //server delete item
+          $.post("url",
+          {
+            course_id:course_id,
+            course_seq:course_seq
+          },
+          function(){
+            $(this).parent().parent().remove();
+          })
+        })
+      })
+    })
+  </script>
+</body>
+
+</html>
