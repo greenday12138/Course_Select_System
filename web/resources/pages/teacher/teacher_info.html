@@ -333,7 +333,7 @@
       $("#name").text(user.name);
       $("#id").text(user.id);
 
-      $.post("url", user, page_render(data));
+      $.post("url", JSON.stringify(user), page_render(data));
 
       $("#submit").click(function () {
 
