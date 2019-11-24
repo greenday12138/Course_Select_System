@@ -209,15 +209,12 @@
         y = date.getFullYear();
 
       var Calendar = FullCalendar.Calendar;
-      var Draggable = FullCalendarInteraction.Draggable;
 
-      var containerEl = document.getElementById('external-events');
-      var checkbox = document.getElementById('drop-remove');
       var calendarEl = document.getElementById('calendar');
 
       var calendar = new FullCalendar.Calendar(calendarEl, {
         plugins: ['bootstrap', 'interaction', 'timeGrid', 'dayGrid', 'timeGridPlugin'],
-        contentHeight:'auto',
+        contentHeight: 'auto',
         allDaySlot: false,
         defaultView: 'timeGridWeek',
         slotLabelDuration: '02:00:00',
@@ -330,14 +327,71 @@
   <!-- coder custom render -->
   <script>
     $(function () {
-      var user=JSON.parse(sessionStorage.getItem('user'));
+      var user = JSON.parse(sessionStorage.getItem('user'));
       $('#username').text(user.name);
 
-      $.post('url',JSON.stringify(user),page_render(data));
+      $.post('url', JSON.stringify(user), page_render(data));
     })
 
-    function page_render(data){
-      
+    function page_render(data) {
+      // [
+      //   {
+      //     title: '大学英语（口语）',
+      //     description: '外聘20（外语）\n 江安一教C座C205',
+      //     daysOfWeek: ['1'],//single value, 0 stand for Sunday etc. the day of class
+      //     startTime: '15:40:00',//class start time of a day, computed
+      //     endTime: '16:25:00',//class end time of a day, computed
+      //     startRecur: '2019-09-15',// class start time of semester
+      //     endRecur: '2020-01-04',//class end time of semester
+      //     textColor: "white",// all classes are white
+      //     backgroundColor: '#3c8dbc', //Primary (light-blue)
+      //     borderColor: '#3c8dbc' //Primary (light-blue)
+      //     //ought to have a color pool to choose color from, 
+      //     //different classes have different color
+      //     //eg: Caculus class within a week have orange color (though with differernt class time)
+      //   },
+      //   {
+      //     ...
+      //   }
+      // ]
+      var date = new Date()
+      var d = date.getDate(),
+        m = date.getMonth(),
+        y = date.getFullYear();
+
+      var Calendar = FullCalendar.Calendar;
+
+      var calendarEl = document.getElementById('calendar');
+
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        plugins: ['bootstrap', 'interaction', 'timeGrid', 'dayGrid', 'timeGridPlugin'],
+        contentHeight: 'auto',
+        allDaySlot: false,
+        defaultView: 'timeGridWeek',
+        slotLabelDuration: '02:00:00',
+        minTime: '08:00:00',
+        maxTime: '22:00:00',
+        // timeGridEventMinHeight:500,
+        header: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        },
+        events:JSON.parse(data),
+        editable: false,
+        droppable: true, // this allows things to be dropped onto the calendar !!!
+        eventRender: function (info) {
+          $(info.el).tooltip({
+            title: info.event.extendedProps.description,
+            placement: "top",
+            trigger: "hover",
+            container: "body"
+          });
+        }
+      });
+
+      calendar.render();
+        //not support web cache of class table
     }
 // 未实现：
 // 待办事项功能
