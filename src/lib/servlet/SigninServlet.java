@@ -16,7 +16,6 @@ import java.sql.Connection;
 /**
  * Created by ttop5 on 16-4-20.
  */
-@WebServlet(urlPatterns = "/signin", name = "signin")
 public class SigninServlet extends HttpServlet {
     Dbutil dbutil = new Dbutil();
     UserDao userDao = new UserDao();
