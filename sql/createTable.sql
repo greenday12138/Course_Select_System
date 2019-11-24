@@ -2,7 +2,7 @@ CREATE TABLE student (
     Snumber     NUMERIC(13, 0)  not NULL,  -- 学号
     Sname       VARCHAR(20)     not NULL,  -- 姓名
     Ssex        VARCHAR(2)      not NULL,  -- 性别
-    Sage        NUMERIC(3, 0)   not NULL,  -- 年龄
+    Sage        NUMERIC(3, 0)   not NULL CHECK (Sage > 0),  -- 年龄
     Sphone      NUMERIC(11, 0)  not NULL,  -- 电话
     Semail      VARCHAR(20, 0)  not NULL,  -- 邮箱
     ShighSchool VARCHAR(10, 0)  not NULL,  -- 高中毕业学校
@@ -25,9 +25,9 @@ CREATE TABLE course (
     Cnumber     NUMERIC(10, 0) not NULL,   -- 课程号
     Cname       VARCHAR(40)    not NULL,   -- 课程名   
     Corder      NUMERIC(2, 0)  not NULL,   -- 课序号
-    Ccredit     NUMERIC(2, 0)  not NULL,   -- 学分  
+    Ccredit     NUMERIC(2, 0)  not NULL CHECK (Ccredit > 0),   -- 学分  
     Cproperty   VARCHAR(4)     not NULL,   -- 课程属性: 选修/必修
-    Ccapacity   NUMERIC(3, 0)  not NULL,   -- 课容量
+    Ccapacity   NUMERIC(3, 0)  not NULL CHECK (Ccapacity > 0),   -- 课容量
     Ctime       TIME           not NULL,   -- 上课时间
     Cweek       VARCHAR(3)     not NULL,   -- 上课星期
     Mname       VARCHAR(50)    not NULL,   -- 所属专业
@@ -47,7 +47,7 @@ CREATE TABLE teacher (
     Tnumber     NUMERIC(10, 0)  not NULL,  -- 工号
     Tname       VARCHAR(10)     not NULL,  -- 姓名
     Tsex        VARCHAR(2)      not NULL,  -- 性别
-    Tage        NUMERIC(3, 0)   not NULL,  -- 年龄
+    Tage        NUMERIC(3, 0)   not NULL CHECK(Tage > 0),  -- 年龄
     Tprofile    VARCHAR(200, 0) not NULL,  -- 个人简介
     Tachievement VARCHAR(200, 0) not NULL, -- 个人成就
     Tplace      VARCHAR(50, 0)  not NULL,  -- 办公地点
