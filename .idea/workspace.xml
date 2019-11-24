@@ -7,20 +7,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fb743a56-6b8e-4f83-9817-904012cb53a7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/commons-beanutils-1.7.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/commons-collections-3.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/commons-lang-2.5.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/commons-logging.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/ezmorph-1.0.3.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/json-lib-2.1-jdk15.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/Model/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/Model/Teacher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbLab1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/dbLab1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/Dao/Dbutil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/Dbutil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/Dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/UserDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/servlet/SigninServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/servlet/SigninServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/resources/pages/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/login.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,6 +36,13 @@
     </option>
     <expand />
     <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -214,7 +213,7 @@
       <workItem from="1574558447323" duration="210000" />
       <workItem from="1574561100806" duration="870000" />
       <workItem from="1574562085500" duration="302000" />
-      <workItem from="1574562781219" duration="15829000" />
+      <workItem from="1574562781219" duration="21628000" />
     </task>
     <servers />
   </component>

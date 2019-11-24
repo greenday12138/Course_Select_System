@@ -29,34 +29,33 @@ public class SigninServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("进入doPost");
         String fromdata = req.getParameter("fromdata");
         JSONObject jo=JSONObject.fromObject(fromdata);
-        System.out.println("2");
-        System.out.println(jo);
         Map<String,String> map=jo;
         String id=map.get("id");
-        System.out.println(id);
+        int len=id.length();
+
         String password=map.get("password");
 
         User user = new User(id, password);
         Connection con = null;
         try {
+            User currentUser=null;
+            if(len!=0&&len!=13){
             System.out.println("开始连接数据库");
-            //con = dbutil.getCon();
+            con = dbutil.getCon();
             System.out.println("数据库连接成功");
-           // User currentUser = userDao.signin(con, user);
-
-            User currentUser=new User(id,password);
-            currentUser.setName("111");
-
+            int l=len==13?0:1;
+            currentUser= userDao.signin(con, user,l);
+            }
             if (currentUser == null){
-                System.out.println("出错");
+                System.out.println("登陆出错");
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.put("id", "");
                 jsonObject.put("name", "");
-                jsonObject.put("message", "错误");
-
+                jsonObject.put("message", "Id or password errors.");
+                jsonObject.put("ur","");
+                resp.getWriter().write(jsonObject.toString());
             }
             else {
                 HttpSession session = req.getSession();
@@ -64,22 +63,16 @@ public class SigninServlet extends HttpServlet {
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.put("id", currentUser.getId());
                 jsonObject.put("name", currentUser.getName());
-                jsonObject.put("message", "正确");
+                jsonObject.put("message", "success!");
                 jsonObject.put("ur", "teacher/index_teacher.html");
-                //System.out.println(jsonObject);
                 resp.getWriter().write(jsonObject.toString());
 
-                //resp.send
-                //jsonObject.toString();
-                /*if (currentUser.getRole() == 0) {
-                    resp.sendRedirect("admin/index.jsp");
-                } else if (currentUser.getRole() == 1){
-                    resp.sendRedirect("resources/pages/index_teacher.html");
-                } else {
-                    resp.sendRedirect("student/index.jsp");
-                }*/
-              //  System.out.println("跳转");
-                //resp.sendRedirect("resources/pages/teacher/index_teacher.html");
+
+                if (currentUser.getRole() == 0) {
+                    jsonObject.put("ur", "student/index_student.html");
+                } else  if(currentUser.getRole() == 1){
+                    jsonObject.put("ur", "teacher/index_teacher.html");
+                }
             }
         }
         catch (Exception e){
