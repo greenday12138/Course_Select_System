@@ -181,11 +181,10 @@
 
   <!-- jQuery -->
   <script src="../../plugins/jquery/jquery.min.js"></script>
-
-  <!-- Bootstrap -->
-  <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- jQuery UI -->
   <script src="../../plugins/jquery-ui/jquery-ui.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
   <script src="../../dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
@@ -218,6 +217,7 @@
 
       var calendar = new FullCalendar.Calendar(calendarEl, {
         plugins: ['bootstrap', 'interaction', 'timeGrid', 'dayGrid', 'timeGridPlugin'],
+        contentHeight:'auto',
         allDaySlot: false,
         defaultView: 'timeGridWeek',
         slotLabelDuration: '02:00:00',
@@ -314,41 +314,33 @@
         ],
         editable: false,
         droppable: true, // this allows things to be dropped onto the calendar !!!
-        eventAfterRender: function (event, element) {
-          $(this).tooltip({ title: event.description, html: true, container: "body" });
-          $(this).tooltip('show');
-        },
-        drop: function (info) {
-          // is the "remove after drop" checkbox checked?
-          if (checkbox.checked) {
-            // if so, remove the element from the "Draggable Events" list
-            info.draggedEl.parentNode.removeChild(info.draggedEl);
-          }
+        eventRender: function (info) {
+          $(info.el).tooltip({
+            title: info.event.extendedProps.description,
+            placement: "top",
+            trigger: "hover",
+            container: "body"
+          });
         }
       });
 
       calendar.render();
-      // $('#calendar').fullCalendar()
-
     })
   </script>
   <!-- coder custom render -->
   <script>
-    // $(function () {
-    //   render();
-    //   $("#submit").click(function () {
+    $(function () {
+      var user=JSON.parse(sessionStorage.getItem('user'));
+      $('#username').text(user.name);
 
-    //   })
-    // })
+      $.post('url',JSON.stringify(user),page_render(data));
+    })
 
-    // function render() {
-    //   var user = JSON.parse(sessionStorage.getItem("user"));
-    //   $("#usename").text(user.name);
-
-    //   $.post("url", user, page_render(data));
-    // }
+    function page_render(data){
+      
+    }
 // 未实现：
-//     课程表功能 待办事项功能
+// 待办事项功能
   </script>
 </body>
 
