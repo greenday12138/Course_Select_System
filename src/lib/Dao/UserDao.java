@@ -18,12 +18,12 @@ public class UserDao {
             String sql = "select * from user where email=? and password=?";
 
             pstmt = con.prepareStatement(sql);
-            pstmt.setString(1, user.getEmail());
+            pstmt.setString(1, user.getId());
             pstmt.setString(2, user.getPassword());
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()){
                 resultUser = new User();
-                resultUser.setEmail(rs.getString("email"));
+                resultUser.setId(rs.getString("id"));
                 resultUser.setPassword(rs.getString("password"));
                 resultUser.setRole(rs.getInt("role"));
                 resultUser.setName(rs.getString("name"));
