@@ -107,26 +107,32 @@
         info.html("密码不能为空");
         return false;
       }
+      var json={
+          "id":id,
+          "password":password
+      }
 
-      $.post("SigninServlet",
-        {
-          user_id: id,
-          password: password,
-        },
+      $.post("http://localhost:8080/signin",{fromdata:JSON.stringify(json)},
         function (data) {
           // server return json:{
           //   id:******，
-          //   name:*****
+          //   name:*****,
+          //   message:"",
           // }-> data
-          //server should check input data
-          sessionStorage.setItem("user", JSON.stringify(data));
+          //server should check input da
+            console.log(data);
+          sessionStorage.setItem("user",data);
+          window.location.assign(JSON.parse(data).ur);
+
+
+         // window.location.href=JSON.stringify(data).url;
         })
-        .error(function(){
+        /*.error(function(){
           info.html("密码错误，请重新输入");
         })
         .fail(function(){
           info.html("账号不存在，请重新输入");
-        });
+        });*/
     })
   </script>
 </body>
