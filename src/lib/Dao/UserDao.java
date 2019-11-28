@@ -18,15 +18,16 @@ public class UserDao {
         try {
             String sql=null;
             if(n==0) {
-                 sql = "select * from student where id=? and password=?";
+                 sql = "select * from student where Snumber=? and Spassword=?";
             }else {
-                 sql = "select * from teacher where id=? and password=?";
+                 sql = "select * from teacher where Snumber=? and Spassword=?";
             }
 
             pstmt = con.prepareStatement(sql);
             pstmt.setString(1, user.getId());
             pstmt.setString(2, user.getPassword());
             ResultSet rs = pstmt.executeQuery();
+            System.out.println(rs);
             if (rs.next()){
                 if(n==0) {
                     resultUser = new Student();

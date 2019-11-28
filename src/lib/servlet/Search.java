@@ -25,6 +25,7 @@ public class Search extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String fromdata = req.getParameter("fromdata");
+        System.out.println(fromdata);
         JSONObject jo = JSONObject.fromObject(fromdata);
         Map<String, String> map = jo;
 
