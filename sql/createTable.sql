@@ -68,7 +68,8 @@ CREATE TABLE course
     Cweek       VARCHAR(10) ,   -- 上课星期
     Csection    NUMERIC(4,0),    -- 上课节次
     Cschool     VARCHAR(20),    -- 校区
-    Croom       VARCHAR(15),   -- 上课教室
+    Cfoor       VARCHAR(20),     --
+    Croom       VARCHAR(20),   -- 上课教室
     Dnumber     VARCHAR(10),  -- 所属系号
     Mnumber     VARCHAR(10),  -- 所属的专业号
     PRIMARY KEY (Cnumber, Corder),
