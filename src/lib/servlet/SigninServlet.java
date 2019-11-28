@@ -40,7 +40,7 @@ public class SigninServlet extends HttpServlet {
         Connection con = null;
         try {
             User currentUser=null;
-            if(len!=0&&len!=13){
+            if(len==5||len==13){
             System.out.println("开始连接数据库");
             con = dbutil.getCon();
             System.out.println("数据库连接成功");
@@ -55,6 +55,7 @@ public class SigninServlet extends HttpServlet {
                 jsonObject.put("message", "Id or password errors.");
                 jsonObject.put("ur","");
                 resp.getWriter().write(jsonObject.toString());
+                System.out.println(jsonObject.toString());
             }
             else {
                 HttpSession session = req.getSession();
@@ -63,8 +64,8 @@ public class SigninServlet extends HttpServlet {
                 jsonObject.put("id", currentUser.getId());
                 jsonObject.put("name", currentUser.getName());
                 jsonObject.put("message", "success!");
-                jsonObject.put("ur", "teacher/index_teacher.html");
-                resp.getWriter().write(jsonObject.toString());
+                //jsonObject.put("ur", "teacher/index_teacher.html");
+
 
 
                 if (currentUser.getRole() == 0) {
@@ -72,6 +73,8 @@ public class SigninServlet extends HttpServlet {
                 } else  if(currentUser.getRole() == 1){
                     jsonObject.put("ur", "teacher/index_teacher.html");
                 }
+                resp.getWriter().write(jsonObject.toString());
+                System.out.println(jsonObject.toString());
             }
         }
         catch (Exception e){

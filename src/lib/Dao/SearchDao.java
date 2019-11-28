@@ -39,6 +39,8 @@ public class SearchDao {
                 //添加json项
 
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }
