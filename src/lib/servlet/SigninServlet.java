@@ -14,9 +14,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Connection;
 import java.util.Map;
-/**
- * Created by ttop5 on 16-4-20.
- */
+
+
 @WebServlet(urlPatterns = "/signin", name = "signin")
 public class SigninServlet extends HttpServlet {
     Dbutil dbutil = new Dbutil();
