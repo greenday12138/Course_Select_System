@@ -48,14 +48,10 @@ CREATE TABLE teacher (
     Tname       VARCHAR(10)     not NULL,  -- 姓名
     Tsex        VARCHAR(2)      not NULL,  -- 性别
     Tage        NUMERIC(3, 0)   not NULL CHECK(Tage > 0),  -- 年龄
-    Tprofile    VARCHAR(200, 0) not NULL,  -- 个人简介
-    Tachievement VARCHAR(200, 0) not NULL, -- 个人成就
     Tplace      VARCHAR(50, 0)  not NULL,  -- 办公地点
     Tresearch   VARCHAR(50, 0)  not NULL,  -- 研究方向
-    Tduty       VARCHAR(10, 0)  not NULL,  -- 职务
     Tphone      NUMERIC(11, 0)  not NULL,  -- 联系方式
     Tpost       VARCHAR(10)  not NULL,     -- 职称
-    Tpage       VARCHAR(50)  not NULL,     -- 个人主页
     Temail      VARCHAR(50)  not NULL,     -- 邮箱
     Dname       VARCHAR(50, 0)  not NULL,  -- 老师所属的系
     Cname       VARCHAR(40)    not NULL,   -- 课程名  
@@ -74,7 +70,7 @@ CREATE TABLE major (
     Mname       VARCHAR(50, 0)  not NULL,  -- 专业名
     Mphone      NUMERIC(11, 0)  not NULL,  -- 专业教务联系方式
     Mintroduce  VARCHAR(200, 0) not NULL,  -- 专业介绍
-    Dname       VARCHAR(50, 0)  not NULL,  -- 老师所属的系
+    Dname       VARCHAR(50, 0)  not NULL,  -- 专业所属的系
     FOREIGN KEY (Dname) REFERENCES department(Dname) ON DELETE SET NULL
 
 );
