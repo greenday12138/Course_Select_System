@@ -220,8 +220,13 @@
   <script>
     // coder custom
     function render(){
+      var json = {
+        name: "hhh",
+        id: "2017141452255"
+      };
+      sessionStorage.setItem("user", JSON.stringify(json));
       var user=JSON.parse(sessionStorage.getItem("user"));
-      $("#username").text(user["name"]);
+      $("#username").text(user['id']);
     }
     render();
   </script>
