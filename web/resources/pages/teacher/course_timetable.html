@@ -364,7 +364,7 @@
         },
         events:JSON.parse(data),
         editable: false,
-        droppable: true, // this allows things to be dropped onto the calendar !!!
+        droppable: true,// this allows things to be dropped onto the calendar !!!
         eventRender: function (info) {
           $(info.el).tooltip({
             title: info.event.extendedProps.description,
