@@ -41,8 +41,8 @@ public class User {
         return role;
     }
 
-    public void setRole(int role) {
-        this.role = role;
+    public void setRole(int n) {
+        role=n;//0表示学生  1表示老师
     }
 
     public String getName() {
