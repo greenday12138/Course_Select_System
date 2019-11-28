@@ -23,13 +23,13 @@ CREATE TABLE student
 (
     Snumber     VARCHAR(13),  -- 学号
     Sname       VARCHAR(20),  -- 姓名
-    Ssex        VARCHAR(2) ,  -- 性别
+    Ssex        VARCHAR(10) ,  -- 性别
     Spassword   VARCHAR(20),  -- 密码
     Sage        NUMERIC(3, 0)   CHECK (Sage > 0),  -- 年龄
     Sphone      VARCHAR(11),  -- 电话
     Semail      VARCHAR(20),  -- 邮箱
-    ShighSchool VARCHAR(10),  -- 高中毕业学校
-    Sorigo      VARCHAR(10),  -- 籍贯
+    ShighSchool VARCHAR(20),  -- 高中毕业学校
+    Sorigo      VARCHAR(20),  -- 籍贯
     Shobby      VARCHAR(100), -- 爱好
     Dnumber     VARCHAR(10),  -- 学生所属的系号
     Mnumber     VARCHAR(10),  -- 学生所属的专业号
@@ -43,7 +43,7 @@ CREATE TABLE teacher
 (
     Tnumber     VARCHAR(10),  -- 工号
     Tname       VARCHAR(10),  -- 姓名
-    Tsex        VARCHAR(2),   -- 性别
+    Tsex        VARCHAR(5),   -- 性别
     Tage        NUMERIC(3, 0)     CHECK(Tage > 0),  -- 年龄
     Tplace      VARCHAR(50), -- 办公地点
     Tresearch   VARCHAR(50), -- 研究方向
@@ -62,12 +62,12 @@ CREATE TABLE course
     Cname       VARCHAR(40),   -- 课程名   
     Corder      NUMERIC(2, 0), -- 课序号
     Ccredit     NUMERIC(2, 0)    CHECK (Ccredit > 0),   -- 学分  
-    Cproperty   VARCHAR(4),    -- 课程属性: 选修/必修
+    Cproperty   VARCHAR(10),    -- 课程属性: 选修/必修
     Ccapacity   NUMERIC(3, 0)    CHECK (Ccapacity > 0),   -- 课容量
     Ctime       VARCHAR(10),   -- 上课时间
-    Cweek       VARCHAR(3) ,   -- 上课星期
+    Cweek       VARCHAR(10) ,   -- 上课星期
     Csection    NUMERIC(4,0),    -- 上课节次
-    Cschool     VARCHAR(5),    -- 校区
+    Cschool     VARCHAR(20),    -- 校区
     Croom       VARCHAR(15),   -- 上课教室
     Dnumber     VARCHAR(10),  -- 所属系号
     Mnumber     VARCHAR(10),  -- 所属的专业号
@@ -78,7 +78,7 @@ CREATE TABLE course
 
 CREATE TABLE sc
 (
-    scnumber    VARCHAR(1),  
+    scnumber    VARCHAR(10),  
     Snumber     VARCHAR(13),  -- 学号
     Cnumber     VARCHAR(10),  -- 课程号
     PRIMARY KEY (scnumber),
@@ -89,7 +89,7 @@ CREATE TABLE sc
 
 CREATE TABLE tc 
 (
-    tcnumber    VARCHAR(1),
+    tcnumber    VARCHAR(10),
     Tnumber     VARCHAR(10),  -- 工号
     Cnumber     VARCHAR(10),   -- 课程号
     PRIMARY KEY (tcnumber),
