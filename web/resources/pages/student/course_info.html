@@ -557,7 +557,7 @@
           'weekday': weekday,
         };
 
-      $.post("url",JSON.stringify(json),
+      $.post("http://localhost:8080/dbLab_war_exploded/search",{fromdata:JSON.stringify(json)},
         function (data) {
           // data -> server returned json 
           // [

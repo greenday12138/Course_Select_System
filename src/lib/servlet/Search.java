@@ -1,7 +1,9 @@
 package lib.servlet;
 
+import com.mysql.cj.xdevapi.JsonArray;
 import lib.Dao.Dbutil;
 import lib.Dao.SearchDao;
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 import javax.servlet.ServletException;
@@ -33,8 +35,9 @@ public class Search extends HttpServlet {
         try{
             con=dbutil.getCon();
             SearchDao ud=new SearchDao();
-            ud.Search(map,con);
-
+            JSONArray jsa=new JSONArray();
+            jsa=ud.Search(map,con);
+            resp.getWriter().write(jsa.toString());
         }
         catch(Exception e){
             e.printStackTrace();
