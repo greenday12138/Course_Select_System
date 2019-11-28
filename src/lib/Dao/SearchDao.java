@@ -24,21 +24,24 @@ public class SearchDao {
         PreparedStatement pstmt=null;
         Course cr=null;
         Teacher tr=null;
-        try{
-            String sql=null;
-            sql="";
-            pstmt=con.prepareStatement(sql);
-            ResultSet rs=pstmt.executeQuery();
-            JSONObject js=null;
-            JSONArray jsa=new JSONArray();
-            if(rs.next()){
-                cr=new Course();
-                tr=new Teacher();
+        try {
+            String sql = null;
+            sql = "";
+            pstmt = con.prepareStatement(sql);
+            ResultSet rs = pstmt.executeQuery();
+            JSONObject js = null;
+            JSONArray jsa = new JSONArray();
+            if (rs.next()) {
+                cr = new Course();
+                tr = new Teacher();
                 //根据查询结果填充两个类，并且构造json发送
 
                 //添加json项
 
             }
+        } finally {
+
         }
+
     }
 }
