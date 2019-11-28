@@ -7,12 +7,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fb743a56-6b8e-4f83-9817-904012cb53a7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/lib/Model/Student.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/Model/Teacher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/Dao/SearchDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/servlet/Search.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/Dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/servlet/SigninServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/servlet/SigninServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/Model/Cource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Model/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resources/pages/student/course_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/student/course_info.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -213,7 +213,7 @@
       <workItem from="1574558447323" duration="210000" />
       <workItem from="1574561100806" duration="870000" />
       <workItem from="1574562085500" duration="302000" />
-      <workItem from="1574562781219" duration="21628000" />
+      <workItem from="1574562781219" duration="28627000" />
     </task>
     <servers />
   </component>
