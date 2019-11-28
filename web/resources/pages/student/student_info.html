@@ -297,7 +297,7 @@
       $("#name").text(user.name);
       $("#id").text(user.id);
 
-      $.post("url", JSON.stringify(user), page_render(data));
+      $.post("http://localhost;8080/Info", {fromdata:JSON.stringify(user)}, page_render(data));
 
       $("#submit").click(function () {
 

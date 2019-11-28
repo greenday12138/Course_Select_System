@@ -1,5 +1,6 @@
 package lib.servlet;
 
+
 import lib.Dao.Dbutil;
 import lib.Dao.UserDao;
 import lib.Model.User;
@@ -15,9 +16,8 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.util.Map;
 
-
-@WebServlet(urlPatterns = "/signin", name = "signin")
-public class SigninServlet extends HttpServlet {
+@WebServlet(urlPatterns = "/info", name = "info")
+public class Info extends HttpServlet {
     Dbutil dbutil = new Dbutil();
     UserDao userDao = new UserDao();
 
@@ -41,11 +41,11 @@ public class SigninServlet extends HttpServlet {
         try {
             User currentUser=null;
             if(len==5||len==13){
-            System.out.println("开始连接数据库");
-            con = dbutil.getCon();
-            System.out.println("数据库连接成功");
-            int l=len==13?0:1;
-            currentUser= userDao.signin(con, user,l);
+                System.out.println("开始连接数据库");
+                con = dbutil.getCon();
+                System.out.println("数据库连接成功");
+                int l=len==13?0:1;
+                currentUser= userDao.signin(con, user,l);
             }
             if (currentUser == null){
                 System.out.println("登陆出错");
