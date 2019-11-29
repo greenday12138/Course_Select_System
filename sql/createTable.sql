@@ -66,9 +66,10 @@ CREATE TABLE course
     Ccapacity   NUMERIC(3, 0)    CHECK (Ccapacity > 0),   -- 课容量
     Ctime       VARCHAR(10),   -- 上课时间
     Cweek       VARCHAR(3) ,   -- 上课星期
-    Csection    NUMERIC(4,0),    -- 上课节次
+    Csection    NUMERIC(4,0),   -- 上课节次
     Cschool     VARCHAR(5),    -- 校区
-    Croom       VARCHAR(15),   -- 上课教室
+    Cfoor       VARCHAR(15),   -- 教学楼
+    Croom       VARCHAR(15),   -- 教室
     Dnumber     VARCHAR(10),  -- 所属系号
     Mnumber     VARCHAR(10),  -- 所属的专业号
     PRIMARY KEY (Cnumber, Corder),
