@@ -42,6 +42,7 @@ CREATE TABLE student
 CREATE TABLE teacher 
 (
     Tnumber     VARCHAR(10),  -- 工号
+    Tpassword  VARCHAR(20), -- 密码
     Tname       VARCHAR(10),  -- 姓名
     Tsex        VARCHAR(5),   -- 性别
     Tage        NUMERIC(3, 0)     CHECK(Tage > 0),  -- 年龄
