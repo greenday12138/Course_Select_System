@@ -2,7 +2,9 @@ package lib.servlet;
 
 
 import lib.Dao.Dbutil;
-import lib.Dao.UserDao;
+import lib.Dao.InfoDao;
+import lib.Model.Student;
+import lib.Model.Teacher;
 import lib.Model.User;
 import net.sf.json.JSONObject;
 
@@ -19,7 +21,7 @@ import java.util.Map;
 @WebServlet(urlPatterns = "/info", name = "info")
 public class Info extends HttpServlet {
     Dbutil dbutil = new Dbutil();
-    UserDao userDao = new UserDao();
+    InfoDao infoDao = new InfoDao();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -29,30 +31,46 @@ public class Info extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String fromdata = req.getParameter("fromdata");
+        System.out.println(fromdata);
         JSONObject jo=JSONObject.fromObject(fromdata);
         Map<String,String> map=jo;
         String id=map.get("id");
         int len=id.length();
 
-        String password=map.get("password");
+        //String password=map.get("password");
 
-        User user = new User(id, password);
+        User user = new User();
+        user.setId(id);
         Connection con = null;
         try {
+            Student currentStudent=null;
+            Teacher currentTeacher=null;
             User currentUser=null;
             if(len==5||len==13){
                 System.out.println("开始连接数据库");
                 con = dbutil.getCon();
                 System.out.println("数据库连接成功");
                 int l=len==13?0:1;
-                currentUser= userDao.signin(con, user,l);
+                if(l==0){
+
+                    currentStudent= infoDao.getStudentInfo(con, user);
+                    currentUser=(User)currentStudent;
+
+                }
+
+                else{
+
+                    currentTeacher=infoDao.getTeacherInfo(con,user);
+                    currentUser=(User)currentTeacher;
+                }
+
             }
-            if (currentUser == null){
-                System.out.println("登陆出错");
+            if (currentUser==null){
+                System.out.println("出错");
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.put("id", "");
                 jsonObject.put("name", "");
-                jsonObject.put("message", "Id or password errors.");
+                jsonObject.put("message", "Id errors.");
                 jsonObject.put("ur","");
                 resp.getWriter().write(jsonObject.toString());
                 System.out.println(jsonObject.toString());
@@ -61,17 +79,29 @@ public class Info extends HttpServlet {
                 HttpSession session = req.getSession();
                 session.setAttribute("currentUser", currentUser);
                 JSONObject jsonObject = new JSONObject();
-                jsonObject.put("id", currentUser.getId());
-                jsonObject.put("name", currentUser.getName());
-                jsonObject.put("message", "success!");
+
                 //jsonObject.put("ur", "teacher/index_teacher.html");
 
 
 
                 if (currentUser.getRole() == 0) {
-                    jsonObject.put("ur", "student/index_student.html");
+                    jsonObject.put("id", currentStudent.getId());
+                    jsonObject.put("name", currentStudent.getName());
+                    jsonObject.put("gender",currentStudent.getSex());
+                    jsonObject.put("university","四川大学");
+                    jsonObject.put("college",currentStudent.getDepartment());
+                    jsonObject.put("major",currentStudent.getMajor());
+                    jsonObject.put("highschool",currentStudent.getHighschool());
+                    jsonObject.put("birthplace",currentStudent.getOrigo());
+                    jsonObject.put("tel",currentStudent.getTellphone());
+                    jsonObject.put("email",currentStudent.getEmail());
+                    jsonObject.put("hobby",currentStudent.getHobby());
+                    jsonObject.put("message", "success!");
+
+                    //jsonObject.put("ur", "student/index_student.html");
                 } else  if(currentUser.getRole() == 1){
-                    jsonObject.put("ur", "teacher/index_teacher.html");
+
+                    //jsonObject.put("ur", "teacher/index_teacher.html");
                 }
                 resp.setContentType("text/javascript;charset=utf-8");
                 resp.getWriter().write(jsonObject.toString());

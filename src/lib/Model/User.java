@@ -8,7 +8,6 @@ public class User {
     private String password;
     private int role;
     private String name;
-    private String
 
     public User(){
         super();
@@ -53,8 +52,6 @@ public class User {
     public void setName(String name) {
         this.name = name;
     }
-
-    public void get
 
 }
 
