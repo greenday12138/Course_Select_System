@@ -16,7 +16,7 @@ import java.sql.Connection;
 import java.util.Map;
 
 @WebServlet(urlPatterns = "/search", name = "search")
-public class Search extends HttpServlet {
+public class SearchServlet extends HttpServlet {
     Dbutil dbutil = new Dbutil();
 
     @Override
@@ -37,6 +37,8 @@ public class Search extends HttpServlet {
             SearchDao ud=new SearchDao();
             JSONArray jsa=new JSONArray();
             jsa=ud.Search(map,con);
+            System.out.println(jsa.toString());
+            resp.setContentType("text/javascript;charset=utf-8");
             resp.getWriter().write(jsa.toString());
         }
         catch(Exception e){

@@ -27,4 +27,5 @@ insert into sc values ('0', '2016171072005', '101260030');
 insert into sc values ('1', '2016141460006', '304026020');
 
 insert into tc values ('0', '10101', '304026020');
+insert into tc  values('1','10102','101260030');
 
