@@ -99,8 +99,23 @@ public class Info extends HttpServlet {
                     jsonObject.put("message", "success!");
 
                     //jsonObject.put("ur", "student/index_student.html");
-                } else  if(currentUser.getRole() == 1){
-
+                } else if(currentUser.getRole() == 1){
+                    jsonObject.put("id", currentTeacher.getId());
+                    jsonObject.put("name", currentTeacher.getName());
+                    jsonObject.put("gender",currentTeacher.getTsex());
+                    jsonObject.put("university","四川大学");
+                    jsonObject.put("college",currentTeacher.getCollege());
+                    jsonObject.put("department",currentTeacher.getDepartment());
+                    jsonObject.put("post",currentTeacher.getTpost());
+                    jsonObject.put("office",currentTeacher.getTplace());
+                    jsonObject.put("tel",currentTeacher.getTphone());
+                    jsonObject.put("email",currentTeacher.getTemail());
+                    jsonObject.put("interest",currentTeacher.getTresearch());
+                    jsonObject.put("personal_web",currentTeacher.getTwebsite());
+                    jsonObject.put("zhiwu",currentTeacher.getTzhiwu());
+                    jsonObject.put("intro",currentTeacher.getTselfsummary());
+                    jsonObject.put("honor",currentTeacher.getTachievement());
+                    jsonObject.put("message", "success!");
                     //jsonObject.put("ur", "teacher/index_teacher.html");
                 }
                 resp.setContentType("text/javascript;charset=utf-8");

@@ -48,24 +48,27 @@ public class InfoDao {
         PreparedStatement pstmt = null;
         try {
             String sql=null;
-            sql = "select * from teacher,department where teacher.Tnumber=? and T.Dnumber=department.Dnumber";
+            sql = "select * from teacher,department where teacher.Tnumber=? and teacher.Dnumber=department.Dnumber";
             pstmt = con.prepareStatement(sql);
             pstmt.setString(1, user.getId());
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()){
 
                 resultTeacher = new Teacher();
-                resultTeacher.setName(rs.getString("Sname"));
-                resultTeacher.setId(rs.getString("Snumber"));
+                resultTeacher.setName(rs.getString("Tname"));
+                resultTeacher.setId(rs.getString("Tnumber"));
                 resultTeacher.setRole(1);
-               /* resultTeacher.setSex(rs.getString("Ssex"));
+                resultTeacher.setCollege("四川大学");
+                resultTeacher.setTpost(rs.getString(("Tpost")));
+                resultTeacher.setTsex(rs.getString("Tsex"));
                 resultTeacher.setDepartment(rs.getString("Dname"));
-                resultTeacher.setMajor(rs.getString("Mname"));
-                resultTeacher.setHighschool(rs.getString("Shighschool"));
-                resultTeacher.setOrigo(rs.getString("Sorigo"));
-                resultTeacher.setTellphone(rs.getString("Sphone"));
-                resultTeacher.setEmail(rs.getString("Semail"));
-                resultTeacher.setHobby(rs.getString("Shobby"));*/
+                resultTeacher.setTplace(rs.getString("Tplace"));
+                resultTeacher.setTresearch(rs.getString("Tresearch"));
+                resultTeacher.setTzhiwu(rs.getString("Tzhiwu"));
+                resultTeacher.setTphone(rs.getString("Tphone"));
+                resultTeacher.setTemail(rs.getString("Temail"));
+                resultTeacher.setTselfsummary(rs.getString("Tselfsummary"));
+                resultTeacher.setTachievement(rs.getString("Tachievement"));
 
                 // restltUser.setEmail(rs.getString());
             }
