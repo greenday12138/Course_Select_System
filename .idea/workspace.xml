@@ -7,11 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fb743a56-6b8e-4f83-9817-904012cb53a7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/lib/servlet/Info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/Dao/InfoDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/Model/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Model/Student.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/servlet/SigninServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/servlet/SigninServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/resources/pages/student/index_student.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/student/index_student.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/servlet/Info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/servlet/Info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/resources/pages/student/student_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/student/student_info.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -74,7 +74,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -211,6 +211,7 @@
       <workItem from="1574561100806" duration="870000" />
       <workItem from="1574562085500" duration="302000" />
       <workItem from="1574584879779" duration="249000" />
+      <workItem from="1575181276638" duration="13471000" />
     </task>
     <servers />
   </component>

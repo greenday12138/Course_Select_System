@@ -1,7 +1,7 @@
 package lib.Model;
 
 public class Student extends User {
-    public void setSex(char sex) {
+    public void setSex(String sex) {
         this.sex = sex;
     }
 
@@ -37,7 +37,7 @@ public class Student extends User {
         this.major = major;
     }
 
-    public char getSex() {
+    public String getSex() {
         return sex;
     }
 
@@ -73,7 +73,7 @@ public class Student extends User {
         return major;
     }
 
-    char sex;
+    String sex;
     int age;
     String tellphone;
     String email;
