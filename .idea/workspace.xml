@@ -2,13 +2,23 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="dbLab1:war exploded" />
+      <artifact name="dbLab:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="fb743a56-6b8e-4f83-9817-904012cb53a7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+    <list default="true" id="a4a57a87-bcb4-465b-9f55-e7badc5da9be" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql/insertData.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/insertData.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/Dao/SearchDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/SearchDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/Dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/servlet/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/servlet/SearchServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resources/pages/student/course_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/student/course_info.html" afterDir="false" />
+>>>>>>> jby
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,9 +26,11 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="CodeInsightWorkspaceSettings">
-    <option name="optimizeImportsOnTheFly" value="true" />
+  <component name="ErrorTreeViewConfiguration">
+    <option name="autoscrollToSource" value="true" />
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
     <option name="GROUP_DATA_SOURCES" value="true" />
@@ -74,6 +86,8 @@
       </list>
     </option>
   </component>
+=======
+>>>>>>> jby
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -93,10 +107,11 @@
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
-    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_INFO" value="false" />
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
+<<<<<<< HEAD
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="490" />
     <option name="y" value="20" />
@@ -142,21 +157,27 @@
       <pane id="PackagesPane" />
     </panes>
   </component>
+=======
+  <component name="ProjectId" id="1UEcTL3Wphq9wJlexr8SQMwYLxb" />
+>>>>>>> jby
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+<<<<<<< HEAD
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1574561978664" />
     <property name="findjar.last.used.dir" value="$PROJECT_DIR$/web/WEB-INF/lib" />
     <property name="jdk.selected.JAVA_MODULE" value="11" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF/lib/mysql-connector-java-5.1.27.jar!/" />
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF/lib" />
+>>>>>>> jby
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+<<<<<<< HEAD
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -168,6 +189,12 @@
       <recent name="C:\Users\Admin\Desktop\project\github\dbLab\web\WEB-INF\lib" />
       <recent name="C:\Users\Admin\Desktop\project\github\dbLab\lib" />
     </key>
+=======
+    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+>>>>>>> jby
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -181,32 +208,19 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 8.5.45">
-    <configuration name="Dbutil" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="lib.Dao.Dbutil" />
-      <module name="SelectCource-master" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="lib.Dao.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Tomcat 8.5.45" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" editBeforeRun="true" APPLICATION_SERVER_NAME="Tomcat 8.5.45" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="11" nameIsGenerated="true">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/resources/pages/login.html" />
+  <component name="RunManager">
+    <configuration name="Tomcat 8.5.45" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.45" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/dbLab_war_exploded/resources/pages/login.html" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
-        <artifact name="dbLab1:war exploded">
+        <artifact name="dbLab:war exploded">
           <settings>
-            <option name="CONTEXT_PATH" value="/" />
+            <option name="CONTEXT_PATH" value="/dbLab_war_exploded" />
           </settings>
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="Unnamed_SelectCource-master" />
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_dbLab_4" />
       </server-settings>
       <predefined_log_file id="Tomcat" enabled="true" />
       <predefined_log_file id="Tomcat Catalina" enabled="true" />
@@ -214,7 +228,7 @@
       <predefined_log_file id="Tomcat Host Manager" enabled="false" />
       <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="50265" />
+        <option name="DEBUG_PORT" value="45839" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -262,25 +276,23 @@
         </SHUTDOWN>
       </ConfigurationWrapper>
       <method v="2">
+        <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
-          <artifact name="dbLab1:war exploded" />
+          <artifact name="dbLab:war exploded" />
         </option>
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Application.Dbutil" />
-      <item itemvalue="Tomcat Server.Tomcat 8.5.45" />
-    </list>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="fb743a56-6b8e-4f83-9817-904012cb53a7" name="Default Changelist" comment="" />
-      <created>1572167651165</created>
+      <changelist id="a4a57a87-bcb4-465b-9f55-e7badc5da9be" name="Default Changelist" comment="" />
+      <created>1574925201686</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
+<<<<<<< HEAD
       <updated>1572167651165</updated>
       <workItem from="1572167656242" duration="51000" />
       <workItem from="1572167960256" duration="156000" />
@@ -341,6 +353,16 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
   </component>
+=======
+      <updated>1574925201686</updated>
+      <workItem from="1574925206869" duration="19382000" />
+      <workItem from="1575181745647" duration="1272000" />
+      <workItem from="1575183443514" duration="2304000" />
+      <workItem from="1575186066748" duration="13272000" />
+    </task>
+    <servers />
+  </component>
+>>>>>>> jby
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
@@ -363,6 +385,7 @@
       </map>
     </option>
   </component>
+<<<<<<< HEAD
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
@@ -375,4 +398,6 @@
       </provider>
     </entry>
   </component>
+=======
+>>>>>>> jby
 </project>

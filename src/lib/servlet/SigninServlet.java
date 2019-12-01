@@ -28,6 +28,8 @@ public class SigninServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //resp.setContentType("text/javascript;charset=utf-8");
+
         String fromdata = req.getParameter("fromdata");
         JSONObject jo=JSONObject.fromObject(fromdata);
         Map<String,String> map=jo;
@@ -64,7 +66,6 @@ public class SigninServlet extends HttpServlet {
                 jsonObject.put("id", currentUser.getId());
                 jsonObject.put("name", currentUser.getName());
                 jsonObject.put("message", "success!");
-                //jsonObject.put("ur", "teacher/index_teacher.html");
 
 
 
@@ -75,7 +76,6 @@ public class SigninServlet extends HttpServlet {
                 }
                 resp.setContentType("text/javascript;charset=utf-8");
                 resp.getWriter().write(jsonObject.toString());
-                System.out.println(jsonObject.toString());
             }
         }
         catch (Exception e){
