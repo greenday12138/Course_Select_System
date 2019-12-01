@@ -8,8 +8,8 @@ delete from department;
 
 
 
-insert into department values ('2016000001', '计算机系', '13348768434', '全国排名第十');
-insert into department values ('2016000002', '艺术系', '13343458434', '全国排名第八');
+insert into department values ('2016000001', '计算机学院', '13348768434', '全国排名第十');
+insert into department values ('2016000002', '艺术学院', '13343458434', '全国排名第八');
 
 insert into major values ('3040000001',  '计算机科学与技术专业', '027-7000011', '学习编程',  '2016000001');
 insert into major values ('3040000002',  '油画专业', '027-7000012', '学习画画',  '2016000002');
