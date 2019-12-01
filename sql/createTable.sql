@@ -44,6 +44,7 @@ CREATE TABLE teacher
     Tnumber     VARCHAR(10),  -- 工号
     Tname       VARCHAR(10),  -- 姓名
     Tsex        VARCHAR(2),   -- 性别
+    Tpassword   VARCHAR(20),  -- 密码
     Tage        NUMERIC(3, 0)     CHECK(Tage > 0),  -- 年龄
     Tplace      VARCHAR(50), -- 办公地点
     Tresearch   VARCHAR(50), -- 研究方向
