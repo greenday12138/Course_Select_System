@@ -221,7 +221,7 @@
     // coder custom
     function render(){
       var user=JSON.parse(sessionStorage.getItem("user"));
-      $("#username").text(user["name"]);
+      $("#username").text(user.name);
     }
     render();
   </script>
