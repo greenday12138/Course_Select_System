@@ -8,9 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a4a57a87-bcb4-465b-9f55-e7badc5da9be" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/Dao/SearchDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/SearchDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/servlet/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/servlet/Search.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/resources/pages/student/course_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/student/course_info.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,6 +43,7 @@
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -145,6 +143,8 @@
       <option name="presentableId" value="Default" />
       <updated>1574925201686</updated>
       <workItem from="1574925206869" duration="19382000" />
+      <workItem from="1575181745647" duration="1272000" />
+      <workItem from="1575183443514" duration="584000" />
     </task>
     <servers />
   </component>
@@ -156,7 +156,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
