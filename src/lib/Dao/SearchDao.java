@@ -135,7 +135,11 @@ public class SearchDao {
                     jsa.add(js);
                 }
             }
+<<<<<<< HEAD
         } catch (Exception e){
+=======
+        } catch (SQLException e) {
+>>>>>>> wyq
             e.printStackTrace();
         }
         return jsa;

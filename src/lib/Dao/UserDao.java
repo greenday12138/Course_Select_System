@@ -1,6 +1,7 @@
 package lib.Dao;
 
 import lib.Model.Student;
+import lib.Model.Teacher;
 import lib.Model.User;
 
 import java.sql.Connection;
@@ -20,7 +21,11 @@ public class UserDao {
             if(n==0) {
                  sql = "select * from student where Snumber=? and Spassword=?";
             }else {
+<<<<<<< HEAD
                  sql = "select * from teacher where Snumber=? and Spassword=?";
+=======
+                 sql = "select * from teacher where Tnumber=? and Tpassword=?";
+>>>>>>> wyq
             }
 
             pstmt = con.prepareStatement(sql);
@@ -39,7 +44,11 @@ public class UserDao {
                    // restltUser.setEmail(rs.getString());
                 }
                 else{
-                    
+                    resultUser = new Teacher();
+                    resultUser.setId(rs.getString("Tnumber"));
+                    resultUser.setPassword(rs.getString("Tpassword"));
+                    resultUser.setRole(n);
+                    resultUser.setName(rs.getString("Tname"));
                 }
             }
 

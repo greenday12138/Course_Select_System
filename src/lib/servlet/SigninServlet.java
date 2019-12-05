@@ -58,6 +58,7 @@ public class SigninServlet extends HttpServlet {
                 jsonObject.put("message", "Id or password errors.");
                 jsonObject.put("ur","");
                 resp.getWriter().write(jsonObject.toString());
+                System.out.println(jsonObject.toString());
             }
             else {
                 HttpSession session = req.getSession();
@@ -66,6 +67,10 @@ public class SigninServlet extends HttpServlet {
                 jsonObject.put("id", currentUser.getId());
                 jsonObject.put("name", currentUser.getName());
                 jsonObject.put("message", "success!");
+<<<<<<< HEAD
+=======
+                //jsonObject.put("ur", "teacher/index_teacher.html");
+>>>>>>> wyq
 
 
 
@@ -76,6 +81,10 @@ public class SigninServlet extends HttpServlet {
                 }
                 resp.setContentType("text/javascript;charset=utf-8");
                 resp.getWriter().write(jsonObject.toString());
+<<<<<<< HEAD
+=======
+                System.out.println(jsonObject.toString());
+>>>>>>> wyq
             }
         }
         catch (Exception e){

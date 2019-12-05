@@ -66,11 +66,19 @@ CREATE TABLE course
     Cproperty   VARCHAR(10),    -- 课程属性: 选修/必修
     Ccapacity   NUMERIC(3, 0)    CHECK (Ccapacity > 0),   -- 课容量
     Ctime       VARCHAR(10),   -- 上课时间
+<<<<<<< HEAD
     Cweek       VARCHAR(10) ,   -- 上课星期
     Csection    NUMERIC(4,0),    -- 上课节次
     Cschool     VARCHAR(20),    -- 校区
     Cfoor       VARCHAR(20),     --
     Croom       VARCHAR(20),   -- 上课教室
+=======
+    Cweek       VARCHAR(3) ,   -- 上课星期
+    Csection    NUMERIC(4,0),   -- 上课节次
+    Cschool     VARCHAR(5),    -- 校区
+    Cfoor       VARCHAR(15),   -- 教学楼
+    Croom       VARCHAR(15),   -- 教室
+>>>>>>> wyq
     Dnumber     VARCHAR(10),  -- 所属系号
     Mnumber     VARCHAR(10),  -- 所属的专业号
     PRIMARY KEY (Cnumber, Corder),

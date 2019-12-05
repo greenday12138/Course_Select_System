@@ -8,13 +8,14 @@ import java.sql.DriverManager;
  */
 public class Dbutil {
 
-    String url = "jdbc:mysql://localhost:3306/redPanda?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
+    String url = "jdbc:mysql://localhost:3306/dblab?"
+            + "user=root&password=981108wyq";
 
-    private String jdbcName="com.mysql.cj.jdbc.Driver";
+    private String jdbcName="com.mysql.jdbc.Driver";
 
     public Connection getCon() throws Exception{
         Class.forName(jdbcName);
-        Connection con = DriverManager.getConnection(url,"redPanda","135514");
+        Connection con = DriverManager.getConnection(url);
         return con;
     }
 
