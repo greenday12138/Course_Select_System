@@ -6,7 +6,13 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fb743a56-6b8e-4f83-9817-904012cb53a7" name="Default Changelist" comment="" />
+    <list default="true" id="fb743a56-6b8e-4f83-9817-904012cb53a7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/lib/Dao/CourseDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/servlet/course_addServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resources/pages/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resources/pages/teacher/course_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/teacher/course_add.html" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,6 +213,7 @@
       <workItem from="1575181276638" duration="13471000" />
       <workItem from="1575200666912" duration="5601000" />
       <workItem from="1575512727243" duration="475000" />
+      <workItem from="1575515131267" duration="5569000" />
     </task>
     <servers />
   </component>
