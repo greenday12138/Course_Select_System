@@ -120,7 +120,8 @@
           //   message:"",
           // }-> data
           //server should check input da
-          if(data.message==='success!'){
+          console.log(JSON.parse(data).message);
+          if(JSON.parse(data).message==='success!'){
             sessionStorage.setItem("user",data);
             window.location.assign(JSON.parse(data).ur);
           }
