@@ -349,9 +349,10 @@
        ]
       
       */
-      $.post("url", JSON.stringify({
+      $.post("http://localhost:8080/course_manage", {fromdata:JSON.stringify({
         'id': user.id
-      }), function (data) {
+      })}, function (data) {
+        data=JSON.parse(data);
         for (var i in data) {
           var info = {
             "id": data[i].id,

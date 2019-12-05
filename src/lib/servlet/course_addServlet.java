@@ -1,52 +1,47 @@
 package lib.servlet;
 
+import lib.Dao.CourseDao;
+import lib.Dao.Dbutil;
+
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 @WebServlet(urlPatterns = "/course_add", name = "course_add")
 public class course_addServlet extends HttpServlet{
-    /*Dbutil dbutil = new Dbutil();
+    Dbutil dbutil = new Dbutil();
     CourseDao courseDao = new CourseDao();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         super.doGet(req, resp);
     }
-
+/*
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String fromdata = req.getParameter("fromdata");
         System.out.println(fromdata);
         JSONObject jo=JSONObject.fromObject(fromdata);
         Map<String,String> map=jo;
-
-
         //String password=map.get("password");
 
         Course course = new Course();
-        Course.set(map.get("id"));
+        course.setCourse_name(map.get("name"));
+
         Connection con = null;
         try {
             Student currentStudent=null;
             Teacher currentTeacher=null;
             User currentUser=null;
-            if(len==5||len==13){
+
                 System.out.println("开始连接数据库");
                 con = dbutil.getCon();
                 System.out.println("数据库连接成功");
-                int l=len==13?0:1;
-                if(l==0){
 
-                    currentStudent= infoDao.getStudentInfo(con, user);
-                    currentUser=(User)currentStudent;
 
-                }
-
-                else{
-
-                    currentTeacher=infoDao.getTeacherInfo(con,user);
-                    currentUser=(User)currentTeacher;
-                }
 
             }
             if (currentUser==null){

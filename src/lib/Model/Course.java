@@ -96,6 +96,14 @@ public class Course {
         this.building = building;
     }
 
+    public int getOrder() {
+        return order;
+    }
+
+    public void setOrder(int order) {
+        this.order = order;
+    }
+
     public void setClassroom(String classroom) {
         this.classroom = classroom;
     }
@@ -109,5 +117,5 @@ public class Course {
     }
 
     String course_id,course_name,college,campus,section,attribute,weekday,course_seq,duration,building,classroom,capacity;
-    int credit;
+    int credit,order;
 }
