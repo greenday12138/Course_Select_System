@@ -8,10 +8,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a4a57a87-bcb4-465b-9f55-e7badc5da9be" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql/insertData.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/insertData.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/Dao/SearchDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/SearchDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/Dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/servlet/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/servlet/SearchServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/servlet/SigninServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/servlet/SigninServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resources/pages/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/resources/pages/student/course_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/student/course_info.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,7 +46,7 @@
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -150,7 +148,9 @@
       <workItem from="1574925206869" duration="19382000" />
       <workItem from="1575181745647" duration="1272000" />
       <workItem from="1575183443514" duration="2304000" />
-      <workItem from="1575186066748" duration="13272000" />
+      <workItem from="1575186066748" duration="14479000" />
+      <workItem from="1575204910718" duration="766000" />
+      <workItem from="1575512379604" duration="1410000" />
     </task>
     <servers />
   </component>

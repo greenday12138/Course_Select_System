@@ -542,7 +542,7 @@
       var teacher_name = $("#teacher_name").val();
       var college = $("#college").val();
       var campus = $("#campus").val();
-      var section = $("#secontion").val();
+      var section = $("#section").val();
       var attribute = $("#attribute").val();
       var weekday = $("#weekday").val();
 
@@ -582,24 +582,28 @@
           //     }
           // ]
           var str = "";
-          for (i in data) {
-            str += "<tr>" +
-              "<td>" + data[i].course_name + "</td>" +
-              "<td>" + data[i].course_id + "</td>" +
-              "<td>" + data[i].course_seq + "</td>" +
-              "<td>" + data[i].credit + "</td>" +
-              "<td>" + data[i].attribute + "</td>" +
-              "<td>" + data[i].teacher_name + "</td>" +
-              "<td>" + data[i].duration + "</td>" +
-              "<td>" + data[i].weekday + "</td>" +
-              "<td>" + data[i].section + "</td>" +
-              "<td>" + data[i].campus + "</td>" +
-              "<td>" + data[i].building + "</td>" +
-              "<td>" + data[i].classroom + "</td>" +
-              "<td>" + data[i].capacity + "</td>" +
-              "</tr>"
-          };
-          $("#example2_body").append(str);
+          if(data.length!=0) {
+
+            for (i in data) {
+              str += "<tr>" +
+                      "<td>" + data[i].course_name + "</td>" +
+                      "<td>" + data[i].course_id + "</td>" +
+                      "<td>" + data[i].course_seq + "</td>" +
+                      "<td>" + data[i].credit + "</td>" +
+                      "<td>" + data[i].attribute + "</td>" +
+                      "<td>" + data[i].teacher_name + "</td>" +
+                      "<td>" + data[i].duration + "</td>" +
+                      "<td>" + data[i].weekday + "</td>" +
+                      "<td>" + data[i].section + "</td>" +
+                      "<td>" + data[i].campus + "</td>" +
+                      "<td>" + data[i].building + "</td>" +
+                      "<td>" + data[i].classroom + "</td>" +
+                      "<td>" + data[i].capacity + "</td>" +
+                      "</tr>"
+            }
+            ;
+            $("#example2_body").append(str);
+          }
         })
     }
   </script>
