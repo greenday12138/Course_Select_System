@@ -545,8 +545,10 @@
       var section = $("#secont").val();
       var attribute = $("#attribute").val();
       var weekday = $("weekday").val();
+      var user=JSON.parse(sessionStorage.getItem('user'));
 
       var json={
+          'id':user.id,
           'course_id': course_id,
           'course_name': course_name,
           'teacher_name': teacher_name,
