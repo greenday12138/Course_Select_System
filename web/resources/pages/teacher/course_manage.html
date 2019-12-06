@@ -349,48 +349,69 @@
        ]
       
       */
-      $.post("url", JSON.stringify({
-        'id': user.id
-      }), function (data) {
-        for (var i in data) {
-          var info = {
-            "id": data[i].id,
-            "seq": data[i].seq,
-            "name": data[i].name,
-            "attribute": data[i].attribute,
-            "description": data[i].description,
-            "credit": data[i].credit,
-            "refer": data[i].refer,
-            "week_start": data[i].week_start,
-            "week_end": data[i].week_end,
-            "session": data[i].session
-          }
+      $.post("http://localhost:8080/course_manage",
+        {
+          fromdata: JSON.stringify({
+            'id': user.id
+          })
+        }, function (data) {
+          data = JSON.parse(data);
+          for (var i in data) {
+            var info = {
+              "id": data[i].id,
+              "seq": data[i].seq,
+              "name": data[i].name,
+              "attribute": data[i].attribute,
+              "description": data[i].description,
+              "credit": data[i].credit,
+              "refer": data[i].refer,
+              "week_start": data[i].week_start,
+              "week_end": data[i].week_end,
+              "session": data[i].session
+            }
 
-          var row = "";
-          var temp = "";
-          if (data[i].attribute == 0) {
-            //optional
-            temp += "<td class='project-state'>" +
-              "<span class='badge badge-info'>选修</span>" +
-              "</td>"
+            var row = "";
+            var temp = "";
+            if (data[i].attribute == 0) {
+              //optional
+              temp += "<td class='project-state'>" +
+                "<span class='badge badge-info'>选修</span>" +
+                "</td>"
+            }
+            else {
+              //obigatory
+              temp += "<td class='project-state'>" +
+                "<span class='badge badge-success'>必修</span>" +
+                "</td>"
+            }
+            row += "<tr>" +
+              "<td>" + "<b>" + data[i].name + "</b>" + "</td>" +
+              "<td>" + data[i].id + "</td>" +
+              "<td>" + data[i].seq + "</td>" +
+              temp +
+              "<td>" + data[i].credit + "</td>" +
+              "</tr>" +
+              `<td class="project-actions text-right">
+                    <a class="btn btn-primary btn-sm" href="course_detail.html" detail>
+                      <i class="fas fa-folder">
+                      </i>
+                      详细
+                    </a>
+                    <a class="btn btn-info btn-sm" href="course_edit.html" edit>
+                      <i class="fas fa-pencil-alt">
+                      </i>
+                      编辑
+                    </a>
+                    <button class="btn btn-danger btn-sm" delete>
+                      <i class="fas fa-trash">
+                      </i>
+                      删除
+                    </button>
+                  </td>`;
+            $("#course_list").append(row);
+            localStorage.setItem("" + data[i].id + data[i].seq, JSON.stringify(data[i]));
           }
-          else {
-            //obigatory
-            temp += "<td class='project-state'>" +
-              "<span class='badge badge-success'>必修</span>" +
-              "</td>"
-          }
-          row += "<tr>" +
-            "<td>" + "<b>" + data[i].name + "</b>" + "</td>" +
-            "<td>" + data[i].id + "</td>" +
-            "<td>" + data[i].seq + "</td>" +
-            temp +
-            "<td>" + data[i].credit + "</td>" +
-            "</tr>"
-          $("#course_list").append(row);
-          localStorage.setItem("" + data[i].id + data[i].seq, JSON.stringify(data[i]));
-        }
-      })
+        })
 
       //detail button
       $("a[detail]").each(function () {

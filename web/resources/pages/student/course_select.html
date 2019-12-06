@@ -503,7 +503,7 @@
           }
           // produce choose list
         })
-        $.post("url", JSON.stringify(jsonStr), function () {
+        $.post("http://localhost:8080/dbLab_war_exploded/select", JSON.stringify(jsonStr), function () {
           //已选课程的disable问题
         })
       })
@@ -518,19 +518,17 @@
       var section = $("#secont").val();
       var attribute = $("#attribute").val();
       var weekday = $("weekday").val();
-      var json={
-        'course_id': course_id,
-        'course_name': course_name,
-        'teacher_name': teacher_name,
-        'college': college,
-        'campus': campus,
-        'section': section,
-        'attribute': attribute,
-        'weekday': weekday,
-        'code':"1"
-      };
-      $.post("http://localhost:8080/dbLab_war_exploded/search",
-        {fromdata:JSON.stringify(json)},
+
+      $.post("http://localhost:8080/dbLab_war_exploded/signin", {fromdata:JSON.stringify({
+        course_id: course_id,
+        course_name: course_name,
+        teacher_name: teacher_name,
+        college: college,
+        campus: campus,
+        section: section,
+        attribute: attribute,
+        weekday: weekday,
+      })},
         function (data) {
         data=JSON.parse(data)
           // data -> server returned json 
