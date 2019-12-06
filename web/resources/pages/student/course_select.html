@@ -519,19 +519,16 @@
       var attribute = $("#attribute").val();
       var weekday = $("weekday").val();
 
-      $.post("url",
-        {
-          course_id: course_id,
-          course_name: course_name,
-          teacher_name: teacher_name,
-          college: college,
-          campus: campus,
-          section: section,
-          attribute: attribute,
-          weekday: weekday,
-
-          type: JSON
-        },
+      $.post("url", JSON.stringify({
+        course_id: course_id,
+        course_name: course_name,
+        teacher_name: teacher_name,
+        college: college,
+        campus: campus,
+        section: section,
+        attribute: attribute,
+        weekday: weekday,
+      }),
         function (data) {
           // data -> server returned json 
           // [
