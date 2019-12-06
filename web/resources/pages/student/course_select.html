@@ -518,17 +518,19 @@
       var section = $("#secont").val();
       var attribute = $("#attribute").val();
       var weekday = $("weekday").val();
+      var user=JSON.parse(sessionStorage.getItem('user'));
 
-      $.post("http://localhost:8080/dbLab_war_exploded/signin", {fromdata:JSON.stringify({
-        course_id: course_id,
-        course_name: course_name,
-        teacher_name: teacher_name,
-        college: college,
-        campus: campus,
-        section: section,
-        attribute: attribute,
-        weekday: weekday,
-      })},
+      $.post("url", JSON.stringify({
+        'id':user.id,
+        'course_id': course_id,
+        'course_name': course_name,
+        'teacher_name': teacher_name,
+        'college': college,
+        'campus': campus,
+        'section': section,
+        'attribute': attribute,
+        'weekday': weekday,
+      }),
         function (data) {
         data=JSON.parse(data)
           // data -> server returned json 
