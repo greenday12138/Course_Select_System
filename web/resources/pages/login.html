@@ -120,14 +120,14 @@
           //   message:"",
           // }-> data
           //server should check input da
-          console.log(JSON.parse(data).message);
-          if(JSON.parse(data).message==='success!'){
-            sessionStorage.setItem("user",data);
-            window.location.assign(JSON.parse(data).ur);
-          }
-          else{
-            info.html("用户ID或者密码错误");
-          } 
+          console.log(data);
+            if(JSON.parse(data).message==="success!") {
+              sessionStorage.setItem("user", data);
+              window.location.assign(JSON.parse(data).ur);
+            }
+            else{
+              info.html("用户ID或者密码错误！");
+            }
 
 
          // window.location.href=JSON.stringify(data).url;

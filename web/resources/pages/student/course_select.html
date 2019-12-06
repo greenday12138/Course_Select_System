@@ -518,21 +518,21 @@
       var section = $("#secont").val();
       var attribute = $("#attribute").val();
       var weekday = $("weekday").val();
-
-      $.post("url",
-        {
-          course_id: course_id,
-          course_name: course_name,
-          teacher_name: teacher_name,
-          college: college,
-          campus: campus,
-          section: section,
-          attribute: attribute,
-          weekday: weekday,
-
-          type: JSON
-        },
+      var json={
+        'course_id': course_id,
+        'course_name': course_name,
+        'teacher_name': teacher_name,
+        'college': college,
+        'campus': campus,
+        'section': section,
+        'attribute': attribute,
+        'weekday': weekday,
+        'code':"1"
+      };
+      $.post("http://localhost:8080/dbLab_war_exploded/search",
+        {fromdata:JSON.stringify(json)},
         function (data) {
+        data=JSON.parse(data)
           // data -> server returned json 
           // [
           //     {
