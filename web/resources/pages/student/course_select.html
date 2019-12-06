@@ -484,9 +484,9 @@
   <script>
     $(function () {
       var user = JSON.parse(sessionStorage.getItem("user"));
-      $("#username").text(username);
+      $("#username").text(user.name);
 
-      $("#search").click(search());
+      $("#search").click(search);
       $("#submit").click(function () {
         var jsonStr = [];
         $("input[data-bootstrap-switch]").each(function () {

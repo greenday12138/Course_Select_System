@@ -7,14 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4a57a87-bcb4-465b-9f55-e7badc5da9be" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/lib/Dao/CourseDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/servlet/SelectServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/servlet/course_addServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/resources/pages/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/resources/pages/student/course_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/student/course_info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/Dao/SearchDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/SearchDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/resources/pages/student/course_select.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/student/course_select.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/resources/pages/teacher/course_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/teacher/course_add.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
