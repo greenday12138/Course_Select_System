@@ -2,6 +2,8 @@ package lib.servlet;
 
 import lib.Dao.CourseDao;
 import lib.Dao.Dbutil;
+import lib.Model.Course;
+import net.sf.json.JSONObject;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Connection;
+import java.util.Map;
 
 @WebServlet(urlPatterns = "/course_add", name = "course_add")
 public class course_addServlet extends HttpServlet{
@@ -19,7 +23,7 @@ public class course_addServlet extends HttpServlet{
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         super.doGet(req, resp);
     }
-/*
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String fromdata = req.getParameter("fromdata");
@@ -27,76 +31,41 @@ public class course_addServlet extends HttpServlet{
         JSONObject jo=JSONObject.fromObject(fromdata);
         Map<String,String> map=jo;
         //String password=map.get("password");
-
+        CourseDao courseDao=new CourseDao();
         Course course = new Course();
+        course.setTeacher_id(map.get("id"));
         course.setCourse_name(map.get("name"));
+        course.setAttribute(map.get("attribute"));
+        course.setDuration(map.get("duration"));
+        course.setWeekday(map.get("days"));
+        course.setDescription(map.get("description"));
+        course.setRefer(map.get("refer"));
+        course.setWeek_end(map.get("week_start"));
+        course.setWeek_end(map.get("week_end"));
+
+
 
         Connection con = null;
         try {
-            Student currentStudent=null;
-            Teacher currentTeacher=null;
-            User currentUser=null;
-
-                System.out.println("开始连接数据库");
-                con = dbutil.getCon();
-                System.out.println("数据库连接成功");
-
-
-
-            }
-            if (currentUser==null){
-                System.out.println("出错");
+            System.out.println("开始连接数据库");
+            con = dbutil.getCon();
+            System.out.println("数据库连接成功");
+            Course resultCourse = courseDao.course_add(con, course);
+            if (resultCourse == null) {
+                System.out.println("添加课程出错");
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.put("id", "");
-                jsonObject.put("name", "");
-                jsonObject.put("message", "Id errors.");
-                jsonObject.put("ur","");
+                jsonObject.put("seq", "");
+                jsonObject.put("message", "add course error.");
+                jsonObject.put("ur", "");
                 resp.getWriter().write(jsonObject.toString());
                 System.out.println(jsonObject.toString());
-            }
-            else {
-                HttpSession session = req.getSession();
-                session.setAttribute("currentUser", currentUser);
+            } else {
                 JSONObject jsonObject = new JSONObject();
-
-                //jsonObject.put("ur", "teacher/index_teacher.html");
-
-
-
-                if (currentUser.getRole() == 0) {
-                    jsonObject.put("id", currentStudent.getId());
-                    jsonObject.put("name", currentStudent.getName());
-                    jsonObject.put("gender",currentStudent.getSex());
-                    jsonObject.put("university","四川大学");
-                    jsonObject.put("college",currentStudent.getDepartment());
-                    jsonObject.put("major",currentStudent.getMajor());
-                    jsonObject.put("highschool",currentStudent.getHighschool());
-                    jsonObject.put("birthplace",currentStudent.getOrigo());
-                    jsonObject.put("tel",currentStudent.getTellphone());
-                    jsonObject.put("email",currentStudent.getEmail());
-                    jsonObject.put("hobby",currentStudent.getHobby());
-                    jsonObject.put("message", "success!");
-
-                    //jsonObject.put("ur", "student/index_student.html");
-                } else if(currentUser.getRole() == 1){
-                    jsonObject.put("id", currentTeacher.getId());
-                    jsonObject.put("name", currentTeacher.getName());
-                    jsonObject.put("gender",currentTeacher.getTsex());
-                    jsonObject.put("university","四川大学");
-                    jsonObject.put("college",currentTeacher.getCollege());
-                    jsonObject.put("department",currentTeacher.getDepartment());
-                    jsonObject.put("post",currentTeacher.getTpost());
-                    jsonObject.put("office",currentTeacher.getTplace());
-                    jsonObject.put("tel",currentTeacher.getTphone());
-                    jsonObject.put("email",currentTeacher.getTemail());
-                    jsonObject.put("interest",currentTeacher.getTresearch());
-                    jsonObject.put("personal_web",currentTeacher.getTwebsite());
-                    jsonObject.put("zhiwu",currentTeacher.getTzhiwu());
-                    jsonObject.put("intro",currentTeacher.getTselfsummary());
-                    jsonObject.put("honor",currentTeacher.getTachievement());
-                    jsonObject.put("message", "success!");
-                    //jsonObject.put("ur", "teacher/index_teacher.html");
-                }
+                jsonObject.put("id", resultCourse.getCourse_id());
+                jsonObject.put("seq", resultCourse.getOrder());
+                jsonObject.put("message","success!");
+                jsonObject.put("ur","course_manage.html");
                 resp.setContentType("text/javascript;charset=utf-8");
                 resp.getWriter().write(jsonObject.toString());
                 System.out.println(jsonObject.toString());
@@ -112,5 +81,5 @@ public class course_addServlet extends HttpServlet{
                 e.printStackTrace();
             }
         }
-    }*/
+    }
 }

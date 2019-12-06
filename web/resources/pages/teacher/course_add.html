@@ -183,11 +183,11 @@
               </div>
               <div class="card-body">
                 <div class="form-group">
-                  <label for="duration">每次上课节次</label>
+                  <label for="duration">每次上课节次(请按照格式输入，如0304表示第三小节第四小节课)</label>
                   <input type="number" id="duration" class="form-control">
                 </div>
                 <div class="form-group">
-                  <label for="days">每周上课天数</label>
+                  <label for="days">每周上课星期</label>
                   <input type="number" id="days" class="form-control">
                 </div>
                 <div class="form-group">
@@ -267,6 +267,7 @@
         var week_end=week_range[1];
         var days = $("#days").val();
         var info = {
+          "id":user.id,
           "name": name,
           "attribute": attribute,
           "description": description,
@@ -285,6 +286,8 @@
             //   seq:
             // }
             //success action use bootstrap modal extension add course to localstorage
+            console.log(data);
+            data=JSON.parse(data);
             info["id"] = data.id;
             info["seq"] = data.seq;
 
@@ -292,6 +295,13 @@
             index += data.id;
             index += data.seq;
             localStorage.setItem(index, JSON.stringify(info));
+            if(data.message==="success!") {
+
+              window.location.assign(data.ur);
+            }
+            else{
+              alert("开课失败！");
+            }
           })
       })
     })
