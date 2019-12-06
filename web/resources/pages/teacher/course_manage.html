@@ -425,11 +425,10 @@
           var course_id = $(this).parent().siblings().eq(1).text();
           var course_seq = $(this).parent().siblings().eq(2).text();
           //server delete item
-          $.post("url",
-            {
-              "course_id": course_id,
-              "course_seq": course_seq
-            },
+          $.post("http://localhost:8080/t_delete",{fromdata:JSON.stringify({
+                      "course_id": course_id,
+                      "course_seq": course_seq
+                    })},
             function () {
               localStorage.removeItem("" + course_id + course_seq);
               $(this).parent().parent().remove();

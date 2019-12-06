@@ -7,11 +7,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fb743a56-6b8e-4f83-9817-904012cb53a7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/lib/servlet/TdeleteServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/servlet/course_DetailServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/servlet/course_EditServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/Dao/CourseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/CourseDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/Model/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Model/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/servlet/course_addServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/servlet/course_addServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/resources/pages/teacher/course_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/teacher/course_add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resources/pages/teacher/course_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/teacher/course_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resources/pages/teacher/course_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/teacher/course_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resources/pages/teacher/course_manage.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/teacher/course_manage.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -216,6 +219,7 @@
       <workItem from="1575515131267" duration="8771000" />
       <workItem from="1575535919252" duration="6671000" />
       <workItem from="1575608478349" duration="13765000" />
+      <workItem from="1575628108148" duration="11791000" />
     </task>
     <servers />
   </component>
