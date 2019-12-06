@@ -42,7 +42,6 @@ CREATE TABLE student
 CREATE TABLE teacher 
 (
     Tnumber     VARCHAR(10),  -- 工号
-    Tpassword  VARCHAR(20), -- 密码
     Tname       VARCHAR(10),  -- 姓名
     Tsex        VARCHAR(2),   -- 性别
     Tpassword   VARCHAR(20),  -- 密码
@@ -84,9 +83,10 @@ CREATE TABLE sc
     scnumber    VARCHAR(10),  
     Snumber     VARCHAR(13),  -- 学号
     Cnumber     VARCHAR(10),  -- 课程号
+    Corder      NUMERIC(2, 0), -- 课序号   
     PRIMARY KEY (scnumber),
     FOREIGN KEY (Snumber) REFERENCES student(Snumber),
-    FOREIGN KEY (Cnumber) REFERENCES course(Cnumber)
+    FOREIGN KEY (Cnumber, Corder) REFERENCES course(Cnumber, Corder)
 );
 
 
@@ -95,9 +95,10 @@ CREATE TABLE tc
     tcnumber    VARCHAR(10),
     Tnumber     VARCHAR(10),  -- 工号
     Cnumber     VARCHAR(10),   -- 课程号
+    Corder      NUMERIC(2, 0), -- 课序号
     PRIMARY KEY (tcnumber),
     FOREIGN KEY (Tnumber) REFERENCES teacher(Tnumber),
-    FOREIGN KEY (Cnumber) REFERENCES course(Cnumber)
+    FOREIGN KEY (Cnumber, Corder) REFERENCES course(Cnumber, Corder)
 );
 
 
