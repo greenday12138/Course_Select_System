@@ -328,12 +328,12 @@
   <!-- coder custom render -->
   <script>
     $(function () {
-      var user = JSON.parse(sessionStorage.setItem("user"));
+      var user = JSON.parse(sessionStorage.getItem("user"));
       $("#username").text(user.name);
       $("#name").text(user.name);
       $("#id").text(user.id);
 
-      $.post("url", JSON.stringify(user), page_render(data));
+      $.post("http://localhost:8080/info", {fromdata:JSON.stringify(user)}, function(data){page_render(data);console.log(data);});
 
       $("#submit").click(function () {
 

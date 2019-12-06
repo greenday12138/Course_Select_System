@@ -96,6 +96,14 @@ public class Course {
         this.building = building;
     }
 
+    public int getOrder() {
+        return order;
+    }
+
+    public void setOrder(int order) {
+        this.order = order;
+    }
+
     public void setClassroom(String classroom) {
         this.classroom = classroom;
     }
@@ -108,6 +116,81 @@ public class Course {
         this.credit = credit;
     }
 
-    String course_id,course_name,college,campus,section,attribute,weekday,course_seq,duration,building,classroom,capacity;
-    int credit;
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getRefer() {
+        return refer;
+    }
+
+    public void setRefer(String refer) {
+        this.refer = refer;
+    }
+
+    public String getWeek_start() {
+        return week_start;
+    }
+
+    public void setWeek_start(String week_start) {
+        this.week_start = week_start;
+    }
+
+    public String getWeek_end() {
+        return week_end;
+    }
+
+    public void setWeek_end(String week_end) {
+        this.week_end = week_end;
+    }
+
+    public String getTeacher_id() {
+        return teacher_id;
+    }
+
+    public void setTeacher_id(String teacher_id) {
+        this.teacher_id = teacher_id;
+    }
+
+
+
+    public String getDname() {
+        return Dname;
+    }
+
+    public void setDname(String dname) {
+        Dname = dname;
+    }
+
+    public String getMname() {
+        return Mname;
+    }
+
+    public void setMname(String mname) {
+        Mname = mname;
+    }
+    String teacher_id;
+    String course_id;
+    String course_name;
+    String college;
+    String campus;
+    String section;
+    String attribute;
+    String weekday;
+    String course_seq;
+    String duration;
+    String building;
+    String classroom;
+    String capacity;
+    String description;
+    String refer;
+    String week_start;
+    String week_end;
+    String Dname;
+    String Mname;
+    int credit,order;
 }
