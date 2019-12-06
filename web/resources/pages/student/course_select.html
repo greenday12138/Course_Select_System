@@ -484,9 +484,9 @@
   <script>
     $(function () {
       var user = JSON.parse(sessionStorage.getItem("user"));
-      $("#username").text(username);
+      $("#username").text(user.name);
 
-      $("#search").click(search());
+      $("#search").click(search);
       $("#submit").click(function () {
         var jsonStr = [];
         $("input[data-bootstrap-switch]").each(function () {
@@ -520,14 +520,14 @@
       var weekday = $("weekday").val();
 
       $.post("url", JSON.stringify({
-        course_id: course_id,
-        course_name: course_name,
-        teacher_name: teacher_name,
-        college: college,
-        campus: campus,
-        section: section,
-        attribute: attribute,
-        weekday: weekday,
+        'course_id': course_id,
+        'course_name': course_name,
+        'teacher_name': teacher_name,
+        'college': college,
+        'campus': campus,
+        'section': section,
+        'attribute': attribute,
+        'weekday': weekday,
       }),
         function (data) {
           // data -> server returned json 
