@@ -7,10 +7,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4a57a87-bcb4-465b-9f55-e7badc5da9be" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/dbLab.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/Dao/StuSelectDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/servlet/TdeleteServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/servlet/course_DetailServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/servlet/course_EditServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbLab1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/dbLab1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql/createTable.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/createTable.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql/insertData.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/insertData.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/Dao/CourseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/CourseDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/Dao/Dbutil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/Dbutil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/Dao/DeleteDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/DeleteDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/Dao/SelectDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/SelectDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/servlet/DeleteServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/servlet/DeleteServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/servlet/SelectDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/servlet/SelectServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/servlet/SelectServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/servlet/SelectedServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/servlet/SelectedServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/resources/pages/student/chosen_course.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/student/chosen_course.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resources/pages/teacher/course_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/teacher/course_add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resources/pages/teacher/course_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/teacher/course_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resources/pages/teacher/course_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/teacher/course_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resources/pages/teacher/course_manage.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/teacher/course_manage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resources/pages/teacher/teacher_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/teacher/teacher_info.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,16 +63,18 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectId" id="1UEcTL3Wphq9wJlexr8SQMwYLxb" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="490" />
+    <option name="y" value="20" />
+    <option name="width" value="1280" />
+    <option name="height" value="680" />
   </component>
+  <component name="ProjectId" id="1UEcTL3Wphq9wJlexr8SQMwYLxb" />
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF/lib" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1575704659165" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/lib/servlet/SelectDao.java" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -60,7 +84,8 @@
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/src/lib/servlet/SelectDao.java" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -74,22 +99,23 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 8.5.45">
-    <configuration name="Dbutil" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="lib.Dao.Dbutil" />
-      <module name="SelectCource-master" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="lib.Dao.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <module name="dbLab1" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="Tomcat 8.5.45" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" editBeforeRun="true" APPLICATION_SERVER_NAME="Tomcat 8.5.45" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="11" nameIsGenerated="true">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/dbLab_war_exploded/resources/pages/login.html" />
+      <option name="COMMON_VM_ARGUMENTS" value="-Dfile.encoding=UTF-8" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="dbLab:war exploded">
@@ -99,7 +125,7 @@
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="Unnamed_SelectCource-master" />
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_dbLab" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -107,7 +133,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="50265" />
+        <option name="DEBUG_PORT" value="50920" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -155,15 +181,12 @@
         </SHUTDOWN>
       </ConfigurationWrapper>
       <method v="2">
+        <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
           <artifact name="dbLab:war exploded" />
         </option>
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Application.Dbutil" />
-      <item itemvalue="Tomcat Server.Tomcat 8.5.45" />
-    </list>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -171,7 +194,7 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="a4a57a87-bcb4-465b-9f55-e7badc5da9be" name="Default Changelist" comment="" />
-      <created>1572167651165</created>
+      <created>1575692743848</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574925201686</updated>
@@ -189,6 +212,9 @@
       <workItem from="1575689748960" duration="430000" />
       <workItem from="1575690203056" duration="6874000" />
       <workItem from="1575698888775" duration="1978000" />
+      <workItem from="1575711801903" duration="637000" />
+      <workItem from="1575712463431" duration="686000" />
+      <workItem from="1575713173561" duration="1160000" />
     </task>
     <servers />
   </component>

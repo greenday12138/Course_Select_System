@@ -386,7 +386,7 @@
       }
 
       //request student list from server
-      $.post("url", sessionStorage.getItem("course"),
+      $.post("http:localhost:8080/dbLab_war_exploded/course_Detail", {fromdata:sessionStorage.getItem("course")},
         function (data) {
           /*
           data format:
@@ -401,6 +401,7 @@
             }
           ]
           */
+          data=JSON.parse(data);
           for (var i in data) {
             $("#student_list").append(
               "<tr>" +

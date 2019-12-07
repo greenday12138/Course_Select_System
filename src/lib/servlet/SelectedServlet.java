@@ -5,13 +5,14 @@ import net.sf.json.JSONArray;
 import lib.Dao.DeleteDao;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Connection;
 
 @WebServlet(urlPatterns = "/selected", name = "selected")
-public class SelectedServlet {
+public class SelectedServlet extends HttpServlet {
     Dbutil dbutil = new Dbutil();
 
     @Override
@@ -28,7 +29,8 @@ public class SelectedServlet {
         Connection con=null;
         try{
             con=dbutil.getCon();
-            JSONArray ja=selected(id,con);
+            DeleteDao dl=new DeleteDao();
+            JSONArray ja=dl.selected(id,con);
             System.out.println(ja.toString());
             resp.setContentType("text/javascript;charset=utf-8");
             resp.getWriter().write(ja.toString());

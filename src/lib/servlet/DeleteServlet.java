@@ -2,7 +2,7 @@ package lib.servlet;
 
 import lib.Dao.Dbutil;
 import net.sf.json.JSONObject;
-
+import lib.Dao.DeleteDao;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,10 +31,11 @@ public class DeleteServlet extends HttpServlet {
         Connection con=null;
         try{
             con=dbutil.getCon();
-            String res=delete(map,con);
-           /* System.out.println(jsa.toString());
+            DeleteDao dl=new DeleteDao();
+            JSONObject res=dl.delete(map,con);
+            System.out.println(res.toString());
             resp.setContentType("text/javascript;charset=utf-8");
-            resp.getWriter().write(jsa.toString());*/
+            resp.getWriter().write(res.toString());
         }
         catch(Exception e){
             e.printStackTrace();

@@ -349,7 +349,7 @@
        ]
       
       */
-      $.post("http://localhost:8080/course_manage",
+      $.post("http://localhost:8080/dbLab_war_exploded/course_manage",
         {
           fromdata: JSON.stringify({
             'id': user.id
@@ -390,7 +390,7 @@
               "<td>" + data[i].seq + "</td>" +
               temp +
               "<td>" + data[i].credit + "</td>" +
-              "</tr>" +
+
               `<td class="project-actions text-right">
                     <a class="btn btn-primary btn-sm" href="course_detail.html" detail>
                       <i class="fas fa-folder">
@@ -407,7 +407,7 @@
                       </i>
                       删除
                     </button>
-                  </td>`;
+                  </td>`+"</tr>";
             $("#course_list").append(row);
             localStorage.setItem("" + data[i].id + data[i].seq, JSON.stringify(data[i]));
           }
@@ -441,15 +441,17 @@
 
       //delete button
       $("button[delete]").each(function () {
+          console.log($(this).html());
         $(this).click(function () {
-          var course_id = $(this).parent().siblings().eq(1).text();
-          var course_seq = $(this).parent().siblings().eq(2).text();
+            console.log($(this).html());
+          var course_id = $(this).parent().siblings().eq(1).text().toString().split().pop();
+          var course_seq = $(this).parent().siblings().eq(2).text().toString().split().pop();
+          console.log(course_id+' '+course_seq );
           //server delete item
-          $.post("url",
-            {
-              "course_id": course_id,
-              "course_seq": course_seq
-            },
+          $.post("http://localhost:8080/dbLab_war_exploded/t_delete",{fromdata:JSON.stringify({
+                      "course_id": course_id,
+                      "course_seq": course_seq
+                    })},
             function () {
               localStorage.removeItem("" + course_id + course_seq);
               $(this).parent().parent().remove();

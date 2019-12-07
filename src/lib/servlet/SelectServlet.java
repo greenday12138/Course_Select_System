@@ -1,8 +1,9 @@
 package lib.servlet;
 
 import lib.Dao.Dbutil;
-import net.sf.json.JSONArray;
 import lib.Dao.SelectDao;
+import net.sf.json.JSONArray;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,7 +31,8 @@ public class SelectServlet extends HttpServlet {
         Connection con=null;
         try{
             con = dbutil.getCon();
-            JSONArray result=select(ja,con,id);
+            SelectDao sl=new SelectDao();
+            JSONArray result=sl.select(ja,con,id);
             System.out.println(result.toString());
             resp.setContentType("text/javascript;charset=utf-8");
             resp.getWriter().write(result.toString());
