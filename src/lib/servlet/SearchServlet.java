@@ -1,6 +1,5 @@
 package lib.servlet;
 
-import com.mysql.cj.xdevapi.JsonArray;
 import lib.Dao.Dbutil;
 import lib.Dao.SearchDao;
 import net.sf.json.JSONArray;
@@ -35,8 +34,7 @@ public class SearchServlet extends HttpServlet {
         try{
             con=dbutil.getCon();
             SearchDao ud=new SearchDao();
-            JSONArray jsa=new JSONArray();
-            jsa=ud.Search(map,con);
+            JSONArray jsa=ud.Search(map,con);
             System.out.println(jsa.toString());
             resp.setContentType("text/javascript;charset=utf-8");
             resp.getWriter().write(jsa.toString());
