@@ -28,46 +28,64 @@ public class SearchDao {
         cr.setSection(map.get("section"));//没有给我section
         cr.setAttribute(map.get("attribute"));//
         cr.setWeekday(map.get("weekday"));//没有给我weekday
-        String id=map.get("student_id");
+        String id=map.get("id");
         PreparedStatement pstmt=null;
         //System.out.println(cr);
         //System.out.println(tr);
-
+        
         try {
             String sql = null;
-            sql="select distinct Cnumber ,Tname from tc,teacher where tc.Tnumber=teacher.Tnumber and teacher.Tname like ?";
+            sql="select distinct Cnumber,Corder ,Tname from tc,teacher where tc.Tnumber=teacher.Tnumber and teacher.Tname like ?";
             pstmt=con.prepareStatement(sql);
-            //System.out.println("%"+tr.getName()+"%");
+            System.out.println("%"+tr.getName()+"%");
             pstmt.setString(1,"%"+tr.getName()+"%");
             ResultSet rs=pstmt.executeQuery();
-            Set<String> set1=new HashSet<String>();
+            Set<Course> set1=new HashSet<Course>();
             Map<String,String> maptc=new HashMap<>();
+            Course tmp=null;
             while(rs.next()){
-                //System.out.println("老师数据加一");
-                set1.add(rs.getString("Cnumber"));
+                tmp=new Course();
+                System.out.println("老师数据加一");
+                tmp.setCourse_id(rs.getString("Cnumber"));
+                tmp.setCourse_seq(Integer.toString(rs.getInt("Corder")));
+                set1.add(tmp);
                 if(!tr.getName().equals(rs.getString("Tname"))) {
-                   // System.out.println("老师名字有变化");
+                    System.out.println("老师名字有变化");
                     tr.setName(rs.getString("Tname"));
-                   // System.out.println(tr.getName());
-                    maptc.put(rs.getString("Cnumber"),rs.getString("Tname"));
+                    System.out.println(tr.getName());
+                    maptc.put(rs.getString("Cnumber")+rs.getInt("Corder"),rs.getString("Tname"));
                 }
             }
-            sql="select distinct Dname,Cnumber from course,department where course.Dnumber=department.Dnumber And Dname like ?";
+            String selected=null;
+            sql="select Cnumber,Corder from sc where Snumber="+id+";";
             pstmt=con.prepareStatement(sql);
-            //System.out.println("%"+cr.getCollege()+"%");
+            rs=pstmt.executeQuery();
+            Set<Course>set3=new HashSet<>();
+            if(rs.next()){
+                tmp=new Course();
+                tmp.setCourse_id(rs.getString("Cnumber"));
+                tmp.setCourse_seq(Integer.toString(rs.getInt("Corder")));
+                set3.add(tmp);
+            }
+            sql="select distinct Dname,Cnumber,Corder from course,department where course.Dnumber=department.Dnumber And Dname like ?";
+            pstmt=con.prepareStatement(sql);
+            System.out.println("%"+cr.getCollege()+"%");
             pstmt.setString(1,"%"+cr.getCollege()+"%");
             rs=pstmt.executeQuery();
-            Set<String> set2=new HashSet<String>();
+            Set<Course> set2=new HashSet<Course>();
             Map<String,String> mapdc=new HashMap<>();
             while(rs.next()){
-               // System.out.println("有吗");
+                tmp=new Course();
+                tmp.setCourse_id(rs.getString("Cnumber"));
+                tmp.setCourse_seq(Integer.toString(rs.getInt("Corder")));
+                System.out.println("有吗");
                 if(!cr.getCollege().equals(rs.getString("Dname"))) {
-                   // System.out.println("学院名字有变化了");
+                    System.out.println("学院名字有变化了");
                     cr.setCollege(rs.getString("Dname"));
-                 //   System.out.println(cr.getCollege());
-                    mapdc.put(rs.getString("Cnumber"),rs.getString("Dname"));
+                    System.out.println(cr.getCollege());
+                    mapdc.put(rs.getString("Cnumber")+rs.getString("Corder"),rs.getString("Dname"));
                 }
-                set2.add(rs.getString("Cnumber"));
+                set2.add(tmp);
             }
             sql = "select * from course where Cnumber like ? AND Cname like ? AND Cschool like ? AND Cproperty like ? AND Cweek like ?  ";
             pstmt = con.prepareStatement(sql);
@@ -79,21 +97,27 @@ public class SearchDao {
             rs = pstmt.executeQuery();
             JSONObject js = null;
             while(rs.next()) {
+                System.out.println("有课啊");
+                tmp=new Course();
+                tmp.setCourse_id(rs.getString("Cnumber"));
+                tmp.setCourse_seq(Integer.toString(rs.getInt("Corder")));
                 String sec=null;
                 boolean p=false;
                 if(!cr.getSection().equals("")) {
-                    //System.out.println("是的");
+                    System.out.println("是的");
                     int tem = rs.getInt("Csection");
                     int ta = tem % 100;
                     int tb = tem / 100;
                     if (Integer.parseInt(cr.getSection()) >= tb && Integer.parseInt(cr.getSection()) <= ta) {
                         p = true;
-                      //  System.out.println("yes");
+                        System.out.println("yes");
                     }
                 }
                 else
                     p=true;
-                if(p&&set1.contains(rs.getString("Cnumber"))&&set2.contains(rs.getString("Cnumber"))){
+                System.out.println("set1?"+set1.contains(tmp));
+                System.out.println("set2?"+set2.contains(tmp));
+                if(p&&set1.contains(tmp)&&set2.contains(tmp)){
                     /*
                     if(tr.getName().equals("")){
                         sql="select distinct Tname from tc,teacher where "+rs.getString("Cnumber")+"=Cnumber and teacher.Tnumber=tc.Tnumber";
@@ -111,8 +135,10 @@ public class SearchDao {
                             cr.setCollege(rrr.getString("Dname"));
                     }
                     */
-                    String selected=null;
-                    sql="select Cnumber from sc where Snumber";
+                    if(set3.contains(tmp))
+                        selected="1";
+                    else
+                        selected="0";
                     js=new JSONObject();
                     Course crp = new Course();
                     int tem = rs.getInt("Csection");
@@ -131,8 +157,9 @@ public class SearchDao {
                     js.put("credit",rs.getInt("Ccredit"));
                     js.put("section",sec);
                     js.put("duration",rs.getString("Ctime"));
-                    js.put("teacher_name",maptc.get(rs.getString("Cnumber")));
+                    js.put("teacher_name",maptc.get(rs.getString("Cnumber")+rs.getInt("Corder")));
                     js.put("college",mapdc.get(rs.getString("Cnumber")));
+                    js.put("selected",selected);
                     //添加json项
                     jsa.add(js);
                 }

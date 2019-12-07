@@ -533,7 +533,7 @@
       var user = JSON.parse(sessionStorage.getItem("user"));
       $(".username").text(user.name);
 
-      $("#search").click(search());
+      $("#search").click(search);
     })
 
     function search() {
@@ -544,7 +544,7 @@
       var campus = $("#campus").val();
       var section = $("#section").val();
       var attribute = $("#attribute").val();
-      var weekday = $("weekday").val();
+      var weekday = $("#weekday").val();
       var user=JSON.parse(sessionStorage.getItem('user'));
 
       var json={
