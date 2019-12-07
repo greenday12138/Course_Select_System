@@ -73,4 +73,16 @@ public class DeleteDao {
         }
         return ja;
     }
+    public JSONObject delete(Map<String,String>map,Connection con)throws SQLException{
+        JSONObject jo=null;
+        String sql;
+        PreparedStatement pstmt=null;
+        ResultSet rs;
+        try{
+            sql="delete from sc where Snumber="+map.get("user_id")+"and Cnumber="+map.get("course")
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return jo;
+    }
 }

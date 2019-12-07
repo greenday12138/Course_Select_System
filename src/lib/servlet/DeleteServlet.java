@@ -31,7 +31,7 @@ public class DeleteServlet extends HttpServlet {
         Connection con=null;
         try{
             con=dbutil.getCon();
-
+            String res=delete(map,con);
            /* System.out.println(jsa.toString());
             resp.setContentType("text/javascript;charset=utf-8");
             resp.getWriter().write(jsa.toString());*/

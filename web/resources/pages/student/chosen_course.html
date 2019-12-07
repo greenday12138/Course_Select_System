@@ -282,8 +282,9 @@
       $("#username").text(user.name);
 
       preload
-      $.post("url", { id: user.id },
+      $.post("http://localhost:8080/dbLab_war_exploded/selected", { id: user.id },
         function (data) {
+          data=JSON.parse(data);
           return list(data);
         });
 
@@ -292,15 +293,16 @@
         $(this).click(function () {
           var course = $(this).parent().parent().parent().children().eq(1).find('p').text().toString();
           console.log(course_info.split(':')[1].split('/')[0]);
-          $.post('url',
+          $.post('http://localhost:8080/dbLab_war_exploded/delete',
             {
               'fromdata': JSON.stringify({
                 user_id: user.id,
                 course_id: course.split(':')[1].split('/')[0],
-                course_id: course.split(':')[1].split('/')[1]
+                course_seq: course.split(':')[1].split('/')[1]
               })
             },
             function (data) {
+            data=JSON.parse(data);
               /*
               {
                 info:1 or 0
