@@ -7,8 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="54cca08b-4b16-48ea-8eae-30d6cee34ee8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/Dao/Dbutil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/Dbutil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/resources/pages/teacher/course_manage.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/teacher/course_manage.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -128,8 +126,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/resources/pages/teacher/course_manage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="443" column="38" selection-start-line="443" selection-start-column="38" selection-end-line="443" selection-end-column="38" />
+            <state relative-caret-position="315">
+              <caret line="241" column="51" lean-forward="true" selection-start-line="241" selection-start-column="51" selection-end-line="241" selection-end-column="51" />
               <folding>
                 <element signature="n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
               </folding>
@@ -431,7 +429,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9321000" />
+    <option name="totallyTimeSpent" value="10030000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
@@ -447,7 +445,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49932975" visible="true" weight="0.4422254" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49932975" visible="true" weight="0.15549216" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -576,8 +574,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/resources/pages/teacher/course_manage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="443" column="38" selection-start-line="443" selection-start-column="38" selection-end-line="443" selection-end-column="38" />
+        <state relative-caret-position="315">
+          <caret line="241" column="51" lean-forward="true" selection-start-line="241" selection-start-column="51" selection-end-line="241" selection-end-column="51" />
           <folding>
             <element signature="n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
           </folding>
