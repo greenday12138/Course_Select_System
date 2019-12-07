@@ -13,7 +13,7 @@
     </facet>
   </component>
   <component name="NewModuleRootManager">
-    <output url="file:///production/dbLab" />
+    <output url="file://$MODULE_DIR$/out" />
     <output-test url="file:///test/dbLab" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
