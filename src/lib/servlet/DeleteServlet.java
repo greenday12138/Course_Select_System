@@ -1,10 +1,8 @@
 package lib.servlet;
 
 import lib.Dao.Dbutil;
-import lib.Dao.SearchDao;
-import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
-
+import lib.Dao.DeleteDao;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,8 +12,8 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.util.Map;
 
-@WebServlet(urlPatterns = "/search", name = "search")
-public class SearchServlet extends HttpServlet {
+@WebServlet(urlPatterns = "/delete", name = "delete")
+public class DeleteServlet extends HttpServlet {
     Dbutil dbutil = new Dbutil();
 
     @Override
@@ -33,11 +31,11 @@ public class SearchServlet extends HttpServlet {
         Connection con=null;
         try{
             con=dbutil.getCon();
-            SearchDao ud=new SearchDao();
-            JSONArray jsa=ud.Search(map,con);
-            System.out.println(jsa.toString());
+            DeleteDao dl=new DeleteDao();
+            JSONObject res=dl.delete(map,con);
+            System.out.println(res.toString());
             resp.setContentType("text/javascript;charset=utf-8");
-            resp.getWriter().write(jsa.toString());
+            resp.getWriter().write(res.toString());
         }
         catch(Exception e){
             e.printStackTrace();

@@ -1,9 +1,8 @@
 package lib.servlet;
 
 import lib.Dao.Dbutil;
-import lib.Dao.SearchDao;
+import lib.Dao.SelectDao;
 import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Connection;
-import java.util.Map;
 
 @WebServlet(urlPatterns = "/select", name = "select")
 public class SelectServlet extends HttpServlet {
@@ -26,14 +24,18 @@ public class SelectServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String fromdata = req.getParameter("fromdata");
+        String id=req.getParameter("id");
         System.out.println(fromdata);
         JSONArray ja = JSONArray.fromObject(fromdata);
-        
 
         Connection con=null;
         try{
             con = dbutil.getCon();
-
+            SelectDao sl=new SelectDao();
+            JSONArray result=sl.select(ja,con,id);
+            System.out.println(result.toString());
+            resp.setContentType("text/javascript;charset=utf-8");
+            resp.getWriter().write(result.toString());
         }
         catch(Exception e){
             e.printStackTrace();

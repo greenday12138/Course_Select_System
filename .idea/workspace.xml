@@ -6,8 +6,33 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="54cca08b-4b16-48ea-8eae-30d6cee34ee8" name="Default Changelist" comment="">
+    <list default="true" id="a4a57a87-bcb4-465b-9f55-e7badc5da9be" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/dbLab.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/Dao/StuSelectDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/servlet/TdeleteServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/servlet/course_DetailServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/servlet/course_EditServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbLab1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/dbLab1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql/createTable.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/createTable.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql/insertData.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/insertData.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/Dao/CourseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/CourseDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/Dao/Dbutil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/Dbutil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/Dao/DeleteDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/DeleteDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/Dao/SelectDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/SelectDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/servlet/DeleteServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/servlet/DeleteServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/servlet/SelectDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/servlet/SelectServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/servlet/SelectServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/servlet/SelectedServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/servlet/SelectedServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resources/pages/student/chosen_course.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/student/chosen_course.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resources/pages/teacher/course_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/teacher/course_add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resources/pages/teacher/course_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/teacher/course_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resources/pages/teacher/course_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/teacher/course_edit.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/resources/pages/teacher/course_manage.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/teacher/course_manage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resources/pages/teacher/teacher_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/teacher/teacher_info.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,142 +43,8 @@
   <component name="CodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
   </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand />
-    <select />
-  </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="783810282">
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="html" value="2" />
-          <entry key="java" value="4" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="HTML" value="2" />
-          <entry key="JAVA" value="4" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="html" value="183" />
-          <entry key="java" value="21" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="HTML" value="183" />
-          <entry key="JAVA" value="21" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.36" value="1" />
-          <entry key="project.opened" value="1" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/lib/servlet/SigninServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="47" selection-start-line="47" selection-end-line="47" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/resources/pages/login.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2709">
-              <caret line="129" column="13" selection-start-line="129" selection-start-column="13" selection-end-line="129" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/lib/Dao/Dbutil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24">
-              <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/lib/servlet/course_addServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="840">
-              <caret line="52" selection-start-line="52" selection-end-line="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/lib/Dao/CourseDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1512">
-              <caret line="83" column="35" lean-forward="true" selection-start-line="83" selection-start-column="35" selection-end-line="83" selection-end-column="35" />
-              <folding>
-                <element signature="e#495#503#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/resources/pages/teacher/course_manage.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="241" column="51" lean-forward="true" selection-start-line="241" selection-start-column="51" selection-end-line="241" selection-end-column="51" />
-              <folding>
-                <element signature="n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/resources/pages/teacher/course_add.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1411">
-              <caret line="280" column="68" selection-start-line="280" selection-start-column="68" selection-end-line="280" selection-end-column="68" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/lib/servlet/ClassroomaddServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+  <component name="FavoritesManager">
+    <favorites_list name="dbLab" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -164,23 +55,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/lib/servlet/course_addServlet.java" />
-        <option value="$PROJECT_DIR$/web/resources/pages/teacher/course_add.html" />
-        <option value="$PROJECT_DIR$/src/lib/Dao/CourseDao.java" />
-        <option value="$PROJECT_DIR$/src/lib/Dao/Dbutil.java" />
-        <option value="$PROJECT_DIR$/web/resources/pages/teacher/course_manage.html" />
-      </list>
-    </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -196,88 +70,11 @@
     <option name="height" value="680" />
   </component>
   <component name="ProjectId" id="1UEcTL3Wphq9wJlexr8SQMwYLxb" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="dbLab" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dbLab" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dbLab" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dbLab" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dbLab" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dbLab" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dbLab" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dbLab" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="Dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dbLab" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dbLab" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="servlet" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dbLab" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dbLab" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dbLab" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dbLab" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dbLab" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dbLab" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dbLab" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dbLab" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="teacher" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dbLab" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dbLab" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
-  </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1575704659165" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF/lib" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/lib/servlet/SelectDao.java" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -288,6 +85,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/src/lib/servlet/SelectDao.java" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -315,7 +113,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Tomcat 8.5.45" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" editBeforeRun="true" APPLICATION_SERVER_NAME="Tomcat 8.5.45" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="10" nameIsGenerated="true">
+    <configuration name="Tomcat 8.5.45" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" editBeforeRun="true" APPLICATION_SERVER_NAME="Tomcat 8.5.45" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="11" nameIsGenerated="true">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/dbLab_war_exploded/resources/pages/login.html" />
       <option name="COMMON_VM_ARGUMENTS" value="-Dfile.encoding=UTF-8" />
       <option name="UPDATING_POLICY" value="restart-server" />
@@ -329,11 +127,11 @@
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="Unnamed_dbLab" />
       </server-settings>
-      <predefined_log_file id="Tomcat" enabled="true" />
-      <predefined_log_file id="Tomcat Catalina" enabled="true" />
-      <predefined_log_file id="Tomcat Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="50920" />
       </RunnerSettings>
@@ -395,78 +193,30 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="54cca08b-4b16-48ea-8eae-30d6cee34ee8" name="Default Changelist" comment="" />
+      <changelist id="a4a57a87-bcb4-465b-9f55-e7badc5da9be" name="Default Changelist" comment="" />
       <created>1575692743848</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1572167651165</updated>
-      <workItem from="1572167656242" duration="51000" />
-      <workItem from="1572167960256" duration="156000" />
-      <workItem from="1572503904903" duration="2195000" />
-      <workItem from="1572511397826" duration="1218000" />
-      <workItem from="1572512648463" duration="3987000" />
-      <workItem from="1573540175132" duration="1226000" />
-      <workItem from="1573541893917" duration="176000" />
-      <workItem from="1573542085624" duration="3451000" />
-      <workItem from="1573547960108" duration="3200000" />
-      <workItem from="1573698614881" duration="258000" />
-      <workItem from="1574305028958" duration="1014000" />
-      <workItem from="1574306079596" duration="2540000" />
-      <workItem from="1574558447323" duration="210000" />
-      <workItem from="1574561100806" duration="870000" />
-      <workItem from="1574562085500" duration="302000" />
-      <workItem from="1574584879779" duration="249000" />
-      <workItem from="1575181276638" duration="13471000" />
-      <workItem from="1575200666912" duration="5601000" />
-      <workItem from="1575512727243" duration="475000" />
-      <workItem from="1575515131267" duration="8771000" />
-      <workItem from="1575535919252" duration="6671000" />
-      <workItem from="1575608478349" duration="13765000" />
-      <workItem from="1575628108148" duration="14384000" />
-      <workItem from="1575690598731" duration="233000" />
-      <workItem from="1575698087579" duration="2605000" />
+      <updated>1574925201686</updated>
+      <workItem from="1574925206869" duration="19382000" />
+      <workItem from="1575181745647" duration="1272000" />
+      <workItem from="1575183443514" duration="2304000" />
+      <workItem from="1575186066748" duration="14479000" />
+      <workItem from="1575204910718" duration="766000" />
+      <workItem from="1575512379604" duration="1410000" />
+      <workItem from="1575515561828" duration="2535000" />
+      <workItem from="1575522695135" duration="415000" />
+      <workItem from="1575523494108" duration="6692000" />
+      <workItem from="1575677407920" duration="10683000" />
+      <workItem from="1575688525305" duration="1159000" />
+      <workItem from="1575689748960" duration="430000" />
+      <workItem from="1575690203056" duration="6874000" />
+      <workItem from="1575698888775" duration="1978000" />
+      <workItem from="1575711801903" duration="637000" />
+      <workItem from="1575712463431" duration="686000" />
+      <workItem from="1575713173561" duration="1160000" />
     </task>
     <servers />
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10030000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20040214" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info id="Web" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49932975" visible="true" weight="0.15549216" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50067025" side_tool="true" weight="0.5178317" />
-      <window_info anchor="bottom" id="Application Servers" order="11" />
-      <window_info anchor="bottom" id="Java Enterprise" order="12" />
-      <window_info anchor="bottom" id="Messages" order="13" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Database" order="7" />
-      <window_info anchor="right" id="Maven Projects" order="8" />
-    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -477,110 +227,11 @@
         <entry key="MAIN">
           <value>
             <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
               <option name="COLUMN_ORDER" />
             </State>
           </value>
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/lib/servlet/SearchServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/servlet/SigninServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="47" selection-start-line="47" selection-end-line="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/resources/pages/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2709">
-          <caret line="129" column="13" selection-start-line="129" selection-start-column="13" selection-end-line="129" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/servlet/ClassroomaddServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/resources/pages/teacher/course_add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1411">
-          <caret line="280" column="68" selection-start-line="280" selection-start-column="68" selection-end-line="280" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/Dao/CourseDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1512">
-          <caret line="83" column="35" lean-forward="true" selection-start-line="83" selection-start-column="35" selection-end-line="83" selection-end-column="35" />
-          <folding>
-            <element signature="e#495#503#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/servlet/course_addServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="52" selection-start-line="52" selection-end-line="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/servlet/course_DetailServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/Dao/Dbutil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/resources/pages/teacher/course_manage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="241" column="51" lean-forward="true" selection-start-line="241" selection-start-column="51" selection-end-line="241" selection-end-column="51" />
-          <folding>
-            <element signature="n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
   </component>
 </project>
