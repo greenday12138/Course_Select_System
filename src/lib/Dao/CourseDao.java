@@ -11,6 +11,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Random;
 
+import static java.lang.Integer.*;
+
 //import java.sql.Array;
 
 public class CourseDao {
@@ -48,6 +50,7 @@ public class CourseDao {
         try{
             String id="";
             String seq="";
+
             Random random=new Random();
             while(id.length()<9){
                 id=id+random.nextInt(10);
@@ -55,6 +58,8 @@ public class CourseDao {
             while(seq.length()<2){
                 seq=seq+random.nextInt(10);
             }
+            int credit=random.nextInt(5);
+            int capacity=50+random.nextInt(50);
             //int seq=Integer.parseInt(temp);
             String tempsql="select count(*) from tc";
             pstmt = con.prepareStatement(tempsql);
@@ -76,12 +81,12 @@ public class CourseDao {
             pstmt.setString(1, id);
             pstmt.setString(2,course.getCourse_name());
             pstmt.setInt(3, Integer.parseInt(seq));
-            pstmt.setString(4,null);
+            pstmt.setInt(4,credit);
             pstmt.setString(5,course.getAttribute());
-            pstmt.setString(6,course.getCapacity());
+            pstmt.setInt(6,capacity);
             pstmt.setString(7,course.getWeek_start()+"-"+course.getWeek_end()+"周");
             pstmt.setString(8,course.getWeekday());
-            pstmt.setString(9,course.getDuration());
+            pstmt.setInt(9,Integer.parseInt(course.getDuration()));
             pstmt.setString(10,null);
             pstmt.setString(11,null);
             pstmt.setString(12,null);

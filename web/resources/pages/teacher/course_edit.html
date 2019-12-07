@@ -381,7 +381,7 @@
 
         sessionStorage.removeItem("course");
 
-        $.post("http://localhost:8080/course_Edit",{fromdata: JSON.stringify(courseJSON)},
+        $.post("http://localhost:8080/dbLab_war_exploded/course_Edit",{fromdata: JSON.stringify(courseJSON)},
           function () {
             //success action use bootstrap modal extension
             //refresh local storage

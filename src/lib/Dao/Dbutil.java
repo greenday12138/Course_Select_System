@@ -10,7 +10,7 @@ public class Dbutil {
 
     String url = "jdbc:mysql://localhost:3306/dblab?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
 
-    private String jdbcName="com.mysql.cj.jdbc.Driver";
+    private String jdbcName="com.mysql.jdbc.Driver";
 
     public Connection getCon() throws Exception{
         Class.forName(jdbcName);

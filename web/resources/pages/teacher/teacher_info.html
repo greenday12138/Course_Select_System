@@ -333,7 +333,7 @@
       $("#name").text(user.name);
       $("#id").text(user.id);
 
-      $.post("http://localhost:8080/info", {fromdata:JSON.stringify(user)}, function(data){page_render(data);console.log(data);});
+      $.post("http://localhost:8080/dbLab_war_exploded/info", {fromdata:JSON.stringify(user)}, function(data){page_render(data);console.log(data);});
 
       $("#submit").click(function () {
 

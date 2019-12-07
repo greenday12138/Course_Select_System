@@ -390,7 +390,7 @@
               "<td>" + data[i].seq + "</td>" +
               temp +
               "<td>" + data[i].credit + "</td>" +
-              "</tr>" +
+
               `<td class="project-actions text-right">
                     <a class="btn btn-primary btn-sm" href="course_detail.html" detail>
                       <i class="fas fa-folder">
@@ -407,7 +407,7 @@
                       </i>
                       删除
                     </button>
-                  </td>`;
+                  </td>`+"</tr>";
             $("#course_list").append(row);
             localStorage.setItem("" + data[i].id + data[i].seq, JSON.stringify(data[i]));
           }
