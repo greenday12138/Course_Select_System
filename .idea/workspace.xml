@@ -7,19 +7,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="54cca08b-4b16-48ea-8eae-30d6cee34ee8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/lib/Model/ClassSet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/Model/Color.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/Model/Time.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/servlet/Course_TimeTableServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/Model/WeekDate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/Dao/CourseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/CourseDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/Model/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Model/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/servlet/Course_TimeTableServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/servlet/Course_TimeTableServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resources/pages/teacher/course_timetable.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/teacher/course_timetable.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -38,15 +39,24 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectId" id="1UdiC5t17f6yiTNXnnPoYgfdBts" />
+  <component name="ProjectId" id="1UEcTL3Wphq9wJlexr8SQMwYLxb" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1575704659165" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/lib/servlet/SelectDao.java" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/src/lib/servlet/SelectDao.java" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -74,42 +84,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
-      <module name="dbLab1" />
-      <option name="filePath" />
-      <option name="vmParameters" />
-      <option name="alternativeJrePath" />
-      <option name="programParameters" />
-      <option name="passParentEnvs" value="true" />
-      <option name="workingDirectory" />
-      <option name="isAlternativeJrePathEnabled" value="false" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="filePath" />
-      <option name="vmParameters" />
-      <option name="alternativeJrePath" />
-      <option name="programParameters" />
-      <option name="passParentEnvs" value="true" />
-      <option name="workingDirectory" />
-      <option name="isAlternativeJrePathEnabled" value="false" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Tomcat 8.5.45" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.45" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+    <configuration name="Tomcat 8.5.45" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" editBeforeRun="true" APPLICATION_SERVER_NAME="Tomcat 8.5.45" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="11" nameIsGenerated="true">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/dbLab_war_exploded/resources/pages/login.html" />
+      <option name="COMMON_VM_ARGUMENTS" value="-Dfile.encoding=UTF-8" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="dbLab:war exploded">
@@ -191,8 +168,26 @@
       <created>1575692743848</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1575692743848</updated>
-      <workItem from="1575692752840" duration="21907000" />
+      <updated>1574925201686</updated>
+      <workItem from="1574925206869" duration="19382000" />
+      <workItem from="1575181745647" duration="1272000" />
+      <workItem from="1575183443514" duration="2304000" />
+      <workItem from="1575186066748" duration="14479000" />
+      <workItem from="1575204910718" duration="766000" />
+      <workItem from="1575512379604" duration="1410000" />
+      <workItem from="1575515561828" duration="2535000" />
+      <workItem from="1575522695135" duration="415000" />
+      <workItem from="1575523494108" duration="6692000" />
+      <workItem from="1575677407920" duration="10683000" />
+      <workItem from="1575688525305" duration="1159000" />
+      <workItem from="1575689748960" duration="430000" />
+      <workItem from="1575690203056" duration="6874000" />
+      <workItem from="1575698888775" duration="1978000" />
+      <workItem from="1575711801903" duration="637000" />
+      <workItem from="1575712463431" duration="686000" />
+      <workItem from="1575713173561" duration="1160000" />
+      <workItem from="1575717122286" duration="1094000" />
+      <workItem from="1575718284758" duration="4145000" />
     </task>
     <servers />
   </component>
@@ -204,7 +199,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

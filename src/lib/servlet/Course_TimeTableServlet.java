@@ -2,10 +2,7 @@ package lib.servlet;
 
 import lib.Dao.CourseDao;
 import lib.Dao.Dbutil;
-import lib.Dao.InfoDao;
 import lib.Model.Course;
-import lib.Model.Student;
-import lib.Model.Teacher;
 import lib.Model.User;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -15,7 +12,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Connection;
 import java.util.ArrayList;

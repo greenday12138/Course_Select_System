@@ -8,8 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Random;
-
-import static java.lang.Integer.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 //import java.sql.Array;
 
@@ -215,10 +215,13 @@ public class CourseDao {
             pstmt.setString(1, user.getId());
             ResultSet rs = pstmt.executeQuery();
             Time time=new Time();
+            WeekDate weekDate=new WeekDate();
            // ClassSet classroom=new ClassSet();
             //Color color=new Color();
             ArrayList<String> starttime=time.getStartTime();
             ArrayList<String> endtime=time.getEndTime();
+            ArrayList<String> startWeekTime=weekDate.getWeekStartDate();
+            ArrayList<String> endWeekTime=weekDate.getWeekEndDate();
            // ArrayList<String> school=classroom.getClassSchool();
            // ArrayList<String> floor=classroom.getClassFloor();
             //ArrayList<String> textcolor=color.getTextcolor();
@@ -238,6 +241,17 @@ public class CourseDao {
                 String section=start+"-"+end;
                 int s=start-'0';
                 int e=end-'0';
+                String temp2=String.valueOf(rs.getString("Ctime"));
+                String[] split=temp2.split("-");
+
+
+                String regEx="[^0-9]";
+                Pattern p = Pattern.compile(regEx);
+                Matcher m = p.matcher(split[0]);
+                int ws=Integer.parseInt(m.replaceAll("").trim());
+                Pattern p2 = Pattern.compile(regEx);
+                Matcher m2 = p2.matcher(split[1]);
+                int we=Integer.parseInt(m.replaceAll("").trim());
 
 
 
@@ -247,10 +261,10 @@ public class CourseDao {
                 course.setCourse_name(rs.getString("Cname"));
                 course.setWeekday(rs.getString("Cweek"));
                 course.setDeacription(user.getName()+" "+section+"\n "+rs.getString("Cschool")+rs.getString("Cfoor")+rs.getString("Croom"));
-                course.setStart_time(starttime.get(s));
-                course.setEnd_time(endtime.get(e));
-                course.setStart_recur("2019-09-15");
-                course.setEnd_recur("2020-01-04");
+                course.setStart_time(starttime.get(s-1));
+                course.setEnd_time(endtime.get(e-1));
+                course.setStart_recur(startWeekTime.get(ws-1));
+                course.setEnd_recur(endWeekTime.get(we-1));
                 course.setTextcolor("white");
                 course.setBackgroundcolor("#3c8dbc");
                 course.setBordercolor("3c8dbc");
