@@ -28,7 +28,7 @@ public class SelectDao {
                 all=rs.getInt("scnumber");
             }
             //计算该课程有多少学生选了
-            sql="select count(Snumber) as co form sc where Cnumber="+ map.get("course_id")+"and Corder="+map.get("course_seq")+";";
+            sql="select count(Snumber) as co form sc where Cnumber="+ map.get("course_id")+" and Corder="+map.get("course_seq")+";";
             pstmt=con.prepareStatement(sql);
             rs=pstmt.executeQuery();
             int co=0;
@@ -36,7 +36,7 @@ public class SelectDao {
                 co=rs.getInt("co");
             }
             //查询课容量
-            sql = "select * from course where Cnumber=" + map.get("course_id") + "and Corder=" + map.get("course_seq") + ";";
+            sql = "select * from course where Cnumber=" + map.get("course_id") + " and Corder=" + map.get("course_seq") + ";";
             pstmt = con.prepareStatement(sql);
             rs=pstmt.executeQuery();
             int capacity=0;

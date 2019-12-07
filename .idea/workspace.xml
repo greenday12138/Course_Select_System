@@ -7,32 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4a57a87-bcb4-465b-9f55-e7badc5da9be" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/dbLab.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/Dao/StuSelectDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/servlet/TdeleteServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/servlet/course_DetailServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/servlet/course_EditServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbLab1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/dbLab1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql/createTable.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/createTable.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql/insertData.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/insertData.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/Dao/CourseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/CourseDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/Dao/Dbutil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/Dbutil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/Dao/DeleteDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/DeleteDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/Dao/SelectDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/SelectDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/servlet/DeleteServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/servlet/DeleteServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/servlet/SelectDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/servlet/SelectServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/servlet/SelectServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/servlet/SelectedServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/servlet/SelectedServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/resources/pages/student/chosen_course.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/student/chosen_course.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/resources/pages/teacher/course_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/teacher/course_add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/resources/pages/teacher/course_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/teacher/course_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/resources/pages/teacher/course_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/teacher/course_edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/resources/pages/teacher/course_manage.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/teacher/course_manage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/resources/pages/teacher/teacher_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/teacher/teacher_info.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -214,7 +191,7 @@
       <workItem from="1575698888775" duration="1978000" />
       <workItem from="1575711801903" duration="637000" />
       <workItem from="1575712463431" duration="686000" />
-      <workItem from="1575713173561" duration="1160000" />
+      <workItem from="1575713173561" duration="4896000" />
     </task>
     <servers />
   </component>

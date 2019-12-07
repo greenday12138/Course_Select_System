@@ -22,7 +22,7 @@ public class DeleteDao {
         ResultSet rs;
         try {
 
-            sql = "select * from sc  where  sc.Snmber=" + id + ";";
+            sql = "select * from sc  where  sc.Snumber=" + id + ";";
             pstmt = con.prepareStatement(sql);
             rs=pstmt.executeQuery();
             Course cr=null;
@@ -35,23 +35,25 @@ public class DeleteDao {
             }
             Map<String,String> map=new HashMap<String, String>();
             for(Course tmp:set1) {
-                sql = "select Tname from teacher,tc where tc.Tnumber=teacher.Tnumber and tc.Cnumber=" +tmp.getCourse_id()+"and tc.Corder="+tmp.getCourse_seq()+";";
+                sql = "select Tname from teacher,tc where tc.Tnumber=teacher.Tnumber and tc.Cnumber=" +tmp.getCourse_id()+" and tc.Corder="+tmp.getCourse_seq()+";";
+                System.out.println(sql);
                 pstmt=con.prepareStatement(sql);
                 rs=pstmt.executeQuery();
                 if(rs.next()){
                     map.put("Tname"+tmp.getCourse_id()+tmp.getCourse_seq(),rs.getString("Tname"));
-
                 }
-                sql="select Dname from course,department where course.Dnumber=department.Dnumber and Cnumber=  "+tmp.getCourse_id()+"and Corder="+tmp.getCourse_seq()+";";
+                sql="select Dname from course,department where course.Dnumber=department.Dnumber and Cnumber=  "+tmp.getCourse_id()+" and Corder="+tmp.getCourse_seq()+";";
                 pstmt=con.prepareStatement(sql);
                 rs=pstmt.executeQuery();
                 if(rs.next()){
                     map.put("Dname"+tmp.getCourse_id()+tmp.getCourse_seq(),rs.getString("Dname"));
                 }
-                sql="select * from course where Cnumber="+tmp.getCourse_id()+"and Corder="+tmp.getCourse_seq()+";";
+                sql="select * from course where Cnumber="+tmp.getCourse_id()+" and Corder="+tmp.getCourse_seq()+";";
+                System.out.println(sql);
                 pstmt=con.prepareStatement(sql);
                 rs=pstmt.executeQuery();
                 if(rs.next()){
+                    jo=new JSONObject();
                     int tem = rs.getInt("Csection");
                     int ta = tem % 100;
                     int tb = tem / 100;
@@ -59,7 +61,7 @@ public class DeleteDao {
                     jo.put("seq",rs.getString("Corder"));
                     jo.put("name",rs.getString("Cname"));
                     jo.put("credit",rs.getString("Ccredit"));
-                    jo.put("attribute",rs.getString("Cattribute"));
+                    jo.put("attribute",rs.getString("Cproperty"));
                     jo.put("college",map.get("Dname"+rs.getString("Cnumber")+rs.getString("Corder")));
                     jo.put("teacher",map.get("Tname"+rs.getString("Cnumber")+rs.getString("Corder")));
                     jo.put("pos",rs.getString("Cschool")+rs.getString("Cfoor")+rs.getString("Croom"));
@@ -74,14 +76,15 @@ public class DeleteDao {
         return ja;
     }
     public JSONObject delete(Map<String, String>map, Connection con)throws SQLException{
-        JSONObject jo=null;
+        JSONObject jo=new JSONObject();
         String sql;
         PreparedStatement pstmt=null;
         ResultSet rs;
         try{
-            sql="delete from sc where Snumber="+map.get("user_id")+"and Cnumber="+map.get("course_id")+"and Corder="+map.get("course_seq")+";";
+            sql="delete from sc where Snumber="+map.get("user_id")+" and Cnumber="+map.get("course_id")+" and Corder="+map.get("course_seq")+";";
+            System.out.println(sql);
             pstmt=con.prepareStatement(sql);
-            rs=pstmt.executeQuery();
+            pstmt.execute();
             jo.put("info","1");
         } catch (Exception e) {
             jo.put("info","0");
