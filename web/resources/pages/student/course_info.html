@@ -100,8 +100,14 @@
                 </li>
                 <li class="nav-item">
                   <a href="course_select.html" class="nav-link">
+                    <i class="far nav-icon fa-plus-square"></i>
+                    <p>添加课程</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="chosen_course.html" class="nav-link">
                     <i class="fas fa-clipboard-list nav-icon"></i>
-                    <p>选课管理</p>
+                    <p>已选课程</p>
                   </a>
                 </li>
               </ul>
@@ -349,7 +355,7 @@
                     <option value="4">星期四</option>
                     <option value="5">星期五</option>
                     <option value="6">星期六</option>
-                    <option value="7">星期日</option>
+                    <option value="0">星期日</option>
                   </select>
                 </div>
               </div>
@@ -537,7 +543,8 @@
     })
 
     function search() {
-      //clear preload data
+     //clear preload data
+     $("#example2_body").empty();
       var course_id = $("#course_id").val();
       var course_name = $("#course_name").val();
       var teacher_name = $("#teacher_name").val();
