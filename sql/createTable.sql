@@ -41,7 +41,7 @@ CREATE TABLE student
 
 CREATE TABLE teacher 
 (
-    Tnumber     VARCHAR(10),  -- 工号
+    Tnumber     VARCHAR(10),  -- 工号z
     Tname       VARCHAR(10),  -- 姓名
     Tsex        VARCHAR(2),   -- 性别
     Tpassword   VARCHAR(20),  -- 密码
