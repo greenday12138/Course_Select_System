@@ -290,9 +290,7 @@
 
       //delete button
       $('.content').on('click', 'button[delete]', function () {
-        $(this).click(function () {
           var course = $(this).parent().parent().parent().children().eq(1).find('p').text().toString();
-          console.log(course_info.split(':')[1].split('/')[0]);
           $.post('http://localhost:8080/dbLab_war_exploded/delete',
             {
               'fromdata': JSON.stringify({
@@ -313,8 +311,6 @@
                 html.remove();
               }
             })
-
-        })
       })
 
     })
