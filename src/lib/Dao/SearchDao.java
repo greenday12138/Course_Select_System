@@ -28,6 +28,7 @@ public class SearchDao {
         cr.setSection(map.get("section"));//没有给我section
         cr.setAttribute(map.get("attribute"));//
         cr.setWeekday(map.get("weekday"));//没有给我weekday
+        String id=map.get("student_id");
         PreparedStatement pstmt=null;
         //System.out.println(cr);
         //System.out.println(tr);
@@ -110,7 +111,8 @@ public class SearchDao {
                             cr.setCollege(rrr.getString("Dname"));
                     }
                     */
-
+                    String selected=null;
+                    sql="select Cnumber from sc where Snumber";
                     js=new JSONObject();
                     Course crp = new Course();
                     int tem = rs.getInt("Csection");
