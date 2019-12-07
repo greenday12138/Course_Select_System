@@ -103,8 +103,14 @@
                 </li>
                 <li class="nav-item">
                   <a href="course_select.html" class="nav-link active">
+                    <i class="far nav-icon fa-plus-square"></i>
+                    <p>添加课程</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="chosen_course.html" class="nav-link">
                     <i class="fas fa-clipboard-list nav-icon"></i>
-                    <p>选课管理</p>
+                    <p>已选课程</p>
                   </a>
                 </li>
               </ul>
@@ -507,7 +513,12 @@
         }
         // produce choose list
       })
-      $.post("http://localhost:8080/dbLab_war_exploded/select", { "fromdata": JSON.stringify(jsonStr) },
+      var user = JSON.parse(sessionStorage.getItem('user'));
+      $.post("http://localhost:8080/dbLab_war_exploded/select",
+        {
+          "fromdata": JSON.stringify(jsonStr),
+          "id": user.id
+        },
         function (data) {
           /*
           [
@@ -531,7 +542,7 @@
               temp.each(function () {
                 if ($(this).children().eq(1).text() === data[i].course_id &&
                   $(this).children().eq(2).text() === data[i].course_seq) {
-                    $(this).children().eq(13).hide();
+                  $(this).children().eq(13).hide();
                 }
               })
             }
