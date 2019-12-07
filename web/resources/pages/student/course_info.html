@@ -560,7 +560,7 @@
           'weekday': weekday,
         };
 
-      $.post("http://localhost:8080/dbLab_war_exploded/search",{fromdata:JSON.stringify(json)},
+      $.post("http://localhost:8080/dbLab_war_exploded/search",{"fromdata":JSON.stringify(json)},
         function (data) {
         data=JSON.parse(data);
         console.log(data);
