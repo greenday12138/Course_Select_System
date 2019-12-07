@@ -27,12 +27,27 @@ public class SearchDao {
         cr.setCampus(map.get("campus"));//
         cr.setSection(map.get("section"));//没有给我section
         cr.setAttribute(map.get("attribute"));//
-        cr.setWeekday(map.get("weekday"));//没有给我weekday
+        String week=map.get("weekday");//没有给我weekday
         String id=map.get("id");
         PreparedStatement pstmt=null;
         //System.out.println(cr);
         //System.out.println(tr);
-        
+        switch(week){
+            case "0":cr.setWeekday("星期日");
+            break;
+            case "1":cr.setWeekday("星期一");
+            break;
+            case "2":cr.setWeekday("星期二");
+            break;
+            case "3":cr.setWeekday("星期三");
+            break;
+            case "4":cr.setWeekday("星期四");
+            break;
+            case "5":cr.setWeekday("星期五");
+            break;
+            case "6":cr.setWeekday("星期六");
+            break;
+        }
         try {
             String sql = null;
             sql="select distinct Cnumber,Corder ,Tname from tc,teacher where tc.Tnumber=teacher.Tnumber and teacher.Tname like ?";

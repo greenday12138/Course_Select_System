@@ -531,12 +531,13 @@
   <script>
     $(function () {
       var user = JSON.parse(sessionStorage.getItem("user"));
-      $(".username").text(user.name);
+      $("#username").text(user.name);
 
       $("#search").click(search);
     })
 
     function search() {
+      //clear preload data
       var course_id = $("#course_id").val();
       var course_name = $("#course_name").val();
       var teacher_name = $("#teacher_name").val();
