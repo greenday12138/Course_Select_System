@@ -1,8 +1,6 @@
 package lib.Dao;
 
-import lib.Model.Course;
-import lib.Model.Student;
-import lib.Model.User;
+import lib.Model.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -207,5 +205,64 @@ public class CourseDao {
         return allStudent;
 
     }
+    public ArrayList<Course> getCourseTimetable(Connection con,User user){
+        ArrayList<Course> allCourse=new ArrayList<Course>();
+        PreparedStatement pstmt = null;
+        try{
+            String sql=null;
+            sql="select course.Cname,course.Cweek,course.Cschool,course.Cfoor,course.Croom,course.Csection,course.Ctime from course,tc where tc.Tnumber=? and tc.Cnumber=course.Cnumber";
+            pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, user.getId());
+            ResultSet rs = pstmt.executeQuery();
+            Time time=new Time();
+           // ClassSet classroom=new ClassSet();
+            //Color color=new Color();
+            ArrayList<String> starttime=time.getStartTime();
+            ArrayList<String> endtime=time.getEndTime();
+           // ArrayList<String> school=classroom.getClassSchool();
+           // ArrayList<String> floor=classroom.getClassFloor();
+            //ArrayList<String> textcolor=color.getTextcolor();
+            //ArrayList<String> bcolor=color.getBcolor();
 
+
+
+
+
+
+
+            while(rs.next()){
+
+                String temp=String.valueOf(rs.getInt("Csection"));
+                char start=temp.charAt(0);
+                char end=temp.charAt(temp.length()-1);
+                String section=start+"-"+end;
+                int s=start-'0';
+                int e=end-'0';
+
+
+
+
+
+                Course course=new Course();
+                course.setCourse_name(rs.getString("Cname"));
+                course.setWeekday(rs.getString("Cweek"));
+                course.setDeacription(user.getName()+" "+section+"\n "+rs.getString("Cschool")+rs.getString("Cfoor")+rs.getString("Croom"));
+                course.setStart_time(starttime.get(s));
+                course.setEnd_time(endtime.get(e));
+                course.setStart_recur("2019-09-15");
+                course.setEnd_recur("2020-01-04");
+                course.setTextcolor("white");
+                course.setBackgroundcolor("#3c8dbc");
+                course.setBordercolor("3c8dbc");
+                allCourse.add(course);
+            }
+            rs.close();
+            pstmt.close();
+            return allCourse;
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        return allCourse;
+    }
 }
