@@ -193,17 +193,17 @@
                     3
                   </td>
                   <td class="project-actions text-right">
-                    <a class="btn btn-primary btn-sm" href="course_detail.html" detail>
+                    <button class="btn btn-primary btn-sm" href="course_detail.html" onclick="Detail(this)" detail>
                       <i class="fas fa-folder">
                       </i>
                       详细
-                    </a>
-                    <a class="btn btn-info btn-sm" href="course_edit.html" edit>
+                    </button>
+                    <button class="btn btn-info btn-sm" href="course_edit.html" onclick="Edit(this)" edit>
                       <i class="fas fa-pencil-alt">
                       </i>
                       编辑
-                    </a>
-                    <button class="btn btn-danger btn-sm " delete>
+                    </button>
+                    <button class="btn btn-danger btn-sm" onclick="Delete(this)" delete>
                       <i class="fas fa-trash">
                       </i>
                       删除
@@ -229,17 +229,17 @@
                     1
                   </td>
                   <td class="project-actions text-right">
-                    <a class="btn btn-primary btn-sm" href="course_detail.html" detail>
+                    <button class="btn btn-primary btn-sm" href="course_detail.html" onclick="Detail(this)" detail>
                       <i class="fas fa-folder">
                       </i>
                       详细
-                    </a>
-                    <a class="btn btn-info btn-sm" href="course_edit.html" edit>
+                    </button>
+                    <button class="btn btn-info btn-sm" href="course_edit.html" onclick="Edit(this)" edit>
                       <i class="fas fa-pencil-alt">
                       </i>
                       编辑
-                    </a>
-                    <button class="btn btn-danger btn-sm" delete>
+                    </button>
+                    <button class="btn btn-danger btn-sm" onclick="Delete(this)" delete>
                       <i class="fas fa-trash">
                       </i>
                       删除
@@ -308,37 +308,10 @@
     attention: sessionStorage is uesd for cross page info coherence,
     localStorage is a local buffer for minimizing server interaction
     */
-    function add_course(){
-      var row="";
-      row += "<tr>" +
-              "<td>" + "<b>" + 'data[i].name' + "</b>" + "</td>" +
-              "<td>" + 'data[i].id' + "</td>" +
-              "<td>" + 'data[i].seq' + "</td>" +
-              'temp' +
-              "<td>" + 'data[i].credit' + "</td>" +
-              `<td class="project-actions text-right">
-                    <a class="btn btn-primary btn-sm" href="course_detail.html" detail>
-                      <i class="fas fa-folder">
-                      </i>
-                      详细
-                    </a>
-                    <a class="btn btn-info btn-sm" href="course_edit.html" edit>
-                      <i class="fas fa-pencil-alt">
-                      </i>
-                      编辑
-                    </a>
-                    <button class="btn btn-danger btn-sm" delete>
-                      <i class="fas fa-trash">
-                      </i>
-                      删除
-                    </button>
-                  </td>`+
-                  "</tr>" ;
-            $("#course_list").append(row);
-    }
+   
     $(function () {
       var json = {
-       "name": "hhh",
+        "name": "hhh",
         "id": "2017"
       };
       sessionStorage.setItem("user", JSON.stringify(json));
@@ -420,73 +393,72 @@
               "<td>" + data[i].credit + "</td>" +
 
               `<td class="project-actions text-right">
-                    <a class="btn btn-primary btn-sm" href="course_detail.html" detail>
+                <button class="btn btn-primary btn-sm" href="course_detail.html" onclick="Detail(this)" detail>
                       <i class="fas fa-folder">
                       </i>
                       详细
-                    </a>
-                    <a class="btn btn-info btn-sm" href="course_edit.html" edit>
+                    </button>
+                    <button class="btn btn-info btn-sm" href="course_edit.html" onclick="Edit(this)" edit>
                       <i class="fas fa-pencil-alt">
                       </i>
                       编辑
-                    </a>
-                    <button class="btn btn-danger btn-sm" delete>
+                    </button>
+                    <button class="btn btn-danger btn-sm" onclick="Delete(this)" delete>
                       <i class="fas fa-trash">
                       </i>
                       删除
                     </button>
-                  </td>`+"</tr>";
+                  </td>`+ "</tr>";
             $("#course_list").append(row);
             localStorage.setItem("" + data[i].id + data[i].seq, JSON.stringify(data[i]));
           }
         })
 
-      //detail button
-      $("a[detail]").each(function () {
-        $(this).click(function () {
-          var course_id = $(this).parent().siblings().eq(1).text();
-          var course_seq = $(this).parent().siblings().eq(2).text();
-          var courseJSON = {
-            "id": course_id,
-            "seq": course_seq
-          };
-          sessionStorage.setItem("course", JSON.stringify(courseJSON));
-        })
-      })
-
-      //edit button
-      $("a[edit]").each(function () {
-        $(this).click(function () {
-          var course_id = $(this).parent().siblings().eq(1).text();
-          var course_seq = $(this).parent().siblings().eq(2).text();
-          var courseJSON = {
-            "id": course_id,
-            "seq": course_seq
-          };
-          sessionStorage.setItem("course", JSON.stringify(courseJSON));
-        })
-      })
-
-      //delete button
-      $("button[delete]").each(function () {
-          console.log($(this).html());
-        $(this).click(function () {
-            console.log($(this).html());
-          var course_id = $(this).parent().siblings().eq(1).text().toString().split().pop();
-          var course_seq = $(this).parent().siblings().eq(2).text().toString().split().pop();
-          console.log(course_id+' '+course_seq );
-          //server delete item
-          $.post("http://localhost:8080/dbLab_war_exploded/t_delete",{fromdata:JSON.stringify({
-                      "course_id": course_id,
-                      "course_seq": course_seq
-                    })},
-            function () {
-              localStorage.removeItem("" + course_id + course_seq);
-              $(this).parent().parent().remove();
-            })
-        })
-      })
     })
+
+
+    //detail button
+    function Detail(this_ptr) {
+      var course_id = $(this_ptr).parent().siblings().eq(1).text();
+      var course_seq = $(this_ptr).parent().siblings().eq(2).text();
+      var courseJSON = {
+        "id": course_id,
+        "seq": course_seq
+      };
+      sessionStorage.setItem("course", JSON.stringify(courseJSON));
+      window.location.href = 'course_detail.html';
+    }
+
+    //edit button
+    function Edit(this_ptr) {
+      var course_id = $(this_ptr).parent().siblings().eq(1).text();
+      var course_seq = $(this_ptr).parent().siblings().eq(2).text();
+      var courseJSON = {
+        "id": course_id,
+        "seq": course_seq
+      };
+      sessionStorage.setItem("course", JSON.stringify(courseJSON));
+      window.location.href = 'course_edit.html';
+    }
+
+    //delete button
+    function Delete(this_ptr) {
+      console.log($(this_ptr).text());
+      var course_id = $(this_ptr).parent().siblings().eq(1).text().toString().split().pop();
+      var course_seq = $(this_ptr).parent().siblings().eq(2).text().toString().split().pop();
+      console.log(course_id + ' ' + course_seq);
+      //server delete item
+      $.post("http://localhost:8080/dbLab_war_exploded/t_delete", {
+        fromdata: JSON.stringify({
+          "course_id": course_id,
+          "course_seq": course_seq
+        })
+      },
+        function () {
+          localStorage.removeItem("" + course_id + course_seq);
+          $(this_ptr).parent().parent().remove();
+        })
+    }
   </script>
 </body>
 
