@@ -7,11 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="54cca08b-4b16-48ea-8eae-30d6cee34ee8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/lib/Model/WeekDate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/Dao/TimetableDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/servlet/TimetableServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/Dao/CourseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/CourseDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/servlet/Course_TimeTableServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/servlet/Course_TimeTableServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/resources/pages/teacher/course_timetable.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/teacher/course_timetable.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resources/pages/student/course_timetable.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/student/course_timetable.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -187,7 +187,7 @@
       <workItem from="1575712463431" duration="686000" />
       <workItem from="1575713173561" duration="1160000" />
       <workItem from="1575717122286" duration="1094000" />
-      <workItem from="1575718284758" duration="4145000" />
+      <workItem from="1575718284758" duration="6475000" />
     </task>
     <servers />
   </component>
