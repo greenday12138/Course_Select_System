@@ -19,7 +19,7 @@ public class SearchDao {
         JSONArray jsa = new JSONArray();
         Course cr=new Course();
         Teacher tr=new Teacher();
-       // System.out.println("读取map数据");
+       // //System.out.println("读取map数据");
         cr.setCourse_id(map.get("course_id"));//
         cr.setCourse_name(map.get("course_name"));//
         tr.setName(map.get("teacher_name"));
@@ -30,8 +30,8 @@ public class SearchDao {
         String week=map.get("weekday");//没有给我weekday
         String id=map.get("id");
         PreparedStatement pstmt=null;
-        //System.out.println(cr);
-        //System.out.println(tr);
+        ////System.out.println(cr);
+        ////System.out.println(tr);
         switch(week){
             case "0":cr.setWeekday("星期日");
             break;
@@ -52,7 +52,7 @@ public class SearchDao {
             String sql = null;
             sql="select distinct Cnumber,Corder ,Tname from tc,teacher where tc.Tnumber=teacher.Tnumber and teacher.Tname like ?";
             pstmt=con.prepareStatement(sql);
-            System.out.println("%"+tr.getName()+"%");
+            //System.out.println("%"+tr.getName()+"%");
             pstmt.setString(1,"%"+tr.getName()+"%");
             ResultSet rs=pstmt.executeQuery();
             Set<Course> set1=new HashSet<Course>();
@@ -60,14 +60,14 @@ public class SearchDao {
             Course tmp=null;
             while(rs.next()){
                 tmp=new Course();
-                System.out.println("老师数据加一");
+                //System.out.println("老师数据加一");
                 tmp.setCourse_id(rs.getString("Cnumber"));
                 tmp.setCourse_seq(Integer.toString(rs.getInt("Corder")));
                 set1.add(tmp);
                 if(!tr.getName().equals(rs.getString("Tname"))) {
-                    System.out.println("老师名字有变化");
+                    //System.out.println("老师名字有变化");
                     tr.setName(rs.getString("Tname"));
-                    System.out.println(tr.getName());
+                    //System.out.println(tr.getName());
                     maptc.put(rs.getString("Cnumber")+rs.getInt("Corder"),rs.getString("Tname"));
                 }
             }
@@ -84,7 +84,7 @@ public class SearchDao {
             }
             sql="select distinct Dname,Cnumber,Corder from course,department where course.Dnumber=department.Dnumber And Dname like ?";
             pstmt=con.prepareStatement(sql);
-            System.out.println("%"+cr.getCollege()+"%");
+            //System.out.println("%"+cr.getCollege()+"%");
             pstmt.setString(1,"%"+cr.getCollege()+"%");
             rs=pstmt.executeQuery();
             Set<Course> set2=new HashSet<Course>();
@@ -93,11 +93,11 @@ public class SearchDao {
                 tmp=new Course();
                 tmp.setCourse_id(rs.getString("Cnumber"));
                 tmp.setCourse_seq(Integer.toString(rs.getInt("Corder")));
-                System.out.println("有吗");
+                //System.out.println("有吗");
                 if(!cr.getCollege().equals(rs.getString("Dname"))) {
-                    System.out.println("学院名字有变化了");
+                    //System.out.println("学院名字有变化了");
                     cr.setCollege(rs.getString("Dname"));
-                    System.out.println(cr.getCollege());
+                    //System.out.println(cr.getCollege());
                     mapdc.put(rs.getString("Cnumber")+rs.getString("Corder"),rs.getString("Dname"));
                 }
                 set2.add(tmp);
@@ -112,26 +112,26 @@ public class SearchDao {
             rs = pstmt.executeQuery();
             JSONObject js = null;
             while(rs.next()) {
-                System.out.println("有课啊");
+                //System.out.println("有课啊");
                 tmp=new Course();
                 tmp.setCourse_id(rs.getString("Cnumber"));
                 tmp.setCourse_seq(Integer.toString(rs.getInt("Corder")));
                 String sec=null;
                 boolean p=false;
                 if(!cr.getSection().equals("")) {
-                    System.out.println("是的");
+                    //System.out.println("是的");
                     int tem = rs.getInt("Csection");
                     int ta = tem % 100;
                     int tb = tem / 100;
                     if (Integer.parseInt(cr.getSection()) >= tb && Integer.parseInt(cr.getSection()) <= ta) {
                         p = true;
-                        System.out.println("yes");
+                        //System.out.println("yes");
                     }
                 }
                 else
                     p=true;
-                System.out.println("set1?"+set1.contains(tmp));
-                System.out.println("set2?"+set2.contains(tmp));
+                //System.out.println("set1?"+set1.contains(tmp));
+                //System.out.println("set2?"+set2.contains(tmp));
                 if(p&&set1.contains(tmp)&&set2.contains(tmp)){
                     /*
                     if(tr.getName().equals("")){
