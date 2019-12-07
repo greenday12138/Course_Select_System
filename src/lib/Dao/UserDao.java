@@ -21,11 +21,7 @@ public class UserDao {
             if(n==0) {
                  sql = "select * from student where Snumber=? and Spassword=?";
             }else {
-<<<<<<< HEAD
-                 sql = "select * from teacher where Snumber=? and Spassword=?";
-=======
                  sql = "select * from teacher where Tnumber=? and Tpassword=?";
->>>>>>> jby
             }
 
             pstmt = con.prepareStatement(sql);
