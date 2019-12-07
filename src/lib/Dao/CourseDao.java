@@ -11,8 +11,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Random;
 
-import static java.lang.Integer.*;
-
 //import java.sql.Array;
 
 public class CourseDao {
@@ -99,7 +97,7 @@ public class CourseDao {
             pstmt.setString(1,count+"");
             pstmt.setString(2,course.getTeacher_id());
             pstmt.setString(3,id);
-            pstmt.setString(4,seq);
+            pstmt.setInt(4,Integer.parseInt(seq));
             int rs2tc=pstmt.executeUpdate();
             if(rs2course>0&&rs2tc>0){
                 resultCourse=new Course();
