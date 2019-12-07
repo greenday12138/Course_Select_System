@@ -32,8 +32,9 @@ public class TdeleteServlet extends HttpServlet {
         Map<String,String> map=jo;
         Course course=new Course();
         CourseDao courseDao=new CourseDao();
-        course.setCourse_id(map.get("id"));
-        course.setCourse_seq(map.get("seq"));
+
+        course.setCourse_id(map.get("course_id"));
+        course.setCourse_seq(map.get("course_seq"));
         Connection con = null;
         try {
 
@@ -44,9 +45,11 @@ public class TdeleteServlet extends HttpServlet {
                 JSONObject jsonObject=new JSONObject();
                 if(courseDao.t_Course_Delete(con,course)) {
                     jsonObject.put("message","success!");
+                    System.out.println("删除成功");
                 }
                 else {
                     jsonObject.put("message","fail!");
+                    System.out.println("删除失败");
                 }
 
 
