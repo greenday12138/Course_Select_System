@@ -185,6 +185,78 @@ public class Course {
     public void setMname(String mname) {
         Mname = mname;
     }
+
+    public String getTname() {
+        return Tname;
+    }
+
+    public void setTname(String tname) {
+        Tname = tname;
+    }
+
+    public String getDeacription() {
+        return Deacription;
+    }
+
+    public void setDeacription(String deacription) {
+        Deacription = deacription;
+    }
+
+    public String getStart_time() {
+        return start_time;
+    }
+
+    public void setStart_time(String start_time) {
+        this.start_time = start_time;
+    }
+
+    public String getEnd_time() {
+        return end_time;
+    }
+
+    public void setEnd_time(String end_time) {
+        this.end_time = end_time;
+    }
+
+    public String getStart_recur() {
+        return start_recur;
+    }
+
+    public void setStart_recur(String start_recur) {
+        this.start_recur = start_recur;
+    }
+
+    public String getEnd_recur() {
+        return end_recur;
+    }
+
+    public void setEnd_recur(String end_recur) {
+        this.end_recur = end_recur;
+    }
+
+    public String getTextcolor() {
+        return textcolor;
+    }
+
+    public void setTextcolor(String textcolor) {
+        this.textcolor = textcolor;
+    }
+
+    public String getBackgroundcolor() {
+        return backgroundcolor;
+    }
+
+    public void setBackgroundcolor(String backgroundcolor) {
+        this.backgroundcolor = backgroundcolor;
+    }
+
+    public String getBordercolor() {
+        return bordercolor;
+    }
+
+    public void setBordercolor(String bordercolor) {
+        this.bordercolor = bordercolor;
+    }
     String teacher_id="";
     String course_id="";
     String course_name="";
@@ -192,9 +264,9 @@ public class Course {
     String campus="";
     String section="";
     String attribute="";
-    String weekday="";
+    String weekday="";//星期几
     String course_seq="";
-    String duration="";
+    String duration="";//节次
     String building="";
     String classroom="";
     String capacity="";
@@ -204,5 +276,14 @@ public class Course {
     String week_end="";
     String Dname="";
     String Mname="";
+    String Tname="";
+    String Deacription="";//老师姓名+教学楼+教师
+    String start_time="";
+    String end_time="";
+    String start_recur="";
+    String end_recur="";
+    String textcolor="";
+    String backgroundcolor="";
+    String bordercolor="";
     int credit=0,order=0;
 }

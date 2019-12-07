@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 
 //import java.sql.Array;
 
-public class CourseDao {
+public class TimetableDao {
 
     public ArrayList<Course> getCourseInfo(Connection con, User user) throws SQLException{
         ArrayList<Course> allCourse=new ArrayList<Course>();
@@ -61,7 +61,7 @@ public class CourseDao {
             //int seq=Integer.parseInt(temp);
             String tempsql="select count(*) from tc";
             pstmt = con.prepareStatement(tempsql);
-           // pstmt.setString(1,course.getTeacher_id());
+            // pstmt.setString(1,course.getTeacher_id());
             ResultSet rs = pstmt.executeQuery();
             int count=0;
             while(rs.next()){
@@ -73,8 +73,8 @@ public class CourseDao {
 
 
             String sql2course="insert into course(Cnumber,Cname,Corder,Ccredit,Cproperty,Ccapacity," +
-                    "Ctime,Cweek,Csection,Cschool,Cfoor,Croom,Dnumber,Mnumber)" +
-                    "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                    "                      Ctime,Cweek,Csection,Cschool,Cfoor,Croom,Dnumber,Mnumber)" +
+                    "                       values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             pstmt = con.prepareStatement(sql2course);
             pstmt.setString(1, id);
             pstmt.setString(2,course.getCourse_name());
@@ -211,16 +211,20 @@ public class CourseDao {
         try{
             String sql=null;
             sql="select course.Cname,course.Cweek,course.Cschool,course.Cfoor,course.Croom,course.Csection,course.Ctime from course,sc where sc.Snumber="+user.getId()+" and sc.Cnumber=course.Cnumber";
-            System.out.println(sql);
             pstmt = con.prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
             Time time=new Time();
             WeekDate weekDate=new WeekDate();
+            // ClassSet classroom=new ClassSet();
+            //Color color=new Color();
             ArrayList<String> starttime=time.getStartTime();
             ArrayList<String> endtime=time.getEndTime();
             ArrayList<String> startWeekTime=weekDate.getWeekStartDate();
             ArrayList<String> endWeekTime=weekDate.getWeekEndDate();
-
+            // ArrayList<String> school=classroom.getClassSchool();
+            // ArrayList<String> floor=classroom.getClassFloor();
+            //ArrayList<String> textcolor=color.getTextcolor();
+            //ArrayList<String> bcolor=color.getBcolor();
 
 
 

@@ -336,8 +336,14 @@
       var user = JSON.parse(sessionStorage.getItem('user'));
       $('#username').text(user.name);
 
-      $.post('http://localhost:8080/dbLab_war_exploded/selected', {"id":user.id}, page_render(data));
-    })
+      $.post('http://localhost:8080/dbLab_war_exploded/timetable',
+              {"fromdata":JSON.stringify(user.id)},
+              function(data){
+                  data=JSON.parse(data);
+                  log(data);
+                  page_render(data);
+              }
+    )
 
     function page_render(data) {
       // [
@@ -395,10 +401,11 @@
           });
         }
       });
-
+    
       calendar.render();
         //not support web cache of class table
     }
+    });
 // 未实现：
 // 待办事项功能
   </script>
