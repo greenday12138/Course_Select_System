@@ -158,7 +158,7 @@
                   class="fas fa-remove"></i></button>
 
             </div>
-            <button type="button" class="btn btn-primary btn-sm float-right">
+            <button id="search" type="button" class="btn btn-primary btn-sm float-right">
               <i class="ion-search"></i>
               查找
             </button>
@@ -169,8 +169,8 @@
               <div class="col-md-3">
                 <div class="form-group">
                   <label class="col-form-label col-form-label-sm">开课院系</label>
-                  <select class="form-control custom-select-sm" style="width: 100%;">
-                    <option selected="select">全部</option>
+                  <select id="college" class="form-control custom-select-sm" style="width: 100%;">
+                    <option value=""  selected="select">全部</option>
 
                     <option value="101">艺术学院</option>
 
@@ -286,11 +286,11 @@
               <div class="col-md-3">
                 <div class="form-group">
                   <label class="col-form-label col-form-label-sm">校区</label>
-                  <select class="form-control custom-select-sm" style="width: 100%;">
-                    <option selected="selected">全部</option>
-                    <option>江安</option>
-                    <option>华西</option>
-                    <option>望江</option>
+                  <select id="campus" class="form-control custom-select-sm" style="width: 100%;">
+                    <option value="" selected="selected">全部</option>
+                    <option value="江安">江安</option>
+                    <option value="华西">华西</option>
+                    <option value="望江">望江</option>
                   </select>
                 </div>
 
@@ -299,7 +299,7 @@
               <div class="col-md-3">
                 <div class="form-group">
                   <label class="col-form-label col-form-label-sm">上课节次</label>
-                  <select class="form-control custom-select-sm" style="width: 100%;">
+                  <select  id='section' class="form-control custom-select-sm" style="width: 100%;">
                     <option value="">全部</option>
 
                     <option value="1">1</option>
@@ -322,7 +322,7 @@
               <div class="col-md-3">
                 <div class="form-group">
                   <label class="col-form-label col-form-label-sm">课程号</label>
-                  <input type="text" name="course_id" class="form-control form-control-sm" />
+                  <input  id='course_id' type="text" name="course_id" class="form-control form-control-sm" />
                 </div>
 
               </div>
@@ -332,17 +332,17 @@
               <div class="col-md-3">
                 <div class="form-group">
                   <label class="col-form-label col-form-label-sm">课程属性</label>
-                  <select class="form-control custom-select-sm" style="width: 100%;">
-                    <option selected="select">全部</option>
-                    <option>必修</option>
-                    <option>选修</option>
+                  <select id="attribute" class="form-control custom-select-sm" style="width: 100%;">
+                    <option value="" selected="select">全部</option>
+                    <option value="compulsory">必修</option>
+                    <option value="optional">选修</option>
                   </select>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-group">
                   <label class="col-form-label col-form-label-sm">上课星期</label>
-                  <select class="form-control custom-select-sm" style="width: 100%;">
+                  <select id="weekday" class="form-control custom-select-sm" style="width: 100%;">
                     <option value="">全部</option>
 
                     <option value="1">星期一</option>
@@ -358,13 +358,13 @@
               <div class="col-md-3">
                 <div class="form-group">
                   <label class="col-form-label col-form-label-sm">教师名</label>
-                  <input type="text" name="teacher_name" class="form-control form-control-sm" />
+                  <input id="teacher_name" type="text" name="teacher_name" class="form-control form-control-sm" />
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-group">
                   <label class="col-form-label col-form-label-sm">课程名</label>
-                  <input type="text" name="course_name" class="form-control form-control-sm" />
+                  <input  id="course_name" type="text" name="course_name" class="form-control form-control-sm" />
                 </div>
               </div>
             </div>
@@ -402,7 +402,7 @@
                     <th class="text-sm">添加课程</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id="example2_body">
                   <tr>
                     <td>计算机系统结构</td>
                     <td>60530412</td>
@@ -464,6 +464,7 @@
   <!-- page script -->
   <script>
     $(function () {
+      console.log("first");
       $("#example1").DataTable();
       $('#example2').DataTable({
         "paging": true,
@@ -482,32 +483,36 @@
   </script>
   <!-- coder custom render -->
   <script>
+
     $(function () {
       var user = JSON.parse(sessionStorage.getItem("user"));
       $("#username").text(user.name);
-
+      console.log("log");
+      $.post("http://localhost:8080/dbLab_war_exploded/srch",{"fromdata":"1111111"});
       $("#search").click(search);
-      $("#submit").click(function () {
-        var jsonStr = [];
-        $("input[data-bootstrap-switch]").each(function () {
-          if ($(this).prop("checked") == true) {
-            //chosen class
-            $(this).parent().hide();
-            var course_id = $(this).parent().parent().parent().parent().children().eq(1).text();
-            var course_seq = $(this).parent().parent().parent().parent().children().eq(2).text();
-            var temp = {
-              course_id: course_id,
-              course_seq: course_seq
-            }
-            jsonStr.concat(temp);
-          }
-          // produce choose list
-        })
-        $.post("http://localhost:8080/dbLab_war_exploded/select", JSON.stringify(jsonStr), function () {
-          //已选课程的disable问题
-        })
-      })
+      $("#submit").click(submit);
     })
+
+    function  submit() {
+      var jsonStr = [];
+      $("input[data-bootstrap-switch]").each(function () {
+        if ($(this).prop("checked") == true) {
+          //chosen class
+          $(this).parent().hide();
+          var course_id = $(this).parent().parent().parent().parent().children().eq(1).text();
+          var course_seq = $(this).parent().parent().parent().parent().children().eq(2).text();
+          var temp = {
+            course_id: course_id,
+            course_seq: course_seq
+          }
+          jsonStr.concat(temp);
+        }
+        // produce choose list
+      })
+      $.post("http://localhost:8080/dbLab_war_exploded/select", JSON.stringify(jsonStr), function () {
+        //已选课程的disable问题
+      })
+    }
 
     function search() {
       var course_id = $("#course_id").val();
@@ -515,12 +520,11 @@
       var teacher_name = $("#teacher_name").val();
       var college = $("#college").val();
       var campus = $("#campus").val();
-      var section = $("#secont").val();
+      var section = $("#section").val();
       var attribute = $("#attribute").val();
-      var weekday = $("weekday").val();
+      var weekday = $("#weekday").val();
       var user=JSON.parse(sessionStorage.getItem('user'));
-
-      $.post("url", JSON.stringify({
+      var json={
         'id':user.id,
         'course_id': course_id,
         'course_name': course_name,
@@ -530,9 +534,11 @@
         'section': section,
         'attribute': attribute,
         'weekday': weekday,
-      }),
+      }
+
+      $.post("http://localhost:8080/dbLab_war_exploded/search",{"fromdata":JSON.stringify(json)},
         function (data) {
-        data=JSON.parse(data)
+        data=JSON.parse(data);
           // data -> server returned json 
           // [
           //     {

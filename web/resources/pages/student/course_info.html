@@ -531,12 +531,13 @@
   <script>
     $(function () {
       var user = JSON.parse(sessionStorage.getItem("user"));
-      $(".username").text(user.name);
+      $("#username").text(user.name);
 
-      $("#search").click(search());
+      $("#search").click(search);
     })
 
     function search() {
+      //clear preload data
       var course_id = $("#course_id").val();
       var course_name = $("#course_name").val();
       var teacher_name = $("#teacher_name").val();
@@ -544,7 +545,7 @@
       var campus = $("#campus").val();
       var section = $("#section").val();
       var attribute = $("#attribute").val();
-      var weekday = $("weekday").val();
+      var weekday = $("#weekday").val();
       var user=JSON.parse(sessionStorage.getItem('user'));
 
       var json={
@@ -559,7 +560,7 @@
           'weekday': weekday,
         };
 
-      $.post("http://localhost:8080/dbLab_war_exploded/search",{fromdata:JSON.stringify(json)},
+      $.post("http://localhost:8080/dbLab_war_exploded/search",{"fromdata":JSON.stringify(json)},
         function (data) {
         data=JSON.parse(data);
         console.log(data);
