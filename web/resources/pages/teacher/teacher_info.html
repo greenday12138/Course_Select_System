@@ -333,7 +333,11 @@
       $("#name").text(user.name);
       $("#id").text(user.id);
 
-      $.post("http://localhost:8080/info", {fromdata:JSON.stringify(user)}, function(data){page_render(data);console.log(data);});
+      $.post("http://localhost:8080/info", { fromdata: JSON.stringify(user) },
+        function (data) {
+          page_render(data);
+          console.log(data);
+        });
 
       $("#submit").click(function () {
 
@@ -358,7 +362,7 @@
       //     ****,
       //     ]
       // }
-      if (data.gender == "male") {
+      if (data.gender === "男") {
         $("#gender_male").show();
         $("#gender_female").hide();
       }

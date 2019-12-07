@@ -308,12 +308,40 @@
     attention: sessionStorage is uesd for cross page info coherence,
     localStorage is a local buffer for minimizing server interaction
     */
+    function add_course(){
+      var row="";
+      row += "<tr>" +
+              "<td>" + "<b>" + 'data[i].name' + "</b>" + "</td>" +
+              "<td>" + 'data[i].id' + "</td>" +
+              "<td>" + 'data[i].seq' + "</td>" +
+              'temp' +
+              "<td>" + 'data[i].credit' + "</td>" +
+              `<td class="project-actions text-right">
+                    <a class="btn btn-primary btn-sm" href="course_detail.html" detail>
+                      <i class="fas fa-folder">
+                      </i>
+                      详细
+                    </a>
+                    <a class="btn btn-info btn-sm" href="course_edit.html" edit>
+                      <i class="fas fa-pencil-alt">
+                      </i>
+                      编辑
+                    </a>
+                    <button class="btn btn-danger btn-sm" delete>
+                      <i class="fas fa-trash">
+                      </i>
+                      删除
+                    </button>
+                  </td>`+
+                  "</tr>" ;
+            $("#course_list").append(row);
+    }
     $(function () {
-      // var json = {
-      //  "name": "hhh",
-      //   "id": "2017"
-      // };
-      // sessionStorage.setItem("user", JSON.stringify(json));
+      var json = {
+       "name": "hhh",
+        "id": "2017"
+      };
+      sessionStorage.setItem("user", JSON.stringify(json));
       var user = JSON.parse(sessionStorage.getItem("user"));
       $("#username").text(user.name);
 
@@ -444,6 +472,7 @@
         $(this).click(function () {
           var course_id = $(this).parent().siblings().eq(1).text();
           var course_seq = $(this).parent().siblings().eq(2).text();
+          $(this).parent().parent().remove();
           //server delete item
           $.post("url",
             {
