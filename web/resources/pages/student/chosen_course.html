@@ -284,12 +284,12 @@
       //preload
       $.post("http://localhost:8080/dbLab_war_exploded/selected", { id: user.id },
         function (data) {
-          data=JSON.parse(data);
+          data = JSON.parse(data);
           return list(data);
         });
 
       //delete button
-      $("button[delete]").each(function () {
+      $('.content').on('click', 'button[delete]', function () {
         $(this).click(function () {
           var course = $(this).parent().parent().parent().children().eq(1).find('p').text().toString();
           console.log(course_info.split(':')[1].split('/')[0]);
@@ -302,7 +302,7 @@
               })
             },
             function (data) {
-            data=JSON.parse(data);
+              data = JSON.parse(data);
               /*
               {
                 info:1 or 0
@@ -315,7 +315,7 @@
             })
 
         })
-      });
+      })
 
     })
 
