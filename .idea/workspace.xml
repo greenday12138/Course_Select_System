@@ -6,13 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4a57a87-bcb4-465b-9f55-e7badc5da9be" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/Dao/DeleteDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/DeleteDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/Dao/SelectDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/SelectDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/Dao/StuSelectDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/StuSelectDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/resources/pages/student/course_select.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/student/course_select.html" afterDir="false" />
-    </list>
+    <list default="true" id="a4a57a87-bcb4-465b-9f55-e7badc5da9be" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,7 +187,7 @@
       <workItem from="1575698888775" duration="1978000" />
       <workItem from="1575711801903" duration="637000" />
       <workItem from="1575712463431" duration="686000" />
-      <workItem from="1575713173561" duration="3027000" />
+      <workItem from="1575713173561" duration="3605000" />
     </task>
     <servers />
   </component>
