@@ -281,11 +281,11 @@
       var user = JSON.parse(sessionStorage.getItem("user"));
       $("#username").text(user.name);
 
-      //preload
-      // $.post("url", { id: user.id },
-      //   function (data) {
-      //     return list(data);
-      //   });
+      preload
+      $.post("url", { id: user.id },
+        function (data) {
+          return list(data);
+        });
 
       //delete button
       $("button[delete]").each(function () {
