@@ -502,8 +502,6 @@
       var jsonStr = [];
       $("input[data-bootstrap-switch]").each(function () {
         if ($(this).prop("checked") == true) {
-          //chosen class
-          $(this).parent().hide();
           var course_id = $(this).parent().parent().parent().parent().children().eq(1).text();
           var course_seq = $(this).parent().parent().parent().parent().children().eq(2).text();
           var temp = {
