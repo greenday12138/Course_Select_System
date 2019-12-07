@@ -174,78 +174,78 @@
                 </tr>
               </thead>
               <tbody id="course_list">
-                <tr>
-                  <td>
-                    <b>
-                      新时代中国特色社会主义书籍研读
-                    </b>
-                  </td>
-                  <td>
-                    6053041254
-                  </td>
-                  <td>
-                    03
-                  </td>
-                  <td class="project-state">
-                    <span class="badge badge-success">必修</span>
-                  </td>
-                  <td>
-                    3
-                  </td>
-                  <td class="project-actions text-right">
-                    <a class="btn btn-primary btn-sm" href="course_detail.html" detail>
-                      <i class="fas fa-folder">
-                      </i>
-                      详细
-                    </a>
-                    <a class="btn btn-info btn-sm" href="course_edit.html" edit>
-                      <i class="fas fa-pencil-alt">
-                      </i>
-                      编辑
-                    </a>
-                    <button class="btn btn-danger btn-sm " delete>
-                      <i class="fas fa-trash">
-                      </i>
-                      删除
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <b>
-                      大数据时代下的创新创业实践
-                    </b>
-                  </td>
-                  <td>
-                    6053041254
-                  </td>
-                  <td>
-                    02
-                  </td>
-                  <td class="project-state">
-                    <span class="badge badge-info">选修</span>
-                  </td>
-                  <td>
-                    1
-                  </td>
-                  <td class="project-actions text-right">
-                    <a class="btn btn-primary btn-sm" href="course_detail.html" detail>
-                      <i class="fas fa-folder">
-                      </i>
-                      详细
-                    </a>
-                    <a class="btn btn-info btn-sm" href="course_edit.html" edit>
-                      <i class="fas fa-pencil-alt">
-                      </i>
-                      编辑
-                    </a>
-                    <button class="btn btn-danger btn-sm" delete>
-                      <i class="fas fa-trash">
-                      </i>
-                      删除
-                    </button>
-                  </td>
-                </tr>
+                <!--<tr>-->
+                  <!--<td>-->
+                    <!--<b>-->
+                      <!--新时代中国特色社会主义书籍研读-->
+                    <!--</b>-->
+                  <!--</td>-->
+                  <!--<td>-->
+                    <!--6053041254-->
+                  <!--</td>-->
+                  <!--<td>-->
+                    <!--03-->
+                  <!--</td>-->
+                  <!--<td class="project-state">-->
+                    <!--<span class="badge badge-success">必修</span>-->
+                  <!--</td>-->
+                  <!--<td>-->
+                    <!--3-->
+                  <!--</td>-->
+                  <!--<td class="project-actions text-right">-->
+                    <!--<a class="btn btn-primary btn-sm" href="course_detail.html" detail>-->
+                      <!--<i class="fas fa-folder">-->
+                      <!--</i>-->
+                      <!--详细-->
+                    <!--</a>-->
+                    <!--<a class="btn btn-info btn-sm" href="course_edit.html" edit>-->
+                      <!--<i class="fas fa-pencil-alt">-->
+                      <!--</i>-->
+                      <!--编辑-->
+                    <!--</a>-->
+                    <!--<button class="btn btn-danger btn-sm " delete>-->
+                      <!--<i class="fas fa-trash">-->
+                      <!--</i>-->
+                      <!--删除-->
+                    <!--</button>-->
+                  <!--</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                  <!--<td>-->
+                    <!--<b>-->
+                      <!--大数据时代下的创新创业实践-->
+                    <!--</b>-->
+                  <!--</td>-->
+                  <!--<td>-->
+                    <!--6053041254-->
+                  <!--</td>-->
+                  <!--<td>-->
+                    <!--02-->
+                  <!--</td>-->
+                  <!--<td class="project-state">-->
+                    <!--<span class="badge badge-info">选修</span>-->
+                  <!--</td>-->
+                  <!--<td>-->
+                    <!--1-->
+                  <!--</td>-->
+                  <!--<td class="project-actions text-right">-->
+                    <!--<a class="btn btn-primary btn-sm" href="course_detail.html" detail>-->
+                      <!--<i class="fas fa-folder">-->
+                      <!--</i>-->
+                      <!--详细-->
+                    <!--</a>-->
+                    <!--<a class="btn btn-info btn-sm" href="course_edit.html" edit>-->
+                      <!--<i class="fas fa-pencil-alt">-->
+                      <!--</i>-->
+                      <!--编辑-->
+                    <!--</a>-->
+                    <!--<button class="btn btn-danger btn-sm" delete>-->
+                      <!--<i class="fas fa-trash">-->
+                      <!--</i>-->
+                      <!--删除-->
+                    <!--</button>-->
+                  <!--</td>-->
+                <!--</tr>-->
               </tbody>
             </table>
           </div>
@@ -441,11 +441,14 @@
 
       //delete button
       $("button[delete]").each(function () {
+          console.log($(this).html());
         $(this).click(function () {
-          var course_id = $(this).parent().siblings().eq(1).text();
-          var course_seq = $(this).parent().siblings().eq(2).text();
+            console.log($(this).html());
+          var course_id = $(this).parent().siblings().eq(1).text().toString().split().pop();
+          var course_seq = $(this).parent().siblings().eq(2).text().toString().split().pop();
+          console.log(course_id+' '+course_seq );
           //server delete item
-          $.post("http://localhost:8080/t_delete",{fromdata:JSON.stringify({
+          $.post("http://localhost:8080/dbLab_war_exploded/t_delete",{fromdata:JSON.stringify({
                       "course_id": course_id,
                       "course_seq": course_seq
                     })},
