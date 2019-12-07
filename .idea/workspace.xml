@@ -8,8 +8,11 @@
   <component name="ChangeListManager">
     <list default="true" id="a4a57a87-bcb4-465b-9f55-e7badc5da9be" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/Dao/DeleteDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/DeleteDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/Dao/SelectDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/SelectDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/servlet/SelectServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/servlet/SelectServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/resources/pages/student/chosen_course.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/student/chosen_course.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resources/pages/student/course_select.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/student/course_select.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resources/pages/student/course_timetable.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/student/course_timetable.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -90,7 +93,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Tomcat 8.5.45" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" editBeforeRun="true" APPLICATION_SERVER_NAME="Tomcat 8.5.45" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="11" nameIsGenerated="true">
+    <configuration type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" editBeforeRun="true" APPLICATION_SERVER_NAME="Tomcat 8.5.45" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="11">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/dbLab_war_exploded/resources/pages/login.html" />
       <option name="COMMON_VM_ARGUMENTS" value="-Dfile.encoding=UTF-8" />
       <option name="UPDATING_POLICY" value="restart-server" />
@@ -103,6 +106,7 @@
       </deployment>
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="Unnamed_dbLab" />
+        <option name="PRESERVE_SESSIONS" value="true" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -191,7 +195,7 @@
       <workItem from="1575698888775" duration="1978000" />
       <workItem from="1575711801903" duration="637000" />
       <workItem from="1575712463431" duration="686000" />
-      <workItem from="1575713173561" duration="4896000" />
+      <workItem from="1575713173561" duration="12042000" />
     </task>
     <servers />
   </component>

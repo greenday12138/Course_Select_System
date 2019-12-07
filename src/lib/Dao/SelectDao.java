@@ -20,15 +20,16 @@ public class SelectDao {
         for(int i=0;i<ja.size();i++) {
             map = ja.getJSONObject(i);
             //计算sc里已经有了多少记录
-            sql="select count(scnumber) from sc ;";
+            sql="select count(scnumber)as co from sc ;";
             pstmt=con.prepareStatement(sql);
             rs=pstmt.executeQuery();
             int all=0;
             while (rs.next()){
-                all=rs.getInt("scnumber");
+                all=rs.getInt("co");
             }
             //计算该课程有多少学生选了
-            sql="select count(Snumber) as co form sc where Cnumber="+ map.get("course_id")+" and Corder="+map.get("course_seq")+";";
+            sql="select count(Snumber) as co from sc where Cnumber="+ map.get("course_id")+" and Corder="+map.get("course_seq")+";";
+            System.out.println(sql);
             pstmt=con.prepareStatement(sql);
             rs=pstmt.executeQuery();
             int co=0;
@@ -45,9 +46,10 @@ public class SelectDao {
             }
             //可能插入新纪录
             if(capacity-co!=0){
-                sql="insert into sc values("+(all-1)+","+id+","+map.get("Cnumber")+","+map.get("Corder")+";";
+                sql="insert into sc values("+all+","+id+","+map.get("course_id")+","+map.get("course_seq")+")"+";";
+                System.out.println(sql);
                 pstmt=con.prepareStatement(sql);
-                pstmt.executeQuery();
+                pstmt.execute();
                 jo=new JSONObject();
                 jo.put("course_id",map.get("course_id"));
                 jo.put("course_seq",map.get("course_seq"));
