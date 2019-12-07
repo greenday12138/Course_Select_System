@@ -386,7 +386,7 @@
       }
 
       //request student list from server
-      $.post("http:localhost:8080/course_Detail", {fromdata:sessionStorage.getItem("course")},
+      $.post("http:localhost:8080/dbLab_war_exploded/course_Detail", {fromdata:sessionStorage.getItem("course")},
         function (data) {
           /*
           data format:
