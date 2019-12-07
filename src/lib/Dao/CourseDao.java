@@ -70,12 +70,12 @@ public class CourseDao {
 
 
             String sql2course="insert into course(Cnumber,Cname,Corder,Ccredit,Cproperty,Ccapacity," +
-                    "                      Ctime,Cweek,Csection,Cschool,Cfoor,Croom,Dnumber,Mnumber)" +
-                    "                       values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                    "Ctime,Cweek,Csection,Cschool,Cfoor,Croom,Dnumber,Mnumber)" +
+                    "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             pstmt = con.prepareStatement(sql2course);
             pstmt.setString(1, id);
             pstmt.setString(2,course.getCourse_name());
-            pstmt.setString(3,seq);
+            pstmt.setInt(3, Integer.parseInt(seq));
             pstmt.setString(4,null);
             pstmt.setString(5,course.getAttribute());
             pstmt.setString(6,course.getCapacity());
