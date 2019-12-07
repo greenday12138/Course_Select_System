@@ -8,6 +8,18 @@ public class Course {
         return course_id;
     }
 
+    public boolean equals(Object obj){
+        if(obj instanceof Course) {
+            Course cr=(Course)obj;
+            if (cr.getCourse_id().equals(getCourse_id()) && cr.getCourse_seq().equals(getCourse_seq())) {
+                return true;
+            }
+        }
+        return false;
+    }
+    public int hashCode(){
+        return (getCourse_seq()+getCourse_id()).hashCode();
+    }
     public String getCourse_name() {
         return course_name;
     }
@@ -173,24 +185,24 @@ public class Course {
     public void setMname(String mname) {
         Mname = mname;
     }
-    String teacher_id;
-    String course_id;
-    String course_name;
-    String college;
-    String campus;
-    String section;
-    String attribute;
-    String weekday;
-    String course_seq;
-    String duration;
-    String building;
-    String classroom;
-    String capacity;
-    String description;
-    String refer;
-    String week_start;
-    String week_end;
-    String Dname;
-    String Mname;
-    int credit,order;
+    String teacher_id="";
+    String course_id="";
+    String course_name="";
+    String college="";
+    String campus="";
+    String section="";
+    String attribute="";
+    String weekday="";
+    String course_seq="";
+    String duration="";
+    String building="";
+    String classroom="";
+    String capacity="";
+    String description="";
+    String refer="";
+    String week_start="";
+    String week_end="";
+    String Dname="";
+    String Mname="";
+    int credit=0,order=0;
 }

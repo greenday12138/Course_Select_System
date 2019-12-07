@@ -28,7 +28,10 @@ public class SigninServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //resp.setContentType("text/javascript;charset=utf-8");
+
         String fromdata = req.getParameter("fromdata");
+        System.out.println(fromdata);
         JSONObject jo=JSONObject.fromObject(fromdata);
         Map<String,String> map=jo;
         String id=map.get("id");
