@@ -170,7 +170,7 @@
                 <div class="form-group">
                   <label class="col-form-label col-form-label-sm">开课院系</label>
                   <select id="college" class="form-control custom-select-sm" style="width: 100%;">
-                    <option value=""  selected="select">全部</option>
+                    <option value="" selected="select">全部</option>
 
                     <option value="101">艺术学院</option>
 
@@ -299,7 +299,7 @@
               <div class="col-md-3">
                 <div class="form-group">
                   <label class="col-form-label col-form-label-sm">上课节次</label>
-                  <select  id='section' class="form-control custom-select-sm" style="width: 100%;">
+                  <select id='section' class="form-control custom-select-sm" style="width: 100%;">
                     <option value="">全部</option>
 
                     <option value="1">1</option>
@@ -322,7 +322,7 @@
               <div class="col-md-3">
                 <div class="form-group">
                   <label class="col-form-label col-form-label-sm">课程号</label>
-                  <input  id='course_id' type="text" name="course_id" class="form-control form-control-sm" />
+                  <input id='course_id' type="text" name="course_id" class="form-control form-control-sm" />
                 </div>
 
               </div>
@@ -364,7 +364,7 @@
               <div class="col-md-3">
                 <div class="form-group">
                   <label class="col-form-label col-form-label-sm">课程名</label>
-                  <input  id="course_name" type="text" name="course_name" class="form-control form-control-sm" />
+                  <input id="course_name" type="text" name="course_name" class="form-control form-control-sm" />
                 </div>
               </div>
             </div>
@@ -464,7 +464,6 @@
   <!-- page script -->
   <script>
     $(function () {
-      console.log("first");
       $("#example1").DataTable();
       $('#example2').DataTable({
         "paging": true,
@@ -487,13 +486,12 @@
     $(function () {
       var user = JSON.parse(sessionStorage.getItem("user"));
       $("#username").text(user.name);
-      console.log("log");
-      $.post("http://localhost:8080/dbLab_war_exploded/srch",{"fromdata":"1111111"});
+      $.post("http://localhost:8080/dbLab_war_exploded/srch", { "fromdata": "1111111" });
       $("#search").click(search);
       $("#submit").click(submit);
     })
 
-    function  submit() {
+    function submit() {
       var jsonStr = [];
       $("input[data-bootstrap-switch]").each(function () {
         if ($(this).prop("checked") == true) {
@@ -509,12 +507,41 @@
         }
         // produce choose list
       })
-      $.post("http://localhost:8080/dbLab_war_exploded/select", JSON.stringify(jsonStr), function () {
-        //已选课程的disable问题
-      })
+      $.post("http://localhost:8080/dbLab_war_exploded/select", { "fromdata": JSON.stringify(jsonStr) },
+        function (data) {
+          /*
+          [
+            {
+              course_id:   ,
+              course_seq:  ,
+              info:1 stands for success ,0 stands for fail
+            },
+            {
+              ...
+            }
+          ]
+          */
+          //已选课程的disable问题
+          var res = JSON.parse(data);
+          for (i in data) {
+            //choose course successfully
+            if (data[i].info === 1) {
+              //find corelated course
+              var temp = $('#example2_body').children();
+              temp.each(function () {
+                if ($(this).children().eq(1).text() === data[i].course_id &&
+                  $(this).children().eq(2).text() === data[i].course_seq) {
+                    $(this).children().eq(13).hide();
+                }
+              })
+            }
+          }
+        })
     }
 
     function search() {
+      //clear preload data
+      $("#example2_body").empty();
       var course_id = $("#course_id").val();
       var course_name = $("#course_name").val();
       var teacher_name = $("#teacher_name").val();
@@ -523,9 +550,9 @@
       var section = $("#section").val();
       var attribute = $("#attribute").val();
       var weekday = $("#weekday").val();
-      var user=JSON.parse(sessionStorage.getItem('user'));
-      var json={
-        'id':user.id,
+      var user = JSON.parse(sessionStorage.getItem('user'));
+      var json = {
+        'id': user.id,
         'course_id': course_id,
         'course_name': course_name,
         'teacher_name': teacher_name,
@@ -536,9 +563,9 @@
         'weekday': weekday,
       }
 
-      $.post("http://localhost:8080/dbLab_war_exploded/search",{"fromdata":JSON.stringify(json)},
+      $.post("http://localhost:8080/dbLab_war_exploded/search", { "fromdata": JSON.stringify(json) },
         function (data) {
-        data=JSON.parse(data);
+          data = JSON.parse(data);
           // data -> server returned json 
           // [
           //     {
@@ -578,8 +605,8 @@
               "<td>" + data[i].capacity + "</td>" +
               "<td>" +
               "<input class='add_course' type = 'checkbox' name = 'my-checkbox' checked data-bootstrap-switch/>" +
-              "</td>"
-            "</tr>"
+              "</td>" +
+              "</tr>"
           };
           $("#example2_body").append(str);
         })
