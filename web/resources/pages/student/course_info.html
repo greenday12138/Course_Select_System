@@ -533,7 +533,7 @@
       var user = JSON.parse(sessionStorage.getItem("user"));
       $(".username").text(user.name);
 
-      $("#search").click(search());
+      $("#search").click(search);
     })
 
     function search() {
@@ -542,9 +542,9 @@
       var teacher_name = $("#teacher_name").val();
       var college = $("#college").val();
       var campus = $("#campus").val();
-      var section = $("#secont").val();
+      var section = $("#section").val();
       var attribute = $("#attribute").val();
-      var weekday = $("weekday").val();
+      var weekday = $("#weekday").val();
       var user=JSON.parse(sessionStorage.getItem('user'));
 
       var json={
@@ -559,8 +559,10 @@
           'weekday': weekday,
         };
 
-      $.post("url",JSON.stringify(json),
+      $.post("http://localhost:8080/dbLab_war_exploded/search",{fromdata:JSON.stringify(json)},
         function (data) {
+        data=JSON.parse(data);
+        console.log(data);
           // data -> server returned json 
           // [
           //     {
@@ -583,24 +585,28 @@
           //     }
           // ]
           var str = "";
-          for (i in data) {
-            str += "<tr>" +
-              "<td>" + data[i].course_name + "</td>" +
-              "<td>" + data[i].course_id + "</td>" +
-              "<td>" + data[i].course_seq + "</td>" +
-              "<td>" + data[i].credit + "</td>" +
-              "<td>" + data[i].attribute + "</td>" +
-              "<td>" + data[i].teacher_name + "</td>" +
-              "<td>" + data[i].duration + "</td>" +
-              "<td>" + data[i].weekday + "</td>" +
-              "<td>" + data[i].section + "</td>" +
-              "<td>" + data[i].campus + "</td>" +
-              "<td>" + data[i].building + "</td>" +
-              "<td>" + data[i].classroom + "</td>" +
-              "<td>" + data[i].capacity + "</td>" +
-              "</tr>"
-          };
-          $("#example2_body").append(str);
+          if(data.length!=0) {
+
+            for (i in data) {
+              str += "<tr>" +
+                      "<td>" + data[i].course_name + "</td>" +
+                      "<td>" + data[i].course_id + "</td>" +
+                      "<td>" + data[i].course_seq + "</td>" +
+                      "<td>" + data[i].credit + "</td>" +
+                      "<td>" + data[i].attribute + "</td>" +
+                      "<td>" + data[i].teacher_name + "</td>" +
+                      "<td>" + data[i].duration + "</td>" +
+                      "<td>" + data[i].weekday + "</td>" +
+                      "<td>" + data[i].section + "</td>" +
+                      "<td>" + data[i].campus + "</td>" +
+                      "<td>" + data[i].building + "</td>" +
+                      "<td>" + data[i].classroom + "</td>" +
+                      "<td>" + data[i].capacity + "</td>" +
+                      "</tr>"
+            }
+            ;
+            $("#example2_body").append(str);
+          }
         })
     }
   </script>

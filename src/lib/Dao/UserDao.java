@@ -28,6 +28,7 @@ public class UserDao {
             pstmt.setString(1, user.getId());
             pstmt.setString(2, user.getPassword());
             ResultSet rs = pstmt.executeQuery();
+            //System.out.println(rs);
             if (rs.next()){
                 if(n==0) {
                     resultUser = new Student();
@@ -35,6 +36,7 @@ public class UserDao {
                     resultUser.setPassword(rs.getString("Spassword"));
                     resultUser.setRole(n);
                     resultUser.setName(rs.getString("Sname"));
+                    //System.out.println("从数据库里取出的汉字"+rs.getString("Sname"));
                    // restltUser.setEmail(rs.getString());
                 }
                 else{
