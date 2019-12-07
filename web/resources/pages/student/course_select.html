@@ -492,7 +492,6 @@
     $(function () {
       var user = JSON.parse(sessionStorage.getItem("user"));
       $("#username").text(user.name);
-      $.post("http://localhost:8080/dbLab_war_exploded/srch", { "fromdata": "1111111" });
       $("#search").click(search);
       $("#submit").click(submit);
     })
