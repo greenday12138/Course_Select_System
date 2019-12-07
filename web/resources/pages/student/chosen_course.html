@@ -290,7 +290,9 @@
 
       //delete button
       $('.content').on('click', 'button[delete]', function () {
-          var course = $(this).parent().parent().parent().children().eq(1).find('p').text().toString();
+          var temp = $(this).parent().parent().parent();
+          var course=temp.children().eq(1).find('p').text().toString();
+          // console.log(course);
           $.post('http://localhost:8080/dbLab_war_exploded/delete',
             {
               'fromdata': JSON.stringify({
@@ -306,9 +308,10 @@
                 info:1 or 0
               }
                */
-              if (data.info === 1) {
-                var html = $(this).parent().parent().parent().parent();
-                html.remove();
+              if (data.info === "1") {
+                var action = temp.parent();
+                // console.log(action.html());
+                action.remove();
               }
             })
       })

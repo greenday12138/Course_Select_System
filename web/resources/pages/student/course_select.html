@@ -497,21 +497,23 @@
     })
 
     function submit() {
-      var jsonStr = [];
-      $("input[data-bootstrap-switch]").each(function () {
-        if ($(this).prop("checked") == true) {
-          //chosen class
-          $(this).parent().hide();
+      var jsonStr = [{
+        'course_id': "101260030",
+        'course_seq': "1"
+      }];
+      $('#example2_body').on('click','input[data-bootstrap-switch]',function () {
+        //if ($(this).prop("checked") == true) {
+        if(true){
           var course_id = $(this).parent().parent().parent().parent().children().eq(1).text();
           var course_seq = $(this).parent().parent().parent().parent().children().eq(2).text();
           var temp = {
-            course_id: course_id,
-            course_seq: course_seq
+            'course_id': "101260030",
+            'course_seq': "1"
           }
-          jsonStr.concat(temp);
+          jsonStr.push(temp);
         }
-        // produce choose list
       })
+      console.log(jsonStr);
       var user = JSON.parse(sessionStorage.getItem('user'));
       $.post("http://localhost:8080/dbLab_war_exploded/select",
         {
@@ -614,7 +616,7 @@
               "<td>" + data[i].classroom + "</td>" +
               "<td>" + data[i].capacity + "</td>" +
               "<td>" +
-              "<input class='add_course' type = 'checkbox' name = 'my-checkbox' checked data-bootstrap-switch/>" +
+              "<input class='add_course' type = 'checkbox' name = 'my-checkbox' unchecked data-bootstrap-switch/>" +
               "</td>" +
               "</tr>"
           };

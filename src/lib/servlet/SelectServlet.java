@@ -25,7 +25,8 @@ public class SelectServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String fromdata = req.getParameter("fromdata");
         String id=req.getParameter("id");
-        System.out.println(fromdata);
+        System.out.println("fromdata: "+fromdata);
+        System.out.println("id: "+id);
         JSONArray ja = JSONArray.fromObject(fromdata);
 
         Connection con=null;
