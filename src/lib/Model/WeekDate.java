@@ -33,7 +33,7 @@ public class WeekDate {
         weekStartDate.add("2019-12-16");
         weekStartDate.add("2019-12-23");
         weekStartDate.add("2019-12-30");
-        weekStartDate.add("2019-01-06");
+        weekStartDate.add("2020-01-06");
         weekEndDate.add("2019-09-08");
         weekEndDate.add("2019-09-15");
         weekEndDate.add("2019-09-22");
@@ -51,6 +51,6 @@ public class WeekDate {
         weekEndDate.add("2019-12-15");
         weekEndDate.add("2019-12-22");
         weekEndDate.add("2019-12-29");
-        weekEndDate.add("2019-01-05");
+        weekEndDate.add("2020-01-05");
     }
 }

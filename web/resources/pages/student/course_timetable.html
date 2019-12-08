@@ -339,8 +339,7 @@
       $.post('http://localhost:8080/dbLab_war_exploded/timetable',
               {"fromdata":JSON.stringify(user.id)},
               function(data){
-                  data=JSON.parse(data);
-                  log(data);
+                  console.log(data);
                   page_render(data);
               }
     )
