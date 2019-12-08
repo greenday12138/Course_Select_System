@@ -471,24 +471,21 @@
   <script>
 
     $(function () {
-      // debug code
-      var json = {
-        'name': "",
-        'id': ""
-      };
-      sessionStorage.setItem('user', JSON.stringify(json));
-
       var user = JSON.parse(sessionStorage.getItem("user"));
       $("#username").text(user.name);
+
+      //preload
+      search();
+
       $("#search").click(search);
       $("#submit").click(submit);
     })
 
     function submit() {
-      var jsonStr = [{
-        'course_id': "101260030",
-        'course_seq': "1"
-      }];
+      // var jsonStr = [{
+      //   'course_id': "101260030",
+      //   'course_seq': "1"
+      // }];
       //for bootstrap-switch checkbox
       // $('#example2_body').on('click', 'input[data-bootstrap-switch]', function () {
       //   if ($(this).prop("checked") == true) {
@@ -503,6 +500,19 @@
       // })
       
       //for ordinary checkbox
+      var jsonStr=[];
+      $('#example2_body').on('each click','input',function(){
+        if($(this).prop('checked')===true){
+          var course_id=$(this).parent().parent().parent().children().eq(1).text();
+          var course_seq=$(this).parent().parent().parent().children().eq(2).text();
+          var temp={
+            'course_id':course_id,
+            'course_seq':course_seq
+          }
+          console.log(temp);
+          jsonStr.concat(temp);
+        }
+      })
       console.log(jsonStr);
       var user = JSON.parse(sessionStorage.getItem('user'));
       $.post("http://localhost:8080/dbLab_war_exploded/select",
