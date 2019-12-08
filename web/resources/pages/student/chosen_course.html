@@ -145,6 +145,11 @@
         <!-- Default box -->
         <div class="card card-solid">
           <div class="card-body pb-0">
+            <!-- <div class="alert alert-warning alert-dismissible">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+              <h5><i class="icon fas fa-exclamation-triangle"></i> 注意!</h5>
+              您并未选择任何课程！
+            </div> -->
             <div id="course_list" class="row d-flex align-items-stretch">
               <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
                 <div class="card bg-light">
@@ -290,30 +295,30 @@
 
       //delete button
       $('.content').on('click', 'button[delete]', function () {
-          var temp = $(this).parent().parent().parent();
-          var course=temp.children().eq(1).find('p').text().toString();
-          // console.log(course);
-          $.post('http://localhost:8080/dbLab_war_exploded/delete',
-            {
-              'fromdata': JSON.stringify({
-                user_id: user.id,
-                course_id: course.split(':')[1].split('/')[0],
-                course_seq: course.split(':')[1].split('/')[1]
-              })
-            },
-            function (data) {
-              data = JSON.parse(data);
-              /*
-              {
-                info:1 or 0
-              }
-               */
-              if (data.info === "1") {
-                var action = temp.parent();
-                // console.log(action.html());
-                action.remove();
-              }
+        var temp = $(this).parent().parent().parent();
+        var course = temp.children().eq(1).find('p').text().toString();
+        // console.log(course);
+        $.post('http://localhost:8080/dbLab_war_exploded/delete',
+          {
+            'fromdata': JSON.stringify({
+              user_id: user.id,
+              course_id: course.split(':')[1].split('/')[0],
+              course_seq: course.split(':')[1].split('/')[1]
             })
+          },
+          function (data) {
+            data = JSON.parse(data);
+            /*
+            {
+              info:1 or 0
+            }
+             */
+            if (data.info === "1") {
+              var action = temp.parent();
+              // console.log(action.html());
+              action.remove();
+            }
+          })
       })
 
     })
@@ -339,6 +344,18 @@
                ]
                */
       $("#course_list").empty();
+
+      //no chosen classes, display info box
+      if (data.length === 0) {
+        $('#course_list').before(
+          `<div class="alert alert-warning alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                  <h5><i class="icon fas fa-exclamation-triangle"></i> 注意!</h5>
+                 您并未选择任何课程……
+                </div>`
+        );
+      }
+
       for (i in data) {
         var str = "";
         str += `<div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
@@ -383,9 +400,9 @@
                   </div>
                 </div>
               </div>`;
-              $("#course_list").append(str);
+        $("#course_list").append(str);
       }
-    
+
     }
     //考虑在学生未选择任何课程时提示一个call out提示框
     //暂不支持分页

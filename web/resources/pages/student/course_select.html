@@ -663,7 +663,7 @@
               "<td>" + data[i].classroom + "</td>" +
               "<td>" + data[i].capacity + "</td>" +
               "<td>" +
-              `<input type="checkbox" name="my-checkbox" ${data[i].selected ? disabled : ''}>` +
+              `<input type="checkbox" name="my-checkbox" ${data[i].selected==='1' ? 'disabled' : ''}>` +
               "</td>" +
               "</tr>"
           };
