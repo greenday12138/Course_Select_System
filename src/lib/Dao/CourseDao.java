@@ -10,6 +10,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 //import java.sql.Array;
 
@@ -292,17 +294,18 @@ public class CourseDao {
                 int s=start-'0';
                 int e=end-'0';
                 String temp2=String.valueOf(rs.getString("Ctime"));
-                System.out.println(temp2);
-                String[] split1=temp2.split("-");
-                System.out.println("split1[0]"+split1[0]);
-                int ws=Integer.parseInt(split1[0].trim());
+                String[] split=temp2.split("-");
+                System.out.println(split[0]+","+split[1]);
 
-
-
-                String[] split2=split1[1].split("周");
-                System.out.println("split2[0]"+split2[0]);
-                int we=Integer.parseInt(split2[0].trim());
-                System.out.println("here"+ws+"\n"+we+"what");
+                String regEx="[^0-9]";
+                Pattern p = Pattern.compile(regEx);
+                Matcher m = p.matcher(split[0]);
+                int ws=Integer.parseInt(m.replaceAll(""));
+                Pattern p2 = Pattern.compile(regEx);
+                Matcher m2 = p2.matcher(split[1]);
+                int we=Integer.parseInt(m2.replaceAll(""));
+                System.out.println("ws: "+ws);
+                System.out.println("we: "+we);
 
 
 
