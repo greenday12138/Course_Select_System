@@ -73,12 +73,13 @@ public class SearchDao {
             sql="select Cnumber,Corder from sc where Snumber="+id+";";
             pstmt=con.prepareStatement(sql);
             rs=pstmt.executeQuery();
-            Set<Course>set3=new HashSet<>();
+            Set<String>set3=new HashSet<>();
             if(rs.next()){
                 tmp=new Course();
                 tmp.setCourse_id(rs.getString("Cnumber"));
                 tmp.setCourse_seq(Integer.toString(rs.getInt("Corder")));
-                set3.add(tmp);
+                set3.add(rs.getString("Cnumber")+rs.getString("Corder"));
+                System.out.println("set3加上："+tmp.getCourse_id()+" "+tmp.getCourse_seq());
             }
             sql="select distinct Dname,Cnumber,Corder from course,department where course.Dnumber=department.Dnumber And Dname like ?";
             pstmt=con.prepareStatement(sql);
@@ -146,7 +147,7 @@ public class SearchDao {
                             cr.setCollege(rrr.getString("Dname"));
                     }
                     */
-                    if(set3.contains(tmp))
+                    if(set3.contains(tmp.getCourse_id()+tmp.getCourse_seq()))
                         selected="1";
                     else
                         selected="0";
