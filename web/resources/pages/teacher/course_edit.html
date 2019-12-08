@@ -14,6 +14,8 @@
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Ion Slider -->
   <link rel="stylesheet" href="../../plugins/ion-rangeslider/css/ion.rangeSlider.min.css">
+  <!-- Toastr -->
+  <link rel="stylesheet" href="../../plugins/toastr/toastr.min.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
@@ -184,16 +186,17 @@
               </div>
               <div class="card-body">
                 <div class="form-group">
-                  <label for="duration">每次上课节次</label>
-                  <input type="number" id="duration" class="form-control">
+                  <label for="duration">每次上课节次(请按照格式输入，如0304表示第三小节第四小节课)</label>
+                  <input type="text" id="duration" class="form-control">
                 </div>
                 <div class="form-group">
-                  <label for="days">每周上课天数</label>
-                  <input type="number" id="days" class="form-control">
+                  <label for="days">每周上课星期</label>
+                  <input type="number" id="days" class="form-control" placeholder="0代表星期日" min="0" max="6">
                 </div>
                 <div class="form-group">
                   <label for="week_range">学期上课周数</label>
-                  <input id="week_range" type="text" class="" name="week_range" value="">
+                  <input id="week_range" type="number" class="" name="week_range" value="">
+                  <!-- <input type="number" id="weeks" class="form-control"> -->
                 </div>
               </div>
               <!-- /.card-body -->
@@ -325,6 +328,8 @@
   <script src="../../dist/js/demo.js"></script>
   <!-- Ion Slider -->
   <script src="../../plugins/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
+  <!-- Toastr -->
+  <script src="../../plugins/toastr/toastr.min.js"></script>
   <!-- plug-in script -->
   <script>
     /* ION SLIDER */
@@ -375,19 +380,33 @@
         courseJSON.attribute = $("#attribute").val();
         courseJSON.refer = $("#refer_book").val();
         courseJSON.duration = $("#duration").val();
-        var week_range=$("#week_range").val().split(';');
+        var week_range = $("#week_range").val().split(';');
         var week_start = week_range[0];
-        var week_end=week_range[1];
+        var week_end = week_range[1];
         courseJSON.days = $("#days").val();
 
         sessionStorage.removeItem("course");
 
-        $.post("http://localhost:8080/dbLab_war_exploded/course_Edit",{fromdata: JSON.stringify(courseJSON)},
-          function () {
+        $.post("http://localhost:8080/dbLab_war_exploded/course_Edit", { fromdata: JSON.stringify(courseJSON) },
+          function (res) {
+            /*
+            {
+              ur:
+              message:
+            }
+            */
             //success action use bootstrap modal extension
             //refresh local storage
-            localStorage.removeItem("" + courseJSON.id + courseJSON.seq);
-            localStorage.setItem("" + courseJSON.id + courseJSON.seq, JSON.stringify(courseJSON));
+            var data = JSON.parse(res);
+            if (data.message === 'success!') {
+              toastr.success('编辑成功!');
+              window.location.assign(data.ur);
+              localStorage.removeItem("" + courseJSON.id + courseJSON.seq);
+              localStorage.setItem("" + courseJSON.id + courseJSON.seq, JSON.stringify(courseJSON));
+            } else {
+              toastr.error(data.message);
+            }
+
           })
       })
     })
