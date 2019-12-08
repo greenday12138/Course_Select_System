@@ -315,7 +315,7 @@
       var user = JSON.parse(sessionStorage.getItem('user'));
       $('#username').text(user.name);
 
-      $.post('url', JSON.stringify(user), page_render(data));
+      $.post('http://localhost:8080/dbLab_war_exploded/course_timetable', {fromdata:JSON.stringify(user)}, function(data){console.log(data);page_render(data);});
     })
 
     function page_render(data) {

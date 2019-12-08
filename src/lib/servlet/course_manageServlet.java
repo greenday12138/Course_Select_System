@@ -65,9 +65,9 @@ public class course_manageServlet extends HttpServlet {
                 jsonObject.put("credit",course.getCredit());
                 jsonObject.put("description","");
                 jsonObject.put("refer","");
-                jsonObject.put("week_start","");
-                jsonObject.put("week_end","");
-                jsonObject.put("session","");
+                jsonObject.put("week_start",course.getWeek_start());
+                jsonObject.put("week_end",course.getWeek_end());
+                jsonObject.put("session", course.getSession().toString());
                 allJsonObject.add(jsonObject);
             }
             resp.setContentType("text/javascript;charset=utf-8");

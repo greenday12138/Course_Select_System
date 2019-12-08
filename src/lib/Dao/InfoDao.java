@@ -58,17 +58,17 @@ public class InfoDao {
                 resultTeacher.setName(rs.getString("Tname"));
                 resultTeacher.setId(rs.getString("Tnumber"));
                 resultTeacher.setRole(1);
-                resultTeacher.setCollege("四川大学");
+                resultTeacher.setCollege(rs.getString("Dname"));
                 resultTeacher.setTpost(rs.getString(("Tpost")));
                 resultTeacher.setTsex(rs.getString("Tsex"));
                 resultTeacher.setDepartment(rs.getString("Dname"));
                 resultTeacher.setTplace(rs.getString("Tplace"));
                 resultTeacher.setTresearch(rs.getString("Tresearch"));
-                resultTeacher.setTzhiwu(rs.getString("Tzhiwu"));
+                resultTeacher.setTzhiwu("");
                 resultTeacher.setTphone(rs.getString("Tphone"));
                 resultTeacher.setTemail(rs.getString("Temail"));
-                resultTeacher.setTselfsummary(rs.getString("Tselfsummary"));
-                resultTeacher.setTachievement(rs.getString("Tachievement"));
+                resultTeacher.setTselfsummary("");
+                resultTeacher.setTachievement("");
 
                 // restltUser.setEmail(rs.getString());
             }

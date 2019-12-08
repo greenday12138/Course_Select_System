@@ -64,12 +64,10 @@ public class SearchDao {
                 tmp.setCourse_id(rs.getString("Cnumber"));
                 tmp.setCourse_seq(Integer.toString(rs.getInt("Corder")));
                 set1.add(tmp);
-                if(!tr.getName().equals(rs.getString("Tname"))) {
                     //System.out.println("老师名字有变化");
                     tr.setName(rs.getString("Tname"));
                     //System.out.println(tr.getName());
                     maptc.put(rs.getString("Cnumber")+rs.getInt("Corder"),rs.getString("Tname"));
-                }
             }
             String selected=null;
             sql="select Cnumber,Corder from sc where Snumber="+id+";";
@@ -93,13 +91,11 @@ public class SearchDao {
                 tmp=new Course();
                 tmp.setCourse_id(rs.getString("Cnumber"));
                 tmp.setCourse_seq(Integer.toString(rs.getInt("Corder")));
-                //System.out.println("有吗");
-                if(!cr.getCollege().equals(rs.getString("Dname"))) {
+
                     //System.out.println("学院名字有变化了");
                     cr.setCollege(rs.getString("Dname"));
                     //System.out.println(cr.getCollege());
                     mapdc.put(rs.getString("Cnumber")+rs.getString("Corder"),rs.getString("Dname"));
-                }
                 set2.add(tmp);
             }
             sql = "select * from course where Cnumber like ? AND Cname like ? AND Cschool like ? AND Cproperty like ? AND Cweek like ?  ";
