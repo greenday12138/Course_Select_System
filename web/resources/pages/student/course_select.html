@@ -602,6 +602,7 @@
           //         "building":"",
           //         "classroom":"",
           //         "capacity":"",
+          //         "selected":0 or 1
           //     },//one class record
           //     {
           //         ...
@@ -624,7 +625,7 @@
               "<td>" + data[i].classroom + "</td>" +
               "<td>" + data[i].capacity + "</td>" +
               "<td>" +
-              '<input type="checkbox" name="my-checkbox">' +
+              `<input type="checkbox" name="my-checkbox" ${data[i].selected? disabled:''}>` +
               "</td>" +
               "</tr>"
           };
