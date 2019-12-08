@@ -6,8 +6,9 @@ import net.sf.json.JSONObject;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class SelectDao {
     public JSONArray select(JSONArray ja, Connection con,String id){
@@ -19,7 +20,7 @@ public class SelectDao {
         JSONArray result=new JSONArray();
         try{
         for(int i=0;i<ja.size();i++) {
-
+            Set<Integer> has=new HashSet<>();
             map = ja.getJSONObject(i);
             sql="select * from sc where Cnumber="+map.get("course_id")+" and Corder="+map.get("course_seq")+" and Snumber="+id+";";
             pstmt=con.prepareStatement(sql);
@@ -29,6 +30,7 @@ public class SelectDao {
                 jo.put("course_id",rs.getString("Cnumber"));
                 jo.put("course_seq",rs.getString("Corder"));
                 jo.put("info","0");
+                jo.put("message","该课已在您的课表！");
                 result.add(jo);
                 continue;
             }
@@ -38,21 +40,48 @@ public class SelectDao {
             pstmt=con.prepareStatement(sql);
             rs=pstmt.executeQuery();
             int co=0;
-            Map<Integer,Integer> has=new HashMap<>();
+
             while(rs.next()){
                 co=rs.getInt("co");
                 int tem = rs.getInt("Csection");
                 int ta = tem % 100;
                 int tb = tem / 100;
-
+                has.add(tb);
             }
+            sql="Select Csection  from sc,course where course.Cnumber=sc.Cnumber and course.Corder=sc.Corder and course.Cnumber="+ map.get("course_id")+" and course.Corder="+map.get("course_seq")+";";
+            System.out.println(sql);
+            pstmt=con.prepareStatement(sql);
+            rs=pstmt.executeQuery();
+
+            while(rs.next()){
+                int tem = rs.getInt("Csection");
+                int ta = tem % 100;
+                int tb = tem / 100;
+                has.add(tb);
+            }
+            boolean fail=false;
             //查询课容量
             sql = "select * from course where Cnumber=" + map.get("course_id") + " and Corder=" + map.get("course_seq") + ";";
             pstmt = con.prepareStatement(sql);
             rs=pstmt.executeQuery();
             int capacity=0;
             while (rs.next()){
+                int tem = rs.getInt("Csection");
+                int ta = tem % 100;
+                int tb = tem / 100;
+                if(has.contains(tb)){
+                    fail=true;
+                }
                 capacity=rs.getInt("Ccapacity");
+            }
+            if(fail){
+                jo=new JSONObject();
+                jo.put("course_id",rs.getString("Cnumber"));
+                jo.put("course_seq",rs.getString("Corder"));
+                jo.put("info","0");
+                jo.put("message","时间冲突，不能选课！");
+                result.add(jo);
+                continue;
             }
             //可能插入新纪录
             if(capacity-co!=0){
@@ -64,6 +93,7 @@ public class SelectDao {
                 jo.put("course_id",map.get("course_id"));
                 jo.put("course_seq",map.get("course_seq"));
                 jo.put("info","1");
+                jo.put("message","选课成功！");
                 result.add(jo);
             }
             else{
@@ -71,6 +101,7 @@ public class SelectDao {
                 jo.put("course_id",map.get("course_id"));
                 jo.put("course_seq",map.get("course_seq"));
                 jo.put("info","0");
+                jo.put("message","系统出错，请重试！");
                 result.add(jo);
             }
         }
