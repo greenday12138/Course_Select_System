@@ -480,7 +480,7 @@
       $("#search").click(search);
       $("#submit").click(submit);
     })
-
+    jsonStr=[];
     function submit() {
       // var jsonStr = [{
       //   'course_id': "101260030",
@@ -500,7 +500,7 @@
       // })
       
       //for ordinary checkbox
-      var jsonStr=[];
+
       $('#example2_body').on('each click','input',function(){
         if($(this).prop('checked')===true){
           var course_id=$(this).parent().parent().children().eq(1).text();
@@ -509,8 +509,9 @@
             'course_id':course_id,
             'course_seq':course_seq
           }];
-          console.log(temp);
-          jsonStr.concat(temp);
+          console.log("选中:"+temp);
+          jsonStr=jsonStr.concat(temp);
+          console.log("选中后现在数组:"+jsonStr[0]);
         }
         else{
           var course_id=$(this).parent().parent().children().eq(1).text();
@@ -521,7 +522,8 @@
           };
           console.log(temp);
           var index=jsonStr.indexOf(temp);
-          jsonStr.splice(index,1);
+          jsonStr=jsonStr.splice(index,1);
+          console.log("删除后现在数组:"+jsonStr);
         }
       })
       console.log(jsonStr);
@@ -612,24 +614,26 @@
           // ]
           var str = "";
           for (i in data) {
-            str += "<tr>" +
-              "<td>" + data[i].course_name + "</td>" +
-              "<td>" + data[i].course_id + "</td>" +
-              "<td>" + data[i].course_seq + "</td>" +
-              "<td>" + data[i].credit + "</td>" +
-              "<td>" + data[i].attribute + "</td>" +
-              "<td>" + data[i].teacher_name + "</td>" +
-              "<td>" + data[i].duration + "</td>" +
-              "<td>" + data[i].weekday + "</td>" +
-              "<td>" + data[i].section + "</td>" +
-              "<td>" + data[i].campus + "</td>" +
-              "<td>" + data[i].building + "</td>" +
-              "<td>" + data[i].classroom + "</td>" +
-              "<td>" + data[i].capacity + "</td>" +
-              "<td>" +
-              '<input type="checkbox" name="my-checkbox">'+
-              "</td>" +
-              "</tr>"
+            if(data[i].selected=="0") {
+              str += "<tr>" +
+                      "<td>" + data[i].course_name + "</td>" +
+                      "<td>" + data[i].course_id + "</td>" +
+                      "<td>" + data[i].course_seq + "</td>" +
+                      "<td>" + data[i].credit + "</td>" +
+                      "<td>" + data[i].attribute + "</td>" +
+                      "<td>" + data[i].teacher_name + "</td>" +
+                      "<td>" + data[i].duration + "</td>" +
+                      "<td>" + data[i].weekday + "</td>" +
+                      "<td>" + data[i].section + "</td>" +
+                      "<td>" + data[i].campus + "</td>" +
+                      "<td>" + data[i].building + "</td>" +
+                      "<td>" + data[i].classroom + "</td>" +
+                      "<td>" + data[i].capacity + "</td>" +
+                      "<td>" +
+                      '<input type="checkbox" name="my-checkbox">' +
+                      "</td>" +
+                      "</tr>"
+            }
           };
           $("#example2_body").append(str);
         })
