@@ -48,7 +48,7 @@ public class SelectDao {
             }
             //可能插入新纪录
             if(capacity-co!=0){
-                sql="insert into sc(Snumber,Cnumber,Corder) values("+id+","+map.get("course_id")+","+map.get("course_seq")+")"+";";
+                sql="insert into sc(Snumber,Cnumber,Corder) values('"+id+"'"+","+"'"+map.get("course_id")+"'"+","+"'"+map.get("course_seq")+"'"+")"+";";
                 System.out.println(sql);
                 pstmt=con.prepareStatement(sql);
                 pstmt.execute();
