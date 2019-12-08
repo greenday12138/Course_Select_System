@@ -221,7 +221,7 @@
                             </tr>
                           </thead>
                           <tbody id="student_list">
-                            <tr>
+                            <!-- <tr>
                               <td>2017171752256</td>
                               <td>张三</td>
                               <td>计算机学院</td>
@@ -240,7 +240,7 @@
                               <td>2017589541235</td>
                               <td>李四</td>
                               <td>化学学院</td>
-                            </tr>
+                            </tr> -->
 
                           </tbody>
                         </table>
@@ -386,7 +386,7 @@
       }
 
       //request student list from server
-      $.post("http:localhost:8080/dbLab_war_exploded/course_Detail", {fromdata:sessionStorage.getItem("course")},
+      $.post("http://localhost:8080/dbLab_war_exploded/course_Detail", {fromdata:sessionStorage.getItem("course")},
         function (data) {
           /*
           data format:

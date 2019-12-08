@@ -1,5 +1,7 @@
 package lib.Model;
 
+import net.sf.json.JSONArray;
+
 /**
  * Created by ttop5 on 16-4-22.
  */
@@ -285,5 +287,15 @@ public class Course {
     String textcolor="";
     String backgroundcolor="";
     String bordercolor="";
+
+    public JSONArray getSession() {
+        return session;
+    }
+
+    public void setSession(JSONArray session) {
+        this.session = session;
+    }
+
+    JSONArray session=new JSONArray();
     int credit=0,order=0;
 }

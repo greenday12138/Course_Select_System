@@ -34,6 +34,7 @@ public class Course_TimeTableServlet extends HttpServlet {
         JSONObject jo=JSONObject.fromObject(fromdata);
         Map<String,String> map=jo;
         String id=map.get("id");
+        System.out.println("id="+id);
         // int len=id.length();
 
         //String password=map.get("password");
@@ -56,11 +57,43 @@ public class Course_TimeTableServlet extends HttpServlet {
             //JSONObject []jsonObject = new JSONObject[100];
             JSONArray allJsonObject=new JSONArray();
 
+
+
+
             for (Course course:allCourse) {
                 JSONObject jsonObject=new JSONObject();
+                System.out.println(course.getWeekday());
+                switch (course.getWeekday()){
+                    case "1":jsonObject.put("daysOfWeek","['1']");
+                        break;
+                    case "2":jsonObject.put("daysOfWeek","['2']");
+                        break;
+                    case "3":jsonObject.put("daysOfWeek","['3']");
+                        break;
+                    case "4":jsonObject.put("daysOfWeek","['4']");
+                        break;
+                    case "5":jsonObject.put("daysOfWeek","['5']");
+                        break;
+                    case "星期一":jsonObject.put("daysOfWeek","['1']");
+                        break;
+                    case "星期二":jsonObject.put("daysOfWeek","['2']");
+                        break;
+                    case "星期三":jsonObject.put("daysOfWeek","['3']");
+                        break;
+                    case "星期四":jsonObject.put("daysOfWeek","['4']");
+                        break;
+                    case "星期五":jsonObject.put("daysOfWeek","['5']");
+                        break;
+                    default:
+                        break;
+
+                }
+
+
+
                 jsonObject.put("title",course.getCourse_name());
                 jsonObject.put("description",course.getDeacription());
-                jsonObject.put("daysOfWeek",course.getWeekday());
+                //jsonObject.put("daysOfWeek",course.getWeekday());
                 jsonObject.put("startTime",course.getStart_time());
                 jsonObject.put("endTime",course.getEnd_time());
                 jsonObject.put("startRecur",course.getStart_recur());

@@ -6,8 +6,8 @@ public class Time {
     ArrayList<String> startTime=new ArrayList<String>();
     ArrayList<String> endTime=new ArrayList<String>();
     public Time(){
-        startTime.add("08:15:00");
-        startTime.add("09:10:00");
+        startTime.add("8:15:00");
+        startTime.add("9:10:00");
         startTime.add("10:15:00");
         startTime.add("11:10:00");
         startTime.add("13:50:00");

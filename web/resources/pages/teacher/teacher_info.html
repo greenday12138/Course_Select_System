@@ -335,16 +335,17 @@
 
       $.post("http://localhost:8080/dbLab_war_exploded/info", { fromdata: JSON.stringify(user) },
         function (data) {
-          page_render(data);
-          console.log(data);
+          page_render(JSON.parse(data));
+
         });
 
       $("#submit").click(function () {
 
       })
-    })
+    });
 
     function page_render(data) {
+        //console.log(data);
       //data format
       // {
       //     gender:
