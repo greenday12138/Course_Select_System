@@ -14,6 +14,8 @@
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <!-- Bootstrap Switch -->
+  <link href="../../plugins/bootstrap-switch/dist/css/bootstrap4/bootstrap-switch.min.css" rel="stylesheet">
   <!-- Select2 -->
   <link rel="stylesheet" href="../../plugins/select2/css/select2.min.css">
   <link rel="stylesheet" href="../../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
@@ -401,7 +403,7 @@
                     <td>A513</td>
                     <td>65</td>
                     <td>
-                      <input class="add_course" type="checkbox" name="my-checkbox" checked data-bootstrap-switch>
+                      <input type="checkbox" name="my-checkbox">
                     </td>
                   </tr>
                 </tbody>
@@ -436,7 +438,7 @@
   <script src="../../plugins/datatables/jquery.dataTables.js"></script>
   <script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
   <!-- Bootstrap Switch -->
-  <script src="../../plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+  <script src="../../plugins/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script>
   <!-- InputMask
   <script src="../../plugins/moment/moment.min.js"></script>
   <script src="../../plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script> -->
@@ -462,6 +464,8 @@
       $(this).bootstrapSwitch('state', !$(this).prop('checked'));
       //没有unchecked属性，由prop返回为true or false来确定按钮状态
     });
+
+    // $("[name='my-checkbox']").bootstrapSwitch();
   </script>
   <!-- coder custom render -->
   <script>
@@ -469,25 +473,55 @@
     $(function () {
       var user = JSON.parse(sessionStorage.getItem("user"));
       $("#username").text(user.name);
+
+      //preload
+      search();
+
       $("#search").click(search);
       $("#submit").click(submit);
     })
 
     function submit() {
-      var jsonStr = [{
-        'course_id': "101260030",
-        'course_seq': "1"
-      }];
-      $('#example2_body').on('click','input[data-bootstrap-switch]',function () {
-        //if ($(this).prop("checked") == true) {
-        if(true){
-          var course_id = $(this).parent().parent().parent().parent().children().eq(1).text();
-          var course_seq = $(this).parent().parent().parent().parent().children().eq(2).text();
-          var temp = {
-            'course_id': "101260030",
-            'course_seq': "1"
-          }
-          jsonStr.push(temp);
+      // var jsonStr = [{
+      //   'course_id': "101260030",
+      //   'course_seq': "1"
+      // }];
+      //for bootstrap-switch checkbox
+      // $('#example2_body').on('click', 'input[data-bootstrap-switch]', function () {
+      //   if ($(this).prop("checked") == true) {
+      //     var course_id = $(this).parent().parent().parent().parent().children().eq(1).text();
+      //     var course_seq = $(this).parent().parent().parent().parent().children().eq(2).text();
+      //     var temp = {
+      //       'course_id': "101260030",
+      //       'course_seq': "1"
+      //     }
+      //     jsonStr.push(temp);
+      //   }
+      // })
+      
+      //for ordinary checkbox
+      var jsonStr=[];
+      $('#example2_body').on('each click','input',function(){
+        if($(this).prop('checked')===true){
+          var course_id=$(this).parent().parent().children().eq(1).text();
+          var course_seq=$(this).parent().parent().children().eq(2).text();
+          var temp=[{
+            'course_id':course_id,
+            'course_seq':course_seq
+          }];
+          console.log(temp);
+          jsonStr.concat(temp);
+        }
+        else{
+          var course_id=$(this).parent().parent().children().eq(1).text();
+          var course_seq=$(this).parent().parent().children().eq(2).text();
+          var temp={
+            'course_id':course_id,
+            'course_seq':course_seq
+          };
+          console.log(temp);
+          var index=jsonStr.indexOf(temp);
+          jsonStr.splice(index,1);
         }
       })
       console.log(jsonStr);
@@ -593,13 +627,14 @@
               "<td>" + data[i].classroom + "</td>" +
               "<td>" + data[i].capacity + "</td>" +
               "<td>" +
-              "<input class='add_course' type = 'checkbox' name = 'my-checkbox' unchecked data-bootstrap-switch/>" +
+              '<input type="checkbox" name="my-checkbox">'+
               "</td>" +
               "</tr>"
           };
           $("#example2_body").append(str);
         })
     }
+    //暂不支持使用bootstrap-switch选课
   </script>
 </body>
 

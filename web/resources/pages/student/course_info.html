@@ -514,6 +514,9 @@
       var user = JSON.parse(sessionStorage.getItem("user"));
       $("#username").text(user.name);
 
+      //preload
+      search();
+      
       $("#search").click(search);
     })
 
