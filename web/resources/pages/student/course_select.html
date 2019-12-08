@@ -426,9 +426,7 @@
                     <td>A513</td>
                     <td>65</td>
                     <td>
-
-                      <input type="checkbox" name="my-checkbox" unchecked>
-
+                      <input type="checkbox" name="my-checkbox">
                     </td>
                   </tr>
                 </tbody>
@@ -514,18 +512,20 @@
         'course_id': "101260030",
         'course_seq': "1"
       }];
-      $('#example2_body').on('click', 'input[data-bootstrap-switch]', function () {
-        //if ($(this).prop("checked") == true) {
-        if (true) {
-          var course_id = $(this).parent().parent().parent().parent().children().eq(1).text();
-          var course_seq = $(this).parent().parent().parent().parent().children().eq(2).text();
-          var temp = {
-            'course_id': "101260030",
-            'course_seq': "1"
-          }
-          jsonStr.push(temp);
-        }
-      })
+      //for bootstrap-switch checkbox
+      // $('#example2_body').on('click', 'input[data-bootstrap-switch]', function () {
+      //   if ($(this).prop("checked") == true) {
+      //     var course_id = $(this).parent().parent().parent().parent().children().eq(1).text();
+      //     var course_seq = $(this).parent().parent().parent().parent().children().eq(2).text();
+      //     var temp = {
+      //       'course_id': "101260030",
+      //       'course_seq': "1"
+      //     }
+      //     jsonStr.push(temp);
+      //   }
+      // })
+      
+      //for ordinary checkbox
       console.log(jsonStr);
       var user = JSON.parse(sessionStorage.getItem('user'));
       $.post("http://localhost:8080/dbLab_war_exploded/select",
@@ -629,13 +629,14 @@
               "<td>" + data[i].classroom + "</td>" +
               "<td>" + data[i].capacity + "</td>" +
               "<td>" +
-              "<input class='add_course' type = 'checkbox' name = 'my-checkbox' unchecked data-bootstrap-switch/>" +
+              '<input type="checkbox" name="my-checkbox">'+
               "</td>" +
               "</tr>"
           };
           $("#example2_body").append(str);
         })
     }
+    //暂不支持使用bootstrap-switch选课
   </script>
 </body>
 
