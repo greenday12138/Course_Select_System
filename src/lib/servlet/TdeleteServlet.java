@@ -44,13 +44,16 @@ public class TdeleteServlet extends HttpServlet {
                 System.out.println("数据库连接成功");
                 JSONObject jsonObject=new JSONObject();
                 if(courseDao.t_Course_Delete(con,course)) {
-                    jsonObject.put("message","success!");
+                    jsonObject.put("info",'1');
                     System.out.println("删除成功");
                 }
                 else {
-                    jsonObject.put("message","fail!");
+                    jsonObject.put("info",'0');
                     System.out.println("删除失败");
                 }
+            resp.setContentType("text/javascript;charset=utf-8");
+            resp.getWriter().write(jsonObject.toString());
+            System.out.println(jsonObject.toString());
 
 
         }

@@ -39,11 +39,28 @@ public class course_EditServlet extends HttpServlet {
         course.setCourse_name(map.get("name"));
         course.setAttribute(map.get("attribute"));
         course.setDuration(map.get("duration"));
-        course.setWeekday(map.get("days"));
+        switch (map.get("days")){
+            case "0":course.setWeekday("星期日");
+                break;
+            case "1":course.setWeekday("星期一");
+                break;
+            case "2":course.setWeekday("星期二");
+                break;
+            case "3":course.setWeekday("星期三");
+                break;
+            case "4":course.setWeekday("星期四");
+                break;
+            case "5":course.setWeekday("星期五");
+                break;
+            case "6":course.setWeekday("星期六");
+                break;
+        }
         course.setDescription(map.get("description"));
         course.setRefer(map.get("refer"));
-        course.setWeek_end(map.get("week_start"));
+        course.setWeek_start(map.get("week_start"));
         course.setWeek_end(map.get("week_end"));
+        System.out.println("weel_start:"+map.get("week_start"));
+        System.out.println("weel_start:"+map.get("week_end"));
 
 
 

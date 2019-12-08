@@ -7,7 +7,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e12584cd-adaf-4cde-8529-a6c5fbab43cd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/lib/Dao/SearchDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/SearchDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/Dao/CourseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/CourseDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/servlet/TdeleteServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/servlet/TdeleteServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/servlet/course_EditServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/servlet/course_EditServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/servlet/course_addServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/servlet/course_addServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resources/pages/student/chosen_course.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/student/chosen_course.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resources/pages/teacher/course_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/teacher/course_add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resources/pages/teacher/course_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/teacher/course_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resources/pages/teacher/course_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/teacher/course_edit.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -147,6 +155,7 @@
       <workItem from="1575791771798" duration="2716000" />
       <workItem from="1575801409822" duration="104000" />
       <workItem from="1575801564043" duration="1173000" />
+      <workItem from="1575808277284" duration="5341000" />
     </task>
     <servers />
   </component>

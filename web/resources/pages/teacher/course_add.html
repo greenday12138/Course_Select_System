@@ -194,7 +194,7 @@
                 </div>
                 <div class="form-group">
                   <label for="week_range">学期上课周数</label>
-                  <input id="week_range" type="number" class="" name="week_range" value="">
+                  <input id="week_range" type='text' class="" name="week_range">
                   <!-- <input type="number" id="weeks" class="form-control"> -->
                 </div>
               </div>
@@ -267,6 +267,7 @@
         var refer = $("#refer_book").val();
         var duration = $("#duration").val();
         var week_range = $("#week_range").val().split(';');
+        alert(week_range);
         var week_start = week_range[0];
         var week_end = week_range[1];
         var days = $("#days").val();

@@ -56,6 +56,8 @@ public class course_addServlet extends HttpServlet{
         course.setDescription(map.get("description"));
         course.setRefer(map.get("refer"));
         course.setWeek_start(map.get("week_start"));
+        System.out.println("weel_start:"+map.get("week_start"));
+        System.out.println("weel_start:"+map.get("week_end"));
         course.setWeek_end(map.get("week_end"));
 
 

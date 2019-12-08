@@ -53,7 +53,7 @@ public class CourseDao {
 
                 temp.put("date",rs.getString("Cweek"));
                 temp.put("session_start",rs.getString("Csection").charAt(0));
-                temp.put("session_end",rs.getString("Csection").charAt(rs.getString("Csection").length()-1));
+                temp.put("session_end",rs.getString("Csection").charAt(rs.getString("Csection").length()-1)+"节");
                 temp.put("pos",rs.getString("Cschool")+rs.getString("Cfoor")+rs.getString("Croom"));
                 session.add(temp);
                 course.setCourse_name(rs.getString("Cname"));
@@ -139,12 +139,12 @@ public class CourseDao {
             pstmt.setString(14,"3040000001");
             int rs2course = pstmt.executeUpdate();
 
-            String sql2tc="insert into tc(tcnumber,Tnumber,Cnumber,Corder) values (?,?,?,?)";
+            String sql2tc="insert into tc(Tnumber,Cnumber,Corder) values (?,?,?)";
             pstmt = con.prepareStatement(sql2tc);
-            pstmt.setString(1,count+"");
-            pstmt.setString(2,course.getTeacher_id());
-            pstmt.setString(3,id);
-            pstmt.setInt(4,Integer.parseInt(seq));
+            //pstmt.setString(1,count+"");
+            pstmt.setString(1,course.getTeacher_id());
+            pstmt.setString(2,id);
+            pstmt.setInt(3,Integer.parseInt(seq));
             int rs2tc=pstmt.executeUpdate();
             if(rs2course>0&&rs2tc>0){
                 resultCourse=new Course();

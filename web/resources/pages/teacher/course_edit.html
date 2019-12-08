@@ -195,7 +195,7 @@
                 </div>
                 <div class="form-group">
                   <label for="week_range">学期上课周数</label>
-                  <input id="week_range" type="number" class="" name="week_range" value="">
+                  <input id="week_range" type="text" class="" name="week_range">
                   <!-- <input type="number" id="weeks" class="form-control"> -->
                 </div>
               </div>
@@ -384,6 +384,8 @@
         var week_start = week_range[0];
         var week_end = week_range[1];
         courseJSON.days = $("#days").val();
+        courseJSON.week_start=week_start;
+        courseJSON.week_end=week_end;
 
         sessionStorage.removeItem("course");
 
