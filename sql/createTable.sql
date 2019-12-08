@@ -80,11 +80,10 @@ CREATE TABLE course
 
 CREATE TABLE sc
 (
-    scnumber    VARCHAR(10),  
+    scnumber   INT(4) AUTO_INCREMENT PRIMARY KEY,  
     Snumber     VARCHAR(13),  -- 学号
     Cnumber     VARCHAR(10),  -- 课程号
     Corder      NUMERIC(2, 0), -- 课序号   
-    PRIMARY KEY (scnumber),
     FOREIGN KEY (Snumber) REFERENCES student(Snumber),
     FOREIGN KEY (Cnumber, Corder) REFERENCES course(Cnumber, Corder)
 );
