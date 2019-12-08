@@ -7,8 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e12584cd-adaf-4cde-8529-a6c5fbab43cd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/web/resources/pages/student/course_select.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/student/course_select.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/resources/pages/teacher/course_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/teacher/course_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/Dao/SelectDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/SelectDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resources/pages/student/chosen_course.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/student/chosen_course.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
