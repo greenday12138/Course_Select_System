@@ -9,7 +9,6 @@
     <list default="true" id="54cca08b-4b16-48ea-8eae-30d6cee34ee8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/Dao/CourseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/CourseDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/resources/pages/student/student_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/student/student_info.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -146,7 +145,7 @@
       <workItem from="1575765868779" duration="7533000" />
       <workItem from="1575775682037" duration="623000" />
       <workItem from="1575776376096" duration="7335000" />
-      <workItem from="1575791771798" duration="1634000" />
+      <workItem from="1575791771798" duration="2716000" />
     </task>
     <servers />
   </component>

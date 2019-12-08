@@ -40,7 +40,7 @@ public class course_addServlet extends HttpServlet{
         course.setWeekday(map.get("days"));
         course.setDescription(map.get("description"));
         course.setRefer(map.get("refer"));
-        course.setWeek_end(map.get("week_start"));
+        course.setWeek_start(map.get("week_start"));
         course.setWeek_end(map.get("week_end"));
 
 

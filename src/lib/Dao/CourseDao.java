@@ -39,7 +39,7 @@ public class CourseDao {
                 JSONObject temp=new JSONObject();
 
                 String temp2=rs.getString("Ctime");
-                System.out.println(temp2);
+                System.out.println("temp2:"+temp2);
                 String[] split1=temp2.split("-");
                 System.out.println("split1[0]"+split1[0]);
                 String ws=split1[0].trim();
