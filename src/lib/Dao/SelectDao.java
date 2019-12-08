@@ -20,7 +20,7 @@ public class SelectDao {
         JSONArray result=new JSONArray();
         try{
         for(int i=0;i<ja.size();i++) {
-            Set<Integer> has=new HashSet<>();
+            Set<String> has=new HashSet<>();
             map = ja.getJSONObject(i);
             sql="select * from sc where Cnumber="+map.get("course_id")+" and Corder="+map.get("course_seq")+" and Snumber="+id+";";
             pstmt=con.prepareStatement(sql);
@@ -35,7 +35,7 @@ public class SelectDao {
                 continue;
             }
             //计算该课程有多少学生选了
-            sql="select count(Snumber) as co ,Csection  from sc,course where course.Cnumber=sc.Cnumber and course.Corder=sc.Corder and course.Cnumber="+ map.get("course_id")+" and course.Corder="+map.get("course_seq")+";";
+            sql="select count(Snumber) as co   from sc,course where course.Cnumber=sc.Cnumber and course.Corder=sc.Corder and course.Cnumber="+ map.get("course_id")+" and course.Corder="+map.get("course_seq")+";";
             System.out.println(sql);
             pstmt=con.prepareStatement(sql);
             rs=pstmt.executeQuery();
@@ -43,12 +43,8 @@ public class SelectDao {
 
             while(rs.next()){
                 co=rs.getInt("co");
-                int tem = rs.getInt("Csection");
-                int ta = tem % 100;
-                int tb = tem / 100;
-                has.add(tb);
             }
-            sql="Select Csection  from sc,course where course.Cnumber=sc.Cnumber and course.Corder=sc.Corder and course.Cnumber="+ map.get("course_id")+" and course.Corder="+map.get("course_seq")+";";
+            sql="Select Csection  from sc,course where course.Cnumber=sc.Cnumber and course.Corder=sc.Corder and course.Cnumber="+ map.get("course_id")+" and course.Corder="+map.get("course_seq")+" and sc.Snumber="+id+";";
             System.out.println(sql);
             pstmt=con.prepareStatement(sql);
             rs=pstmt.executeQuery();
@@ -57,7 +53,7 @@ public class SelectDao {
                 int tem = rs.getInt("Csection");
                 int ta = tem % 100;
                 int tb = tem / 100;
-                has.add(tb);
+                has.add(rs.getString("Cweek")+tb);
             }
             boolean fail=false;
             //查询课容量
@@ -69,15 +65,16 @@ public class SelectDao {
                 int tem = rs.getInt("Csection");
                 int ta = tem % 100;
                 int tb = tem / 100;
-                if(has.contains(tb)){
+                if(has.contains(rs.getString("Cweek")+tb)){
+                    System.out.println("tb:"+tb);
                     fail=true;
                 }
                 capacity=rs.getInt("Ccapacity");
             }
             if(fail){
                 jo=new JSONObject();
-                jo.put("course_id",rs.getString("Cnumber"));
-                jo.put("course_seq",rs.getString("Corder"));
+                jo.put("course_id",map.get("course_id"));
+                jo.put("course_seq",map.get("course_seq"));
                 jo.put("info","0");
                 jo.put("message","时间冲突，不能选课！");
                 result.add(jo);
