@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
   <!-- Bootstrap Switch -->
   <link href="../../plugins/bootstrap-switch/dist/css/bootstrap4/bootstrap-switch.min.css" rel="stylesheet">
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="../../plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
   <!-- Select2 -->
   <link rel="stylesheet" href="../../plugins/select2/css/select2.min.css">
   <link rel="stylesheet" href="../../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
@@ -439,6 +441,8 @@
   <script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
   <!-- Bootstrap Switch -->
   <script src="../../plugins/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script>
+  <!-- SweetAlert2 -->
+  <script src="../../plugins/sweetalert2/sweetalert2.min.js"></script>
   <!-- InputMask
   <script src="../../plugins/moment/moment.min.js"></script>
   <script src="../../plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script> -->
@@ -480,6 +484,7 @@
       $("#search").click(search);
       $("#submit").click(submit);
     });
+
     var jsonStr = [];
     $('#example2_body').on('each click', 'input', function () {
       var course_id = $(this).parent().parent().children().eq(1).text();
@@ -496,11 +501,20 @@
       else {
         var index = jsonStr.findIndex(function (ob) {
           return ob.course_id === temp.course_id &&
-                  ob.course_seq === temp.course_seq;
+            ob.course_seq === temp.course_seq;
         });
         jsonStr.splice(index, 1);
       }
     })
+
+    //submit respnse message
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000
+    });
+
     function submit() {
       // var jsonStr = [{
       //   'course_id': "101260030",
@@ -543,6 +557,7 @@
           */
           //已选课程的disable问题
           var res = JSON.parse(data);
+          var state = true;
           for (i in data) {
             //choose course successfully
             if (data[i].info === 1) {
@@ -553,8 +568,31 @@
                   $(this).children().eq(2).text() === data[i].course_seq) {
                   $(this).children().eq(13).hide();
                 }
-              })
+              });
+
+            } else {
+              if (data[i].message === '') {
+                //complete error
+                Toast.fire({
+                  type: 'error',
+                  title:'选课失败！'
+                })
+              }else{
+                //explainable error
+                Toast.fire({
+                  type:'warning',
+                  title:data[i].name+data[i].message
+                })
+              }
+              state=false;
             }
+          };
+          //success message
+          if (state) {
+            Toast.fire({
+              type: 'success',
+              title: '选课成功！'
+            });
           }
         })
     }
@@ -625,7 +663,7 @@
               "<td>" + data[i].classroom + "</td>" +
               "<td>" + data[i].capacity + "</td>" +
               "<td>" +
-              `<input type="checkbox" name="my-checkbox" ${data[i].selected? disabled:''}>` +
+              `<input type="checkbox" name="my-checkbox" ${data[i].selected ? disabled : ''}>` +
               "</td>" +
               "</tr>"
           };
