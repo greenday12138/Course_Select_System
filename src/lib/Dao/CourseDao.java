@@ -11,8 +11,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Random;
 
-import static java.lang.Integer.*;
-
 //import java.sql.Array;
 
 public class CourseDao {
@@ -26,6 +24,7 @@ public class CourseDao {
             pstmt = con.prepareStatement(sql);
             pstmt.setString(1, user.getId());
             ResultSet rs = pstmt.executeQuery();
+            //System.out.println(user.getId());
             while(rs.next()){
                 Course course=new Course();
                 course.setCourse_name(rs.getString("Cname"));
@@ -87,11 +86,11 @@ public class CourseDao {
             pstmt.setString(7,course.getWeek_start()+"-"+course.getWeek_end()+"周");
             pstmt.setString(8,course.getWeekday());
             pstmt.setInt(9,Integer.parseInt(course.getDuration()));
-            pstmt.setString(10,null);
-            pstmt.setString(11,null);
-            pstmt.setString(12,null);
-            pstmt.setString(13,null);
-            pstmt.setString(14,null);
+            pstmt.setString(10,"江安");
+            pstmt.setString(11,"一教A");
+            pstmt.setString(12,"304");
+            pstmt.setString(13,"2016000001");
+            pstmt.setString(14,"3040000001");
             int rs2course = pstmt.executeUpdate();
 
             String sql2tc="insert into tc(tcnumber,Tnumber,Cnumber,Corder) values (?,?,?,?)";
@@ -99,7 +98,7 @@ public class CourseDao {
             pstmt.setString(1,count+"");
             pstmt.setString(2,course.getTeacher_id());
             pstmt.setString(3,id);
-            pstmt.setString(4,seq);
+            pstmt.setInt(4,Integer.parseInt(seq));
             int rs2tc=pstmt.executeUpdate();
             if(rs2course>0&&rs2tc>0){
                 resultCourse=new Course();
@@ -121,16 +120,18 @@ public class CourseDao {
         boolean judge=false;
         PreparedStatement pstmt=null;
         try{
-            String sql1="delete from course where Cnumber=? and Corder=?";
-            pstmt = con.prepareStatement(sql1);
-            pstmt.setString(1, course.getCourse_id());
-            pstmt.setString(2,course.getCourse_seq());
-            int rs1 = pstmt.executeUpdate();
+            System.out.println(course.getCourse_id()+"\n"+course.getCourse_seq());
             String sql2="delete from tc where Cnumber=? and Corder=?";
             pstmt = con.prepareStatement(sql2);
             pstmt.setString(1, course.getCourse_id());
             pstmt.setString(2,course.getCourse_seq());
             int rs2 = pstmt.executeUpdate();
+            String sql1="delete from course where Cnumber=? and Corder=?";
+            pstmt = con.prepareStatement(sql1);
+            pstmt.setString(1, course.getCourse_id());
+            pstmt.setString(2,course.getCourse_seq());
+            int rs1 = pstmt.executeUpdate();
+
             if(rs1>0&&rs2>0){
                 judge=true;
             }

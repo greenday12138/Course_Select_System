@@ -144,18 +144,18 @@
               <div class="card-body">
                 <div class="form-group">
                   <label for="name">课程名</label>
-                  <input type="text" id="name" class="form-control">
+                  <input type="text" id="name" class="form-control" value="">
                 </div>
                 <div class="form-group">
                   <label for="description">课程概述</label>
-                  <textarea id="description" class="form-control" rows="4"></textarea>
+                  <textarea id="description" class="form-control" rows="4" value=""></textarea>
                 </div>
                 <div class="form-group">
                   <label for="attribute">课程属性</label>
                   <select id="attribute" class="form-control custom-select">
                     <option val="" selected>Select one</option>
-                    <option val="0">选修</option>
-                    <option val="1">必修</option>
+                    <option val="选修">选修</option>
+                    <option val="必修">必修</option>
                   </select>
                 </div>
                 <div class="form-group">
@@ -192,7 +192,7 @@
                   <input type="number" id="days" class="form-control">
                 </div>
                 <div class="form-group">
-                  <label for="weekds">学期上课周数</label>
+                  <label for="week_range">学期上课周数</label>
                   <input id="week_range" type="text" class="" name="week_range" value="">
                 </div>
               </div>
@@ -357,13 +357,14 @@
 
       //begin load
       var course = JSON.parse(localStorage.getItem("" + index.id + index.seq));
-      $("#name").val(course.name);
-      $("#description").val(course.description);
-      $("#attribute").val(course.description);
-      $("#refer_book").val(course.refer);
-      $("#duration").val(course.duration);
-      $("#days").val(course.days);
-      $("#week_range").val(course.week_start+";"+course.week_end);
+      console.log(index);
+      console.log(course);
+      // $("#description").val(course.description);
+      // $("#attribute").val(course.attribute);
+      // $("#refer_book").val(course.refer);
+      // $("#duration").val(course.duration);
+      // $("#days").val(course.days);
+      // $("#week_range").val(course.week_start+";"+course.week_end);
 
 
       //change submit action
