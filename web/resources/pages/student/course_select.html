@@ -15,7 +15,7 @@
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
   <!-- Bootstrap Switch -->
-  <link rel="stylesheet" href="../../plugins/bootstrap-switch/css/bootstrap3/bootstrap-switch.min.css">
+  <link href="../../plugins/bootstrap-switch/dist/css/bootstrap4/bootstrap-switch.min.css" rel="stylesheet">
   <!-- Select2 -->
   <link rel="stylesheet" href="../../plugins/select2/css/select2.min.css">
   <link rel="stylesheet" href="../../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
@@ -426,7 +426,9 @@
                     <td>A513</td>
                     <td>65</td>
                     <td>
-                      <input class="add_course" type="checkbox" name="my-checkbox" checked data-bootstrap-switch>
+
+                      <input type="checkbox" name="my-checkbox" unchecked>
+
                     </td>
                   </tr>
                 </tbody>
@@ -461,7 +463,7 @@
   <script src="../../plugins/datatables/jquery.dataTables.js"></script>
   <script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
   <!-- Bootstrap Switch -->
-  <script src="../../plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+  <script src="../../plugins/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script>
   <!-- InputMask
   <script src="../../plugins/moment/moment.min.js"></script>
   <script src="../../plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script> -->
@@ -487,11 +489,20 @@
       $(this).bootstrapSwitch('state', !$(this).prop('checked'));
       //没有unchecked属性，由prop返回为true or false来确定按钮状态
     });
+
+    // $("[name='my-checkbox']").bootstrapSwitch();
   </script>
   <!-- coder custom render -->
   <script>
 
     $(function () {
+      // debug code
+      var json = {
+        'name': "",
+        'id': ""
+      };
+      sessionStorage.setItem('user', JSON.stringify(json));
+
       var user = JSON.parse(sessionStorage.getItem("user"));
       $("#username").text(user.name);
       $("#search").click(search);
@@ -503,9 +514,9 @@
         'course_id': "101260030",
         'course_seq': "1"
       }];
-      $('#example2_body').on('click','input[data-bootstrap-switch]',function () {
+      $('#example2_body').on('click', 'input[data-bootstrap-switch]', function () {
         //if ($(this).prop("checked") == true) {
-        if(true){
+        if (true) {
           var course_id = $(this).parent().parent().parent().parent().children().eq(1).text();
           var course_seq = $(this).parent().parent().parent().parent().children().eq(2).text();
           var temp = {
