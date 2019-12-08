@@ -9,7 +9,7 @@
     <list default="true" id="e12584cd-adaf-4cde-8529-a6c5fbab43cd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/Dao/SelectDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/SelectDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/resources/pages/student/chosen_course.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/student/chosen_course.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resources/pages/student/course_select.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/student/course_select.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -112,7 +112,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="54cca08b-4b16-48ea-8eae-30d6cee34ee8" name="Default Changelist" comment="" />
+      <changelist id="e12584cd-adaf-4cde-8529-a6c5fbab43cd" name="Default Changelist" comment="" />
       <created>1575692743848</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -147,6 +147,8 @@
       <workItem from="1575775682037" duration="623000" />
       <workItem from="1575776376096" duration="7335000" />
       <workItem from="1575791771798" duration="2716000" />
+      <workItem from="1575801409822" duration="104000" />
+      <workItem from="1575801564043" duration="1173000" />
     </task>
     <servers />
   </component>
