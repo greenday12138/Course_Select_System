@@ -479,8 +479,28 @@
 
       $("#search").click(search);
       $("#submit").click(submit);
+    });
+    var jsonStr = [];
+    $('#example2_body').on('each click', 'input', function () {
+      var course_id = $(this).parent().parent().children().eq(1).text();
+      var course_seq = $(this).parent().parent().children().eq(2).text();
+      var temp = {
+        'course_id': course_id,
+        'course_seq': course_seq
+      };
+      console.log(temp);
+
+      if ($(this).prop('checked') === true) {
+        jsonStr.push(temp);
+      }
+      else {
+        var index = jsonStr.findIndex(function (ob) {
+          return ob.course_id === temp.course_id &&
+                  ob.course_seq === temp.course_seq;
+        });
+        jsonStr.splice(index, 1);
+      }
     })
-    jsonStr=[];
     function submit() {
       // var jsonStr = [{
       //   'course_id': "101260030",
@@ -498,35 +518,10 @@
       //     jsonStr.push(temp);
       //   }
       // })
-      
+
       //for ordinary checkbox
 
-      $('#example2_body').on('each click','input',function(){
-        if($(this).prop('checked')===true){
-          var course_id=$(this).parent().parent().children().eq(1).text();
-          var course_seq=$(this).parent().parent().children().eq(2).text();
-          var temp=[{
-            'course_id':course_id,
-            'course_seq':course_seq
-          }];
-          console.log("选中:"+temp);
-          jsonStr=jsonStr.concat(temp);
-          console.log("选中后现在数组:"+jsonStr[0]);
-        }
-        else{
-          var course_id=$(this).parent().parent().children().eq(1).text();
-          var course_seq=$(this).parent().parent().children().eq(2).text();
-          var temp={
-            'course_id':course_id,
-            'course_seq':course_seq
-          };
-          console.log(temp);
-          var index=jsonStr.indexOf(temp);
-          jsonStr=jsonStr.splice(index,1);
-          console.log("删除后现在数组:"+jsonStr);
-        }
-      })
-      console.log(jsonStr);
+      console.log(JSON.stringify(jsonStr));
       var user = JSON.parse(sessionStorage.getItem('user'));
       $.post("http://localhost:8080/dbLab_war_exploded/select",
         {
@@ -614,26 +609,24 @@
           // ]
           var str = "";
           for (i in data) {
-            if(data[i].selected=="0") {
-              str += "<tr>" +
-                      "<td>" + data[i].course_name + "</td>" +
-                      "<td>" + data[i].course_id + "</td>" +
-                      "<td>" + data[i].course_seq + "</td>" +
-                      "<td>" + data[i].credit + "</td>" +
-                      "<td>" + data[i].attribute + "</td>" +
-                      "<td>" + data[i].teacher_name + "</td>" +
-                      "<td>" + data[i].duration + "</td>" +
-                      "<td>" + data[i].weekday + "</td>" +
-                      "<td>" + data[i].section + "</td>" +
-                      "<td>" + data[i].campus + "</td>" +
-                      "<td>" + data[i].building + "</td>" +
-                      "<td>" + data[i].classroom + "</td>" +
-                      "<td>" + data[i].capacity + "</td>" +
-                      "<td>" +
-                      '<input type="checkbox" name="my-checkbox">' +
-                      "</td>" +
-                      "</tr>"
-            }
+            str += "<tr>" +
+              "<td>" + data[i].course_name + "</td>" +
+              "<td>" + data[i].course_id + "</td>" +
+              "<td>" + data[i].course_seq + "</td>" +
+              "<td>" + data[i].credit + "</td>" +
+              "<td>" + data[i].attribute + "</td>" +
+              "<td>" + data[i].teacher_name + "</td>" +
+              "<td>" + data[i].duration + "</td>" +
+              "<td>" + data[i].weekday + "</td>" +
+              "<td>" + data[i].section + "</td>" +
+              "<td>" + data[i].campus + "</td>" +
+              "<td>" + data[i].building + "</td>" +
+              "<td>" + data[i].classroom + "</td>" +
+              "<td>" + data[i].capacity + "</td>" +
+              "<td>" +
+              '<input type="checkbox" name="my-checkbox">' +
+              "</td>" +
+              "</tr>"
           };
           $("#example2_body").append(str);
         })
