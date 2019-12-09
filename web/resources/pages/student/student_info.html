@@ -54,7 +54,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
-            <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+            <img src="../../dist/img/avatar04.png" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
             <a id="username" class="d-block">Alexander Pierce</a>
@@ -97,8 +97,14 @@
                 </li>
                 <li class="nav-item">
                   <a href="course_select.html" class="nav-link">
+                    <i class="far nav-icon fa-plus-square"></i>
+                    <p>添加课程</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="chosen_course.html" class="nav-link">
                     <i class="fas fa-clipboard-list nav-icon"></i>
-                    <p>选课管理</p>
+                    <p>已选课程</p>
                   </a>
                 </li>
               </ul>
@@ -151,7 +157,7 @@
               <div class="card card-primary card-outline">
                 <div class="card-body box-profile">
                   <div class="text-center">
-                    <img class="profile-user-img img-fluid img-circle" src="../../dist/img/user4-128x128.jpg"
+                    <img class="profile-user-img img-fluid img-circle" src="../../dist/img/avatar04.png"
                       alt="User profile picture">
                   </div>
 
@@ -291,13 +297,19 @@
   <script src="../../dist/js/demo.js"></script>
   <!-- coder custom render -->
   <script>
+
     $(function () {
       var user = JSON.parse(sessionStorage.getItem("user"));
+      console.log(user);
       $("#username").text(user.name);
       $("#name").text(user.name);
       $("#id").text(user.id);
 
-      $.post("url", user, page_render(data));
+      $.post("http://localhost:8080/dbLab_war_exploded/info", {fromdata:JSON.stringify(user)},
+              function(data){
+        page_render(JSON.parse(data));
+        console.log(data);
+      });
 
       $("#submit").click(function () {
 

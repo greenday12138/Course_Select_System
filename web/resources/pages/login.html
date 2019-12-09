@@ -107,27 +107,37 @@
         info.html("密码不能为空");
         return false;
       }
+      var json={
+          "id":id,
+          "password":password
+      }
 
-
-      $.post("lib.servlet.SigninServlet",
-        {
-          user_id: id,
-          password: password,
-        },
+      $.post("http://localhost:8080/dbLab_war_exploded/signin",{fromdata:JSON.stringify(json)},
         function (data) {
           // server return json:{
           //   id:******，
-          //   name:*****
+          //   name:*****,
+          //   message:"",
           // }-> data
-          //server should check input data
-          sessionStorage.setItem("user", JSON.stringify(data));
+          //server should check input da
+          console.log(data);
+            if(JSON.parse(data).message==="success!") {
+              sessionStorage.setItem("user", data);
+              window.location.assign(JSON.parse(data).ur);
+            }
+            else{
+              info.html("用户ID或者密码错误！");
+            }
+
+
+         // window.location.href=JSON.stringify(data).url;
         })
-        .error(function(){
+        /*.error(function(){
           info.html("密码错误，请重新输入");
         })
         .fail(function(){
           info.html("账号不存在，请重新输入");
-        });
+        });*/
     })
   </script>
 </body>

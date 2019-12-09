@@ -9,23 +9,19 @@
         <webroots>
           <root url="file://$MODULE_DIR$/web" relative="/" />
         </webroots>
-        <sourceRoots>
-          <root url="file://$MODULE_DIR$/src" />
-        </sourceRoots>
       </configuration>
     </facet>
   </component>
   <component name="NewModuleRootManager">
-    <output url="file://$MODULE_DIR$/out/production/dbLab" />
-    <output-test url="file://$MODULE_DIR$/out/test/dbLab" />
+    <output url="file://$MODULE_DIR$/out" />
+    <output-test url="file:///test/dbLab" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/web/resources" type="java-resource" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="lib" level="project" />
     <orderEntry type="library" name="lib1" level="project" />
-    <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
   </component>
 </module>

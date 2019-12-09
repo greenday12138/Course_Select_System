@@ -3,6 +3,7 @@ package lib.servlet;
 import lib.Dao.Dbutil;
 import lib.Dao.UserDao;
 import lib.Model.User;
+import net.sf.json.JSONObject;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,10 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.Map;
 
-/**
- * Created by ttop5 on 16-4-20.
- */
+
+@WebServlet(urlPatterns = "/signin", name = "signin")
 public class SigninServlet extends HttpServlet {
     Dbutil dbutil = new Dbutil();
     UserDao userDao = new UserDao();
@@ -27,39 +28,57 @@ public class SigninServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("进入doPost");
-        String email = req.getParameter("email");
-        String password = req.getParameter("password");
-        req.setAttribute("email", email);
-        req.setAttribute("password", password);
+        //resp.setContentType("text/javascript;charset=utf-8");
 
-        if (email.isEmpty() || password.isEmpty()){
-            req.setAttribute("error", "用户名或密码为空!");
-            req.getRequestDispatcher("index.jsp").forward(req, resp);
-            return;
-        }
+        String fromdata = req.getParameter("fromdata");
+        System.out.println(fromdata);
+        JSONObject jo=JSONObject.fromObject(fromdata);
+        Map<String,String> map=jo;
+        String id=map.get("id");
+        int len=id.length();
 
-        User user = new User(email, password);
+        String password=map.get("password");
+
+        User user = new User(id, password);
         Connection con = null;
         try {
+            User currentUser=null;
+            if(len==5||len==13){
             System.out.println("开始连接数据库");
             con = dbutil.getCon();
             System.out.println("数据库连接成功");
-            User currentUser = userDao.signin(con, user);
+            int l=len==13?0:1;
+            currentUser= userDao.signin(con, user,l);
+            }
             if (currentUser == null){
-                req.setAttribute("error", "用户名或密码错误！");
-                req.getRequestDispatcher("index.jsp").forward(req, resp);
+                System.out.println("登陆出错");
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.put("id", "");
+                jsonObject.put("name", "");
+                jsonObject.put("message", "Id or password errors.");
+                jsonObject.put("ur","");
+                resp.getWriter().write(jsonObject.toString());
+                System.out.println(jsonObject.toString());
             }
             else {
                 HttpSession session = req.getSession();
                 session.setAttribute("currentUser", currentUser);
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.put("id", currentUser.getId());
+                jsonObject.put("name", currentUser.getName());
+                jsonObject.put("message", "success!");
+                //jsonObject.put("ur", "teacher/index_teacher.html");
+
+
+
                 if (currentUser.getRole() == 0) {
-                    resp.sendRedirect("admin/index.jsp");
-                } else if (currentUser.getRole() == 1){
-                    resp.sendRedirect("teacher/index.jsp");
-                } else {
-                    resp.sendRedirect("student/index.jsp");
+                    jsonObject.put("ur", "student/index_student.html");
+                } else  if(currentUser.getRole() == 1){
+                    jsonObject.put("ur", "teacher/index_teacher.html");
                 }
+                resp.setContentType("text/javascript;charset=utf-8");
+                resp.getWriter().write(jsonObject.toString());
+                System.out.println(jsonObject.toString());
             }
         }
         catch (Exception e){

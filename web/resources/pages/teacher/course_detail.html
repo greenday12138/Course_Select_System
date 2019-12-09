@@ -56,7 +56,7 @@
         <!-- Sidebar user (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
-            <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+            <img src="../../dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
             <a href="#" id="username" class="d-block">Alexander Pierce</a>
@@ -182,9 +182,12 @@
                         <span class="info-box-text text-center text-muted">上课时间及地点</span>
                         <span class="info-box-number text-center text-muted mb-0">
                           <ul class="list-inline">
-                            <li id="pos_1" class="list-inline-item">周一 5-7节 江安一教A501</li><br>
-                            <li id="pos_2" class="list-inline-item">周三 3-4节 江安一教B203</li><br>
-                            <li id="pos_3" class="list-inline-item">周五 1-2节 江安综合楼C座608</li>
+                            <!--周一 5-7节 江安一教A501  -->
+                            <li id="pos_1" class="list-inline-item"></li><br>
+                            <!--  周三 3-4节 江安一教B203-->
+                            <li id="pos_2" class="list-inline-item"></li><br>
+                            <!-- 周五 1-2节 江安综合楼C座608 -->
+                            <li id="pos_3" class="list-inline-item"></li>
                           </ul>
                         </span>
                       </div>
@@ -221,7 +224,7 @@
                             </tr>
                           </thead>
                           <tbody id="student_list">
-                            <tr>
+                            <!-- <tr>
                               <td>2017171752256</td>
                               <td>张三</td>
                               <td>计算机学院</td>
@@ -240,7 +243,7 @@
                               <td>2017589541235</td>
                               <td>李四</td>
                               <td>化学学院</td>
-                            </tr>
+                            </tr> -->
 
                           </tbody>
                         </table>
@@ -386,7 +389,7 @@
       }
 
       //request student list from server
-      $.post("url", sessionStorage.getItem("course"),
+      $.post("http://localhost:8080/dbLab_war_exploded/course_Detail", {fromdata:sessionStorage.getItem("course")},
         function (data) {
           /*
           data format:
@@ -401,6 +404,7 @@
             }
           ]
           */
+          data=JSON.parse(data);
           for (var i in data) {
             $("#student_list").append(
               "<tr>" +

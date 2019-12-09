@@ -4,7 +4,7 @@ package lib.Model;
  * Created by ttop5 on 16-4-20.
  */
 public class User {
-    private String email;
+    private String id;
     private String password;
     private int role;
     private String name;
@@ -12,19 +12,19 @@ public class User {
     public User(){
         super();
     }
-    public User (String email, String password){
-        this.email = email;
+    public User (String id, String password){
+        this.id = id;
         this.password = password;
     }
 
-    public String getEmail(){
+    public String getId(){
 
-        return email;
+        return id;
     }
 
-    public void setEmail(String email){
+    public void setId(String id){
 
-        this.email = email;
+        this.id = id;
     }
 
     public String getPassword(){
@@ -41,8 +41,8 @@ public class User {
         return role;
     }
 
-    public void setRole(int role) {
-        this.role = role;
+    public void setRole(int n) {
+        role=n;//0表示学生  1表示老师
     }
 
     public String getName() {
@@ -52,5 +52,6 @@ public class User {
     public void setName(String name) {
         this.name = name;
     }
+
 }
 

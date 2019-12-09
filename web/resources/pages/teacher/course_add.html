@@ -14,6 +14,8 @@
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Ion Slider -->
   <link rel="stylesheet" href="../../plugins/ion-rangeslider/css/ion.rangeSlider.min.css">
+  <!-- Toastr -->
+  <link rel="stylesheet" href="../../plugins/toastr/toastr.min.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
@@ -55,7 +57,7 @@
         <!-- Sidebar user (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
-            <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+            <img src="../../dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
             <a href="#" id="username" class="d-block">Alexander Pierce</a>
@@ -183,16 +185,16 @@
               </div>
               <div class="card-body">
                 <div class="form-group">
-                  <label for="duration">每次上课节次</label>
-                  <input type="number" id="duration" class="form-control">
+                  <label for="duration">每次上课节次(请按照格式输入，如0304表示第三小节第四小节课)</label>
+                  <input type="text" id="duration" class="form-control">
                 </div>
                 <div class="form-group">
-                  <label for="days">每周上课天数</label>
-                  <input type="number" id="days" class="form-control">
+                  <label for="days">每周上课星期</label>
+                  <input type="number" id="days" class="form-control" placeholder="0代表星期日" min="0" max="6">
                 </div>
                 <div class="form-group">
                   <label for="week_range">学期上课周数</label>
-                  <input id="week_range" type="text" class="" name="week_range" value="">
+                  <input id="week_range" type='text' class="" name="week_range">
                   <!-- <input type="number" id="weeks" class="form-control"> -->
                 </div>
               </div>
@@ -230,6 +232,8 @@
   <script src="../../dist/js/demo.js"></script>
   <!-- Ion Slider -->
   <script src="../../plugins/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
+  <!-- Toastr -->
+  <script src="../../plugins/toastr/toastr.min.js"></script>
   <!-- plug-in script -->
   <script>
     /* ION SLIDER */
@@ -262,36 +266,51 @@
         var attribute = $("#attribute").val();
         var refer = $("#refer_book").val();
         var duration = $("#duration").val();
-        var week_range=$("#week_range").val().split(';');
+        var week_range = $("#week_range").val().split(';');
+        //alert(week_range);
         var week_start = week_range[0];
-        var week_end=week_range[1];
+        var week_end = week_range[1];
         var days = $("#days").val();
         var info = {
+          "id": user.id,
           "name": name,
           "attribute": attribute,
           "description": description,
           "refer": refer,
           "duration": duration,
           "week_start": week_start,
-          "week_end":week_end,
+          "week_end": week_end,
           "days": days
         }
 
-        $.post("url", JSON.stringify(info),
-          function (data) {
+        $.post("http://localhost:8080/dbLab_war_exploded/course_add", { fromdata: JSON.stringify(info) },
+          function (res) {
             //server return allocated id and seq
             // {
             //   id:
             //   seq:
+            //    ur:
+            //   message:detailed error message,
             // }
-            //success action use bootstrap modal extension add course to localstorage
-            info["id"] = data.id;
-            info["seq"] = data.seq;
+            //success action use modal extension add course to localstorage
+            console.log(res);
+            data = JSON.parse(res);
 
-            var index = "";//index for local storage
-            index += data.id;
-            index += data.seq;
-            localStorage.setItem(index, JSON.stringify(info));
+            if (data.message === "success!") {
+              toastr.success('开课成功!');
+
+              info["id"] = data.id;
+              info["seq"] = data.seq;
+
+              var index = "";//index for local storage
+              index += data.id;
+              index += data.seq;
+              localStorage.setItem(index, JSON.stringify(info));
+              window.location.assign(data.ur);
+            }
+            else {
+              toastr.error(data.message);
+            }
           })
       })
     })
