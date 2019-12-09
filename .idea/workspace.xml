@@ -7,15 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e12584cd-adaf-4cde-8529-a6c5fbab43cd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/info/student.tsv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info/teacher.tsv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql/insertData.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/insertData.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/Dao/SearchDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/SearchDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/Dao/SelectDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/SelectDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/Model/ClassSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Model/ClassSet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/resources/pages/student/course_timetable.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/student/course_timetable.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/resources/pages/teacher/course_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/teacher/course_add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/resources/pages/teacher/course_manage.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/teacher/course_manage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/resources/pages/teacher/course_timetable.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/teacher/course_timetable.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,12 +58,16 @@
     <option name="height" value="680" />
   </component>
   <component name="ProjectId" id="1UEcTL3Wphq9wJlexr8SQMwYLxb" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1575783502669" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF/lib" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/info" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -126,6 +124,11 @@
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
               <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@64ac1232" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@423ef42b" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@64ac1232" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               <item name="com.intellij.execution.services.ServiceModel$ServiceNode@2cf1c24d" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
@@ -177,7 +180,7 @@
       <workItem from="1575801409822" duration="104000" />
       <workItem from="1575801564043" duration="1173000" />
       <workItem from="1575808277284" duration="5341000" />
-      <workItem from="1575850127048" duration="3624000" />
+      <workItem from="1575850127048" duration="4573000" />
     </task>
     <servers />
   </component>
@@ -205,5 +208,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
