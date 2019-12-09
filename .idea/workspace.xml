@@ -7,9 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e12584cd-adaf-4cde-8529-a6c5fbab43cd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/info/student.tsv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/info/teacher.tsv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resources/pages/student/student_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/student/student_info.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -181,6 +180,8 @@
       <workItem from="1575801564043" duration="1173000" />
       <workItem from="1575808277284" duration="5341000" />
       <workItem from="1575850127048" duration="4573000" />
+      <workItem from="1575854725761" duration="377000" />
+      <workItem from="1575855661321" duration="665000" />
     </task>
     <servers />
   </component>
