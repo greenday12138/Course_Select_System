@@ -8,14 +8,14 @@
   <component name="ChangeListManager">
     <list default="true" id="e12584cd-adaf-4cde-8529-a6c5fbab43cd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/Dao/CourseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/CourseDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/servlet/TdeleteServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/servlet/TdeleteServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/servlet/course_EditServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/servlet/course_EditServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/servlet/course_addServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/servlet/course_addServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/resources/pages/student/chosen_course.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/student/chosen_course.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql/insertData.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/insertData.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/Dao/SearchDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/SearchDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/Dao/SelectDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Dao/SelectDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/Model/ClassSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Model/ClassSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resources/pages/student/course_timetable.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/student/course_timetable.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/resources/pages/teacher/course_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/teacher/course_add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/resources/pages/teacher/course_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/teacher/course_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/resources/pages/teacher/course_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/teacher/course_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resources/pages/teacher/course_manage.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/teacher/course_manage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/resources/pages/teacher/course_timetable.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/resources/pages/teacher/course_timetable.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -65,6 +65,7 @@
   </component>
   <component name="ProjectId" id="1UEcTL3Wphq9wJlexr8SQMwYLxb" />
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1575783502669" />
@@ -113,6 +114,26 @@
       </method>
     </configuration>
   </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@64ac1232" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@64ac1232" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@2cf1c24d" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+          </expand>
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -156,6 +177,7 @@
       <workItem from="1575801409822" duration="104000" />
       <workItem from="1575801564043" duration="1173000" />
       <workItem from="1575808277284" duration="5341000" />
+      <workItem from="1575850127048" duration="3624000" />
     </task>
     <servers />
   </component>

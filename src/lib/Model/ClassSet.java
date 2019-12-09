@@ -10,10 +10,10 @@ public class ClassSet {
     public ClassSet(){
         classSchool.add("望江");
         classSchool.add("江安");
-        classFloor.add("一教A");
-        classFloor.add("一教B");
-        classFloor.add("一教C");
-        classFloor.add("一教D");
+        classFloor.add("第一教学楼A座");
+        classFloor.add("第一教学楼B座");
+        classFloor.add("第一教学楼C座");
+        classFloor.add("第一教学楼D座");
         classFloor.add("综合楼B");
         classFloor.add("综合楼C");
     }
@@ -33,7 +33,11 @@ public class ClassSet {
                 str+="0";
             }
             else if(str.length()==0){
-                str+=""+random.nextInt(6);
+                int r=0;
+                while (r==0){
+                    r=random.nextInt(6);
+                }
+                str+=""+r;
             }
             else{
                 str+=""+random.nextInt(10);

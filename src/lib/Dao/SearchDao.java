@@ -74,7 +74,7 @@ public class SearchDao {
             pstmt=con.prepareStatement(sql);
             rs=pstmt.executeQuery();
             Set<String>set3=new HashSet<>();
-            if(rs.next()){
+            while(rs.next()){
                 tmp=new Course();
                 tmp.setCourse_id(rs.getString("Cnumber"));
                 tmp.setCourse_seq(Integer.toString(rs.getInt("Corder")));

@@ -36,7 +36,7 @@ public class SelectDao {
             }
             //计算该课程有多少学生选了
             sql="select count(Snumber) as co   from sc,course where course.Cnumber=sc.Cnumber and course.Corder=sc.Corder and course.Cnumber="+ map.get("course_id")+" and course.Corder="+map.get("course_seq")+";";
-            System.out.println(sql);
+            ////System.out.println(sql);
             pstmt=con.prepareStatement(sql);
             rs=pstmt.executeQuery();
             int co=0;
@@ -44,7 +44,7 @@ public class SelectDao {
             while(rs.next()){
                 co=rs.getInt("co");
             }
-            sql="Select Csection  from sc,course where course.Cnumber=sc.Cnumber and course.Corder=sc.Corder and course.Cnumber="+ map.get("course_id")+" and course.Corder="+map.get("course_seq")+" and sc.Snumber="+id+";";
+            sql="Select Csection,Cweek  from sc,course where course.Cnumber=sc.Cnumber and course.Corder=sc.Corder and  sc.Snumber="+id+";";
             System.out.println(sql);
             pstmt=con.prepareStatement(sql);
             rs=pstmt.executeQuery();
@@ -54,6 +54,7 @@ public class SelectDao {
                 int ta = tem % 100;
                 int tb = tem / 100;
                 has.add(rs.getString("Cweek")+tb);
+                System.out.println("has 加入："+rs.getString("Cweek")+tb);
             }
             boolean fail=false;
             //查询课容量
@@ -65,8 +66,9 @@ public class SelectDao {
                 int tem = rs.getInt("Csection");
                 int ta = tem % 100;
                 int tb = tem / 100;
+                System.out.println("新加入课程："+rs.getString("Cweek")+tb);
                 if(has.contains(rs.getString("Cweek")+tb)){
-                    System.out.println("tb:"+tb);
+                    ////System.out.println("tb:"+tb);
                     fail=true;
                 }
                 capacity=rs.getInt("Ccapacity");
@@ -83,7 +85,7 @@ public class SelectDao {
             //可能插入新纪录
             if(capacity-co!=0){
                 sql="insert into sc(Snumber,Cnumber,Corder) values('"+id+"'"+","+"'"+map.get("course_id")+"'"+","+"'"+map.get("course_seq")+"'"+")"+";";
-                System.out.println(sql);
+                ////System.out.println(sql);
                 pstmt=con.prepareStatement(sql);
                 pstmt.execute();
                 jo=new JSONObject();
