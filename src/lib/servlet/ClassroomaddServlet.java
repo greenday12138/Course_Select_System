@@ -12,9 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Connection;
 
-/**
- * Created by ttop5 on 16-4-22.
- */
 @WebServlet(urlPatterns = "/classroomadd", name = "classroomadd")
 public class ClassroomaddServlet extends HttpServlet{
     Dbutil dbutil = new Dbutil();

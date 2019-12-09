@@ -2,9 +2,7 @@ package lib.Model;
 
 import net.sf.json.JSONArray;
 
-/**
- * Created by ttop5 on 16-4-22.
- */
+
 public class Course {
     public String getCourse_id() {
         return course_id;

@@ -1,8 +1,5 @@
 package lib.Model;
 
-/**
- * Created by ttop5 on 16-4-20.
- */
 public class User {
     private String id;
     private String password;

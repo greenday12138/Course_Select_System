@@ -5,9 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-/**
- * Created by ttop5 on 16-4-19.
- */
+
 public class TeacherDAO {
     public String getCource() throws SQLException{
         Statement stmt = null;

@@ -1,8 +1,6 @@
 package lib.Model;
 
-/**
- * Created by ttop5 on 16-4-21.
- */
+
 public class Notes {
     private String notes_id;
     private String title;

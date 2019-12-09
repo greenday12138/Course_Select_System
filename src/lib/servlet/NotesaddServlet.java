@@ -1,7 +1,7 @@
 package lib.servlet;
 
-import lib.Dao.Dbutil;
 import lib.Dao.AdminDAO;
+import lib.Dao.Dbutil;
 import lib.Model.Notes;
 
 import javax.servlet.ServletException;
@@ -9,13 +9,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.swing.text.html.HTML;
 import java.io.IOException;
 import java.sql.Connection;
 
-/**
- * Created by ttop5 on 16-4-21.
- */
+
 @WebServlet(urlPatterns = "/notesadd", name = "notesadd")
 public class NotesaddServlet extends HttpServlet{
     Dbutil dbutil = new Dbutil();
