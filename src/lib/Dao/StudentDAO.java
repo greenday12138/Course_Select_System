@@ -1,14 +1,12 @@
 package lib.Dao;
 
-import lib.Model.User;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- * Created by ttop5 on 16-4-18.
+ * Created by wyq on 19-12-08.
  */
 public class StudentDAO {
 //    public String getNotes() throws SQLException {

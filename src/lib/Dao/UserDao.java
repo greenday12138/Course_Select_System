@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * Created by ttop5 on 16-4-19.
+ * Created by jby on 19-12-08.
  */
 public class UserDao {
     public User signin (Connection con, User user,int n) throws SQLException{

@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 /**
- * Created by ttop5 on 16-4-18.
+ * Created by *** on 19-12-08.
  */
 public class Dbutil {
 

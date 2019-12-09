@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- * Created by ttop5 on 16-4-19.
+ * Created by wyq on 19-12-08.
  */
 public class TeacherDAO {
     public String getCource() throws SQLException{
