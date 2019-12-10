@@ -1,5 +1,7 @@
 package lib.servlet;
-
+/**
+ * Created by wyq on 19-12-08.
+ */
 import lib.Dao.AdminDAO;
 import lib.Dao.Dbutil;
 import lib.Model.Notes;
@@ -12,9 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Connection;
 
-/**
- * Created by ttop5 on 16-4-23.
- */
+
 @WebServlet(urlPatterns = "/notesdelete", name = "notesdelete")
 public class NotesdeleteServlet extends HttpServlet{
     Dbutil dbutil = new Dbutil();

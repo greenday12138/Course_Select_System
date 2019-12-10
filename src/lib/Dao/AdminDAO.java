@@ -1,18 +1,13 @@
 package lib.Dao;
 
-import lib.Dao.Dbutil;
 import lib.Model.Classroom;
 import lib.Model.Notes;
 import lib.Model.UserAdd;
 
-import java.sql.Connection;
-import java.sql.Statement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.PreparedStatement;
+import java.sql.*;
 
 /**
- * Created by ttop5 on 16-4-19.
+ * Created by wyq on 19-12-08.
  */
 
     /*数据查询*/

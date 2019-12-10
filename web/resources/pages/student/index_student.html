@@ -64,7 +64,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
-            <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+            <img src="../../dist/img/avatar04.png" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
             <a href="#" id="username" class="d-block">Alexander Pierce</a>
@@ -107,8 +107,14 @@
                 </li>
                 <li class="nav-item">
                   <a href="course_select.html" class="nav-link">
+                    <i class="far nav-icon fa-plus-square"></i>
+                    <p>添加课程</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="chosen_course.html" class="nav-link">
                     <i class="fas fa-clipboard-list nav-icon"></i>
-                    <p>选课管理</p>
+                    <p>已选课程</p>
                   </a>
                 </li>
               </ul>
@@ -140,12 +146,12 @@
             <div class="col-sm-6">
               <h1>公告</h1>
             </div>
-            <div class="col-sm-6">
+            <!-- <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item active">User Profile</li>
               </ol>
-            </div>
+            </div> -->
           </div>
         </div><!-- /.container-fluid -->
       </section>
@@ -221,7 +227,7 @@
     // coder custom
     function render(){
       var user=JSON.parse(sessionStorage.getItem("user"));
-      $("#username").text(user["name"]);
+      $("#username").text(user.name);
     }
     render();
   </script>

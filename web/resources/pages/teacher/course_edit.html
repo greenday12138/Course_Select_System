@@ -12,6 +12,10 @@
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Ion Slider -->
+  <link rel="stylesheet" href="../../plugins/ion-rangeslider/css/ion.rangeSlider.min.css">
+  <!-- Toastr -->
+  <link rel="stylesheet" href="../../plugins/toastr/toastr.min.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
@@ -53,7 +57,7 @@
         <!-- Sidebar user (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
-            <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+            <img src="../../dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
             <a href="#" id="username" class="d-block">Alexander Pierce</a>
@@ -142,18 +146,18 @@
               <div class="card-body">
                 <div class="form-group">
                   <label for="name">课程名</label>
-                  <input type="text" id="name" class="form-control">
+                  <input type="text" id="name" class="form-control" value="">
                 </div>
                 <div class="form-group">
                   <label for="description">课程概述</label>
-                  <textarea id="description" class="form-control" rows="4"></textarea>
+                  <textarea id="description" class="form-control" rows="4" value=""></textarea>
                 </div>
                 <div class="form-group">
                   <label for="attribute">课程属性</label>
                   <select id="attribute" class="form-control custom-select">
                     <option val="" selected>Select one</option>
-                    <option val="0">选修</option>
-                    <option val="1">必修</option>
+                    <option val="选修">选修</option>
+                    <option val="必修">必修</option>
                   </select>
                 </div>
                 <div class="form-group">
@@ -182,16 +186,17 @@
               </div>
               <div class="card-body">
                 <div class="form-group">
-                  <label for="duration">每次上课节次</label>
-                  <input type="number" id="duration" class="form-control">
+                  <label for="duration">每次上课节次(请按照格式输入，如0304表示第三小节第四小节课)</label>
+                  <input type="text" id="duration" class="form-control">
                 </div>
                 <div class="form-group">
-                  <label for="days">每周上课天数</label>
-                  <input type="number" id="days" class="form-control">
+                  <label for="days">每周上课星期</label>
+                  <input type="number" id="days" class="form-control" placeholder="0代表星期日" min="0" max="6">
                 </div>
                 <div class="form-group">
-                  <label for="weekds">学期上课周数</label>
-                  <input type="number" id="weeks" class="form-control">
+                  <label for="week_range">学期上课周数</label>
+                  <input id="week_range" type="text" class="" name="week_range">
+                  <!-- <input type="number" id="weeks" class="form-control"> -->
                 </div>
               </div>
               <!-- /.card-body -->
@@ -321,6 +326,25 @@
   <script src="../../dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="../../dist/js/demo.js"></script>
+  <!-- Ion Slider -->
+  <script src="../../plugins/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
+  <!-- Toastr -->
+  <script src="../../plugins/toastr/toastr.min.js"></script>
+  <!-- plug-in script -->
+  <script>
+    /* ION SLIDER */
+    $('#week_range').ionRangeSlider({
+      min: 1,
+      max: 20,
+      from: 1,
+      to: 18,
+      type: 'int',
+      step: 1,
+      prefix: 'week',
+      prettify: false,
+      hasGrid: true
+    })
+  </script>
   <!-- coder custom render -->
   <script>
     $(function () {
@@ -332,43 +356,64 @@
       var user = JSON.parse(sessionStorage.getItem("user"));
       $("#username").text(user.name);
 
-      //server should return course initial data
-      $.get("url", function (data) {
-        $("#name").val(data.name);
-        $("#description").val(data.description);
-        $("#attribute").val(data.description);
-        $("#refer_book").val(data.refer);
-        $("#duration").val(data.duration);
-        $("#days").val(data.days);
-        $("#weeks").val(data.weeks);
-      })
+      //load data form local storage
+      //get current course index
+      var index = sessionStorage.getItem("course");
+
+      //begin load
+      var course = JSON.parse(localStorage.getItem("" + index.id + index.seq));
+      console.log(index);
+      console.log(course);
+      // $("#description").val(course.description);
+      // $("#attribute").val(course.attribute);
+      // $("#refer_book").val(course.refer);
+      // $("#duration").val(course.duration);
+      // $("#days").val(course.days);
+      // $("#week_range").val(course.week_start+";"+course.week_end);
+
 
       //change submit action
       $("#submit").click(function () {
-        var name = $("#name").val();
-        var description = $("#description").val();
-        var attribute = $("#attribute").val();
-        var refer = $("#refer_book").val();
-        var duration = $("#duration").val();
-        var weeks = $("#weeks").val();
-        var days = $("#days").val();
+        var courseJSON = JSON.parse(sessionStorage.getItem("course"));
+        courseJSON.name = $("#name").val();
+        courseJSON.description = $("#description").val();
+        courseJSON.attribute = $("#attribute").val();
+        courseJSON.refer = $("#refer_book").val();
+        courseJSON.duration = $("#duration").val();
+        var week_range = $("#week_range").val().split(';');
+        var week_start = week_range[0];
+        var week_end = week_range[1];
+        courseJSON.days = $("#days").val();
+        courseJSON.week_start=week_start;
+        courseJSON.week_end=week_end;
 
-        $.post("url",
-          {
-            name: name,
-            attribute: attribute,
-            description: description,
-            refer: refer,
-            duration: duration,
-            weeks: weeks,
-            days: days
-          },
-          function () {
+        sessionStorage.removeItem("course");
+
+        $.post("http://localhost:8080/dbLab_war_exploded/course_Edit", { fromdata: JSON.stringify(courseJSON) },
+          function (res) {
+            /*
+            {
+              ur:
+              message:
+            }
+            */
             //success action use bootstrap modal extension
+            //refresh local storage
+            var data = JSON.parse(res);
+            if (data.message === 'success!') {
+              toastr.success('编辑成功!');
+              window.location.assign(data.ur);
+              localStorage.removeItem("" + courseJSON.id + courseJSON.seq);
+              localStorage.setItem("" + courseJSON.id + courseJSON.seq, JSON.stringify(courseJSON));
+            } else {
+              toastr.error(data.message);
+            }
+
           })
       })
     })
     //not support file upload and delete
+    //不支持预加载已有的信息
   </script>
 </body>
 
