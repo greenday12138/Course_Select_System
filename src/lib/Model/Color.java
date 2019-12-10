@@ -1,5 +1,7 @@
 package lib.Model;
-
+/**
+ * Created by wyq on 19-12-08.
+ */
 import java.util.ArrayList;
 
 public class Color {

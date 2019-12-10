@@ -91,7 +91,7 @@ CREATE TABLE sc
 
 CREATE TABLE tc 
 (
-    tcnumber    INT(4) AUTO_INCREMENT PRIMARY KEY,
+    tcnumber    INT(4) AUTO_INCREMENT PRIMARY KEY,  
     Tnumber     VARCHAR(10),  -- 工号
     Cnumber     VARCHAR(10),   -- 课程号
     Corder      NUMERIC(2, 0), -- 课序号

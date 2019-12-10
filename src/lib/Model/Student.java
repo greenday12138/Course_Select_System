@@ -1,5 +1,7 @@
 package lib.Model;
-
+/**
+ * Created by jby on 19-12-08.
+ */
 public class Student extends User {
     public void setSex(String sex) {
         this.sex = sex;

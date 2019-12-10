@@ -1,6 +1,12 @@
 package lib.Model;
 
+<<<<<<< HEAD
 
+=======
+/**
+ * Created by wyq on 19-12-08.
+ */
+>>>>>>> master
 public class Classroom {
     private String location;
     private  String capacity;

@@ -1,5 +1,11 @@
 package lib.Model;
 
+<<<<<<< HEAD
+=======
+/**
+ * Created by jby on 19-12-08.
+ */
+>>>>>>> master
 public class User {
     private String id;
     private String password;

@@ -12,7 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Connection;
 
+<<<<<<< HEAD
 
+=======
+/**
+ * Created by wyq on 19-12-08.
+ */
+>>>>>>> master
 @WebServlet(urlPatterns = "/notesadd", name = "notesadd")
 public class NotesaddServlet extends HttpServlet{
     Dbutil dbutil = new Dbutil();

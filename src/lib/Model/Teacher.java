@@ -1,5 +1,7 @@
 package lib.Model;
-
+/**
+ * Created by wyq on 19-12-08.
+ */
 public class Teacher extends User {
     String Tsex;
     String Tplace;

@@ -143,7 +143,8 @@
 
                   <h3 id="name" class="profile-username text-center">Alexander Pierce</h3>
 
-                  <p id="id" class="text-muted text-center">2017525358865
+                  <p id="id" class="text-muted text-center">
+                    2017525358865
                     <i id="gender_male" class="icon ion-male ion-male" style="color: blue;"></i>
                     <i id="gender_female" class="icon ion-female" style="color:pink"></i>
                   </p>
@@ -331,7 +332,6 @@
       var user = JSON.parse(sessionStorage.getItem("user"));
       $("#username").text(user.name);
       $("#name").text(user.name);
-      $("#id").text(user.id);
 
       $.post("http://localhost:8080/dbLab_war_exploded/info", { fromdata: JSON.stringify(user) },
         function (data) {
@@ -345,7 +345,7 @@
     });
 
     function page_render(data) {
-        //console.log(data);
+      //console.log(data);
       //data format
       // {
       //     gender:
@@ -363,14 +363,10 @@
       //     ****,
       //     ]
       // }
-      if (data.gender === "男") {
-        $("#gender_male").show();
-        $("#gender_female").hide();
-      }
-      else {
-        $("#gender_female").show();
-        $("#gender_male").hide();
-      }
+      $("#id").html(JSON.parse(sessionStorage.getItem('user')).id +
+        `${data.gender === '男' ? '<i id="gender_male" class="icon ion-male ion-male" style="color: blue;"></i>' :
+          '<i id="gender_female" class="icon ion-female" style="color:pink"></i>'}
+        `);
       $("#name").text($("#username").text());
       $("#university").text(data.university);
       $("#college").text(data.college);
