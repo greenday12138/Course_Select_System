@@ -55,7 +55,8 @@ public class SelectDao {
                 int tem = rs.getInt("Csection");
                 int ta = tem % 100;
                 int tb = tem / 100;
-                has.add(rs.getString("Cweek")+tb);
+                for(int k=tb;k<=ta;k++)
+                has.add(rs.getString("Cweek")+k);
                 System.out.println("has 加入："+rs.getString("Cweek")+tb);
             }
             boolean fail=false;
@@ -69,9 +70,11 @@ public class SelectDao {
                 int ta = tem % 100;
                 int tb = tem / 100;
                 System.out.println("新加入课程："+rs.getString("Cweek")+tb);
-                if(has.contains(rs.getString("Cweek")+tb)){
+                for(int k=tb;k<=ta;k++)
+                if(has.contains(rs.getString("Cweek")+k)){
                     ////System.out.println("tb:"+tb);
                     fail=true;
+                    break;
                 }
                 capacity=rs.getInt("Ccapacity");
             }
