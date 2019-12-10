@@ -3,13 +3,9 @@ package lib.Dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-<<<<<<< HEAD
-
-=======
 /**
  * Created by *** on 19-12-08.
  */
->>>>>>> master
 public class Dbutil {
 
     String url = "jdbc:mysql://localhost:3306/dblab?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";

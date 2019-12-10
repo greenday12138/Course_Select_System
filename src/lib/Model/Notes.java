@@ -1,12 +1,8 @@
 package lib.Model;
 
-<<<<<<< HEAD
-
-=======
 /**
  * Created by wyq on 19-12-08.
  */
->>>>>>> master
 public class Notes {
     private String notes_id;
     private String title;

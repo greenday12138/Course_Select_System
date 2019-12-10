@@ -1,12 +1,7 @@
 package lib.Model;
-<<<<<<< HEAD
-
-
-=======
 /**
  * Created by wyq on 19-12-08.
  */
->>>>>>> master
 public class UserAdd {
     private String school_num;
     private String name;

@@ -2,13 +2,9 @@ package lib.Model;
 
 import net.sf.json.JSONArray;
 
-<<<<<<< HEAD
-
-=======
 /**
  * Created by jby on 19-12-08.
  */
->>>>>>> master
 public class Course {
     public String getCourse_id() {
         return course_id;
