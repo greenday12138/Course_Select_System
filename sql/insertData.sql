@@ -91,7 +91,6 @@ insert into sc values ('8', '2016171072005', '101260030', '01');
 insert into tc  values('1','10102','101260030', '01');
 insert into tc  values('2','10101','304026025', '03');
 insert into tc  values('3','10102','101260032', '02');
-
 insert into tc values ('4', '10103', '101272010', '02');
 insert into tc  values('5','10103','101953030', '05');
 insert into tc  values('6','10104','103003020', '03');

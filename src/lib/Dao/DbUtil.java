@@ -6,15 +6,15 @@ import java.sql.DriverManager;
 /**
  * Created by *** on 19-12-08.
  */
-public class Dbutil {
+public class DbUtil {
 
-    String url = "jdbc:mysql://localhost:3306/redPanda?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
+    String url = "jdbc:mysql://localhost:3306/dblab?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
 
     private String jdbcName="com.mysql.cj.jdbc.Driver";
 
     public Connection getCon() throws Exception{
         Class.forName(jdbcName);
-        Connection con = DriverManager.getConnection(url,"redPanda","135514");
+        Connection con = DriverManager.getConnection(url,"root","963996380");
         return con;
     }
 
@@ -25,7 +25,7 @@ public class Dbutil {
     }
 
     public static void main(String[] args){
-        Dbutil dbutil = new Dbutil();
+        DbUtil dbutil = new DbUtil();
 
         try {
             dbutil.getCon();

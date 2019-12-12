@@ -11,7 +11,7 @@ import java.sql.Statement;
 public class TeacherDAO {
     public String getCource() throws SQLException{
         Statement stmt = null;
-        Dbutil dbutil = new Dbutil();
+        DbUtil dbutil = new DbUtil();
         Connection con = null;
         ResultSet rs = null;
         String str = "<table class=\"table table-bordered\" id=\"outside\">" +
@@ -33,7 +33,7 @@ public class TeacherDAO {
 
     public String getScore() throws SQLException{
         Statement stmt = null;
-        Dbutil dbutil = new Dbutil();
+        DbUtil dbutil = new DbUtil();
         Connection con = null;
         ResultSet rs = null;
         String str = "<table class=\"table table-bordered\" id=\"outside\">" +
@@ -55,7 +55,7 @@ public class TeacherDAO {
 
     public String getScource() throws SQLException{
         Statement stmt = null;
-        Dbutil dbutil = new Dbutil();
+        DbUtil dbutil = new DbUtil();
         Connection con = null;
         ResultSet rs = null;
         String str = "<table class=\"table table-bordered\" id=\"outside\">" +
@@ -77,7 +77,7 @@ public class TeacherDAO {
 
     public String getUser(String email) throws SQLException {
         Statement stmt = null;
-        Dbutil dbutil = new Dbutil();
+        DbUtil dbutil = new DbUtil();
         Connection con = null;
         ResultSet rs = null;
         String str = "<table class=\"table table-bordered\" id=\"outside\">" +

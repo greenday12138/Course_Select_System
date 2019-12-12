@@ -2,7 +2,7 @@ package lib.servlet;
 /**
  * Created by jby on 19-12-08.
  */
-import lib.Dao.Dbutil;
+import lib.Dao.DbUtil;
 import net.sf.json.JSONObject;
 import lib.Dao.DeleteDao;
 import javax.servlet.ServletException;
@@ -15,8 +15,8 @@ import java.sql.Connection;
 import java.util.Map;
 
 @WebServlet(urlPatterns = "/delete", name = "delete")
-public class DeleteServlet extends HttpServlet {
-    Dbutil dbutil = new Dbutil();
+public class Delete extends HttpServlet {
+    DbUtil dbutil = new DbUtil();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
