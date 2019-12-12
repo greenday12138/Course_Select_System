@@ -2,10 +2,9 @@ package lib.servlet;
 /**
  * Created by jby on 19-12-08.
  */
-import lib.Dao.Dbutil;
-import lib.Dao.SearchDao;
+import lib.Dao.DbUtil;
+import lib.Dao.SelectDao;
 import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,11 +13,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Connection;
-import java.util.Map;
 
-@WebServlet(urlPatterns = "/search", name = "search")
-public class SearchServlet extends HttpServlet {
-    Dbutil dbutil = new Dbutil();
+@WebServlet(urlPatterns = "/select", name = "select")
+public class Select extends HttpServlet {
+    DbUtil dbutil = new DbUtil();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -28,18 +26,19 @@ public class SearchServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String fromdata = req.getParameter("fromdata");
-        System.out.println(fromdata);
-        JSONObject jo = JSONObject.fromObject(fromdata);
-        Map<String, String> map = jo;
+        String id=req.getParameter("id");
+        System.out.println("fromdata: "+fromdata);
+        System.out.println("id: "+id);
+        JSONArray ja = JSONArray.fromObject(fromdata);
 
         Connection con=null;
         try{
-            con=dbutil.getCon();
-            SearchDao ud=new SearchDao();
-            JSONArray jsa=ud.Search(map,con);
-            System.out.println(jsa.toString());
+            con = dbutil.getCon();
+            SelectDao sl=new SelectDao();
+            JSONArray result=sl.select(ja,con,id);
+            System.out.println(result.toString());
             resp.setContentType("text/javascript;charset=utf-8");
-            resp.getWriter().write(jsa.toString());
+            resp.getWriter().write(result.toString());
         }
         catch(Exception e){
             e.printStackTrace();
@@ -53,3 +52,4 @@ public class SearchServlet extends HttpServlet {
         }
     }
 }
+//1.为什么选课这里信息都没有传给我 2.建议加课code1 减课code2

@@ -3,7 +3,7 @@ package lib.servlet;
 /**
  * Created by wyq on 19-12-08.
  */
-import lib.Dao.Dbutil;
+import lib.Dao.DbUtil;
 import lib.Dao.InfoDao;
 import lib.Model.Student;
 import lib.Model.Teacher;
@@ -22,7 +22,7 @@ import java.util.Map;
 
 @WebServlet(urlPatterns = "/info", name = "info")
 public class Info extends HttpServlet {
-    Dbutil dbutil = new Dbutil();
+    DbUtil dbutil = new DbUtil();
     InfoDao infoDao = new InfoDao();
 
     @Override

@@ -11,7 +11,7 @@ import java.sql.Statement;
 public class StudentDAO {
 //    public String getNotes() throws SQLException {
 //        Statement stmt = null;
-//        Dbutil dbutil = new Dbutil();
+//        DbUtil dbutil = new DbUtil();
 //        Connection con = null;
 //        ResultSet rs = null;
 //        String str = "<table class=\"table table-bordered\" id=\"outside\">" +
@@ -33,7 +33,7 @@ public class StudentDAO {
 
     public String getNotes() throws SQLException{
         Statement stmt = null;
-        Dbutil dbutil = new Dbutil();
+        DbUtil dbutil = new DbUtil();
         Connection con = null;
         ResultSet rs = null;
         String str = "<table class=\"table table-bordered\" id=\"outside\">" +
@@ -55,7 +55,7 @@ public class StudentDAO {
 
     public String getScore(String email) throws SQLException{
         Statement stmt = null;
-        Dbutil dbutil = new Dbutil();
+        DbUtil dbutil = new DbUtil();
         Connection con = null;
         ResultSet rs = null;
         String str = "<table class=\"table table-bordered\" id=\"outside\">" +
@@ -77,7 +77,7 @@ public class StudentDAO {
 
     public String getScource(String email) throws SQLException{
         Statement stmt = null;
-        Dbutil dbutil = new Dbutil();
+        DbUtil dbutil = new DbUtil();
         Connection con = null;
         ResultSet rs = null;
         String str = "<table class=\"table table-bordered\" id=\"outside\">" +
@@ -99,7 +99,7 @@ public class StudentDAO {
 
     public String getUser(String email) throws SQLException{
         Statement stmt = null;
-        Dbutil dbutil = new Dbutil();
+        DbUtil dbutil = new DbUtil();
         Connection con = null;
         ResultSet rs = null;
         String str = "<table class=\"table table-bordered\" id=\"outside\">" +
