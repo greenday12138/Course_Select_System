@@ -1,2 +1,4 @@
-# dbLab
-基于java web的选课系统
+# Course_Select_System
+
+Front-End:h5+js+css+jquery+AdminLTE
+Back-End:java+tomcat+mysql
