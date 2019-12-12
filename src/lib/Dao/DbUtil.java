@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 /**
  * Created by *** on 19-12-08.
  */
-public class Dbutil {
+public class DbUtil {
 
     String url = "jdbc:mysql://localhost:3306/dblab?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
 
@@ -25,7 +25,7 @@ public class Dbutil {
     }
 
     public static void main(String[] args){
-        Dbutil dbutil = new Dbutil();
+        DbUtil dbutil = new DbUtil();
 
         try {
             dbutil.getCon();

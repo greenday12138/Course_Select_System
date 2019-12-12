@@ -1,9 +1,9 @@
 package lib.servlet;
 /**
- * Created by jby on 19-12-08.
+ * Created by wyq on 19-12-08.
  */
-import lib.Dao.Dbutil;
-import lib.Dao.TimetableDao;
+import lib.Dao.CourseDao;
+import lib.Dao.DbUtil;
 import lib.Model.Course;
 import lib.Model.User;
 import net.sf.json.JSONArray;
@@ -17,10 +17,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.Map;
 
-@WebServlet(urlPatterns = "/timetable", name = "timetable")
-public class TimetableServlet extends HttpServlet {
-    Dbutil dbutil = new Dbutil();
+@WebServlet(urlPatterns = "/course_manage", name = "course_manage")
+public class CourseManage extends HttpServlet {
+    DbUtil dbutil = new DbUtil();
+    CourseDao courseDao = new CourseDao();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -30,40 +32,44 @@ public class TimetableServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String fromdata = req.getParameter("fromdata");
-        System.out.println("fromdata: "+fromdata);
+        System.out.println(fromdata);
+        JSONObject jo=JSONObject.fromObject(fromdata);
+        Map<String,String> map=jo;
+        String id=map.get("id");
+       // int len=id.length();
+
+        //String password=map.get("password");
+
         User user = new User();
-        user.setId(fromdata);
+        user.setId(id);
         Connection con = null;
         try {
             ArrayList<Course> allCourse= new ArrayList<Course>();
+
+            System.out.println("开始连接数据库");
             con = dbutil.getCon();
-            TimetableDao ttb=new TimetableDao();
-            allCourse=ttb.getCourseTimetable(con,user);
+            System.out.println("数据库连接成功");
+
+
+            allCourse=courseDao.getCourseInfo(con,user);
+
+                //HttpSession session = req.getSession();
+                //session.setAttribute("currentUser", currentUser);
+                //JSONObject []jsonObject = new JSONObject[100];
             JSONArray allJsonObject=new JSONArray();
 
             for (Course course:allCourse) {
                 JSONObject jsonObject=new JSONObject();
-                jsonObject.put("title",course.getCourse_name());
-                jsonObject.put("description",course.getDeacription());
-                switch (course.getWeekday()){
-                    case "星期一":jsonObject.put("daysOfWeek","['1']");
-                    break;
-                    case "星期二":jsonObject.put("daysOfWeek","['2']");
-                        break;
-                    case "星期三":jsonObject.put("daysOfWeek","['3']");
-                        break;
-                    case "星期四":jsonObject.put("daysOfWeek","['4']");
-                        break;
-                    case "星期五":jsonObject.put("daysOfWeek","['5']");
-                        break;
-                }
-                jsonObject.put("startTime",course.getStart_time());
-                jsonObject.put("endTime",course.getEnd_time());
-                jsonObject.put("startRecur",course.getStart_recur());
-                jsonObject.put("endRecur",course.getEnd_recur());
-                jsonObject.put("textColor",course.getTextcolor());
-                jsonObject.put("backgroundColor",course.getBackgroundcolor());
-                jsonObject.put("borderColor",course.getBordercolor());
+                jsonObject.put("id",course.getCourse_id());
+                jsonObject.put("seq",course.getOrder());
+                jsonObject.put("name",course.getCourse_name());
+                jsonObject.put("attribute",course.getAttribute());
+                jsonObject.put("credit",course.getCredit());
+                jsonObject.put("description","");
+                jsonObject.put("refer","");
+                jsonObject.put("week_start",course.getWeek_start());
+                jsonObject.put("week_end",course.getWeek_end());
+                jsonObject.put("session", course.getSession().toString());
                 allJsonObject.add(jsonObject);
             }
             resp.setContentType("text/javascript;charset=utf-8");

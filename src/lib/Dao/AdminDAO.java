@@ -14,7 +14,7 @@ import java.sql.*;
 public class AdminDAO {
     public String getNotes() throws SQLException {
         Statement stmt = null;
-        Dbutil dbutil = new Dbutil();
+        DbUtil dbutil = new DbUtil();
         Connection con = null;
         ResultSet rs = null;
         String str = "<table class=\"table table-bordered\" id=\"outside\">" +
@@ -38,7 +38,7 @@ public class AdminDAO {
 
     public String getUser() throws SQLException {
         Statement stmt = null;
-        Dbutil dbutil = new Dbutil();
+        DbUtil dbutil = new DbUtil();
         Connection con = null;
         ResultSet rs = null;
         String str = "<table class=\"table table-bordered\" id=\"outside\">" +
@@ -62,7 +62,7 @@ public class AdminDAO {
 
     public String getCource() throws SQLException {
         Statement stmt = null;
-        Dbutil dbutil = new Dbutil();
+        DbUtil dbutil = new DbUtil();
         Connection con = null;
         ResultSet rs = null;
         String str = "<table class=\"table table-bordered\" id=\"outside\">" +
@@ -86,7 +86,7 @@ public class AdminDAO {
 
     public String getClassroom() throws SQLException {
         Statement stmt = null;
-        Dbutil dbutil = new Dbutil();
+        DbUtil dbutil = new DbUtil();
         Connection con = null;
         ResultSet rs = null;
         String str = "<table class=\"table table-bordered\" id=\"outside\">" +
@@ -110,7 +110,7 @@ public class AdminDAO {
 
     public String getScource() throws SQLException {
         Statement stmt = null;
-        Dbutil dbutil = new Dbutil();
+        DbUtil dbutil = new DbUtil();
         Connection con = null;
         ResultSet rs = null;
         String str = "<table class=\"table table-bordered\" id=\"outside\">" +
@@ -132,7 +132,7 @@ public class AdminDAO {
 
     public String getScore() throws SQLException {
         Statement stmt = null;
-        Dbutil dbutil = new Dbutil();
+        DbUtil dbutil = new DbUtil();
         Connection con = null;
         ResultSet rs = null;
         String str = "<table class=\"table table-bordered\" id=\"outside\">" +

@@ -1,7 +1,7 @@
 package lib.servlet;
 
 import lib.Dao.AdminDAO;
-import lib.Dao.Dbutil;
+import lib.Dao.DbUtil;
 import lib.Model.Classroom;
 
 import javax.servlet.ServletException;
@@ -16,8 +16,8 @@ import java.sql.Connection;
  * Created by wyq on 19-12-08.
  */
 @WebServlet(urlPatterns = "/classroomadd", name = "classroomadd")
-public class ClassroomaddServlet extends HttpServlet{
-    Dbutil dbutil = new Dbutil();
+public class ClassroomAdd extends HttpServlet{
+    DbUtil dbutil = new DbUtil();
     AdminDAO adminDAO = new AdminDAO();
 
     @Override
